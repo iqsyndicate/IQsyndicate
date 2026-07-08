@@ -22,9 +22,9 @@ import Counter from "@/components/ui/Counter";
 import HeroSlider, { type HeroSlide } from "@/components/ui/HeroSlider";
 
 export const metadata: Metadata = {
-  title: "IQ Syndicate",
+  title: "we",
   description:
-    "IQ Syndicate bridges the financing gap between indigenous climate founders and institutional capital — through technical assistance, patient capital, and structured aggregation.",
+    "we bridge the financing gap between indigenous climate founders and institutional capital, through technical assistance, patient capital, and structured aggregation.",
 };
 
 const heroSlides: HeroSlide[] = [
@@ -32,16 +32,16 @@ const heroSlides: HeroSlide[] = [
     image:
       "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80",
     alt: "Solar infrastructure under construction in Nigeria",
-    eyebrow: "Nigeria · Africa-First Climate Finance",
-    headlineLines: ["Enabling African-Led", "Climate Ventures to Scale"],
-    body: "IQ Syndicate bridges the financing gap between indigenous climate founders and institutional capital — through technical assistance, patient capital, and structured aggregation.",
+    eyebrow: "Africa First Climate Finance",
+    headlineLines: ["Enabling African-Led", "Climate Infrastructure to Scale"],
+    body: "we bridge the financing gap between indigenous climate founders and institutional capital, through technical assistance, patient capital, and structured aggregation.",
   },
   {
     image:
       "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=2400&q=80",
     alt: "Aerial view of agricultural land in Nigeria",
     eyebrow: "Closing the Climate Finance Gap",
-    headlineLines: ["$27.2 Billion in Unmet", "Climate Finance, Every Year"],
+    headlineLines: ["$250 Billion in Unmet", "Climate Finance, Every Year"],
     body: "Indigenous climate entrepreneurs are systematically excluded from capital calibrated for mature businesses. We exist to close that gap.",
   },
   {
@@ -57,17 +57,17 @@ const heroSlides: HeroSlide[] = [
 const stats = [
   {
     icon: Landmark,
-    value: 27.2,
-    decimals: 1,
+    value: 250,
+    decimals: 0,
     prefix: "$",
     suffix: "B",
-    label: "Annual climate finance gap in Nigeria",
+    label: "Annual climate finance gap in Africa",
     tone: "burgundy" as const,
     direction: "left" as const,
   },
   {
     icon: TrendingDown,
-    value: 1,
+    value: 23,
     decimals: 0,
     prefix: "< ",
     suffix: "%",
@@ -78,8 +78,9 @@ const stats = [
   {
     icon: Users,
     value: null,
-    display: "300–500",
-    label: "Active climate ventures in Nigeria, the majority pre-Series A",
+    prefix: "< ",
+    display: "< 1000",
+    label: "Active climate ventures in Africa, the majority pre-Series A",
     tone: "gold" as const,
     direction: "right" as const,
   },
@@ -136,21 +137,21 @@ const pillars = [
   {
     icon: Target,
     title: "Risk-First Thinking",
-    body: "We seek to understand, absorb, and effectively price early-stage risk — not avoid it. Our returns are compensation for genuine risk-taking.",
+    body: "We seek to understand, absorb, and effectively price early-stage risk, not avoid it. Our returns are compensation for genuine risk-taking.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Search,
     title: "Deep Diligence",
-    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal — not just documentary.",
+    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal, not just documentary.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Layers,
     title: "Aligned Instruments",
-    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage — and not the other way around.",
+    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage, and not the other way around.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
   },
@@ -167,7 +168,7 @@ const audiences = [
   {
     label: "For Founders",
     headline: "Are you an indigenous African climate entrepreneur?",
-    body: "If you are building a climate infrastructure venture in Nigeria and need technical assistance and patient capital to reach institutional readiness, IQ Syndicate was designed for you.",
+    body: "If you are building a climate infrastructure venture in Nigeria and need technical assistance and patient capital to reach institutional readiness, we were designed for you.",
     cta: "Apply for Support",
     href: "/apply",
     image:
@@ -186,8 +187,8 @@ const audiences = [
   },
   {
     label: "For Partners",
-    headline: "Partner with IQ Syndicate",
-    body: "Development agencies, bilateral institutions, and accelerators — co-deliver our technical assistance programme or refer high-potential ventures from your networks.",
+    headline: "Partner with us",
+    body: "Development agencies, bilateral institutions, and accelerators can co-deliver our technical assistance programme or refer high-potential ventures from your networks.",
     cta: "Partner With Us",
     href: "/apply",
     image:
@@ -225,7 +226,7 @@ export default function HomePage() {
       <HeroSlider slides={heroSlides} />
 
       {/* ───────────────────────── THE FINANCING GAP ─────────────────────────
-          No rules/borders — separation comes from card elevation. */}
+          No rules/borders, separation comes from card elevation. */}
       <section className="bg-white py-20 md:py-28">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -239,7 +240,7 @@ export default function HomePage() {
               systematically excluded from the capital they need. The
               investment criteria of commercial banks, venture capital
               funds, and development finance institutions are calibrated
-              for mature businesses — leaving early-stage African climate
+              for mature businesses, leaving early-stage African climate
               founders invisible to the very capital markets that should
               serve them.
             </p>
@@ -298,7 +299,7 @@ export default function HomePage() {
               Four Integrated Services. One End-to-End Pathway.
             </h2>
             <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              IQ Syndicate provides full-cycle support to climate
+              we provide full-cycle support to climate
               infrastructure projects. Each service addresses a specific
               failure point in the African climate finance ecosystem and
               creates a comprehensive pathway from founder identification
@@ -502,7 +503,7 @@ export default function HomePage() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">
                   Whether you are a founder seeking capital, an investor
                   looking for impact-aligned returns, or a partner
-                  institution — IQ Syndicate was built for you.
+                  institution, we were built for you.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-5">

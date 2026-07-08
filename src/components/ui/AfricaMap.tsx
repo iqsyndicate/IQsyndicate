@@ -1,5 +1,5 @@
 /**
- * AfricaMap — a simplified, stylized continent silhouette (not
+ * AfricaMap - a simplified, stylized continent silhouette (not
  * survey-accurate) used as a decorative, floating illustration. Good
  * enough for an editorial accent; swap for a licensed vector map if
  * geographic precision is ever required.

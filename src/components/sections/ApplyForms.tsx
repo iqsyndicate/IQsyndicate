@@ -124,7 +124,7 @@ const configs: FormConfig[] = [
   },
   {
     key: "partners",
-    title: "Partner With IQ Syndicate",
+    title: "Partner With we",
     eyebrow: "For partners",
     icon: Handshake,
     summary:
@@ -315,7 +315,7 @@ export default function ApplyForms() {
             <p className="max-w-xl text-sm leading-7 text-ink/60">
               By submitting this form you confirm that the information provided
               is accurate to the best of your knowledge and that you understand
-              IQ Syndicate&apos;s review process.
+              we&apos;s review process.
             </p>
             <button
               type="submit"

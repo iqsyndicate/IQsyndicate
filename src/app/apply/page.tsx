@@ -25,7 +25,7 @@ const pathways = [
     label: "For Founders",
     headline: "Apply for the Technical Assistance Programme",
     description:
-      "IQ Syndicate's TA programme is designed for indigenous African climate entrepreneurs at the pre-Series A stage who are operating above the concept stage but below the bankability threshold required for institutional capital.",
+      "our TA programme is designed for indigenous African climate entrepreneurs at the pre-Series A stage who are operating above the concept stage but below the bankability threshold required for institutional capital.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
@@ -51,9 +51,9 @@ const pathways = [
     id: "partners",
     icon: Handshake,
     label: "For Partners",
-    headline: "Partner With IQ Syndicate",
+    headline: "Partner With we",
     description:
-      "IQ Syndicate works with accelerators, bilateral agencies, multilateral institutions, and ecosystem organisations through referral agreements, TA co-delivery arrangements, and data and intelligence partnerships.",
+      "we work with accelerators, bilateral agencies, multilateral institutions, and ecosystem organisations through referral agreements, TA co-delivery arrangements, and data and intelligence partnerships.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
     image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=1200&q=80",
@@ -65,10 +65,10 @@ const pathways = [
 
 const founderEligibility = [
   "Your founding team is majority African-led, with the CEO and at least one co-founder being African nationals resident or operationally based in Africa.",
-  "Your venture operates within one of IQ Syndicate's six priority sectors: off-grid energy, climate-smart agriculture, clean cooking, climate adaptation, circular economy, or sustainable mobility.",
+  "Your venture operates within one of our six priority sectors: off-grid energy, climate-smart agriculture, clean cooking, climate adaptation, circular economy, or sustainable mobility.",
   "Your venture is generating some level of commercial revenue or has completed at least one pilot with validated customer uptake.",
   "You have been actively operating your venture for a minimum of 12 months.",
-  "You are willing to participate in a 6–18 month technical assistance programme with an embedded IQ Syndicate specialist.",
+  "You are willing to participate in a 6–18 month technical assistance programme with an embedded we specialist.",
 ];
 
 const sectors = [
@@ -186,7 +186,7 @@ export default function ApplyPage() {
   return (
     <>
       {/* ─────────────────────────────────────────────
-          HERO — action-first: cream bg, headline,
+          HERO - action-first: cream bg, headline,
           three large pathway cards as immediate anchors.
       ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-cream pb-10 pt-36 md:pt-44">
@@ -196,11 +196,11 @@ export default function ApplyPage() {
         />
         <Container className="relative z-10">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="institutional-eyebrow">IQ Syndicate · Get in Touch</p>
+            <p className="institutional-eyebrow">we · Get in Touch</p>
             <h1 className="mt-5 text-charcoal">Get in Touch</h1>
             <p className="mx-auto mt-6 max-w-xl text-[15.5px] leading-7 text-ink/72">
               Whether you are a climate founder, an institutional investor,
-              or a partner organisation — we would like to hear from you.
+              or a partner organisation - we would like to hear from you.
             </p>
           </Reveal>
 
@@ -247,7 +247,7 @@ export default function ApplyPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          PATHWAY 1 — FOUNDERS
+          PATHWAY 1 - FOUNDERS
       ───────────────────────────────────────────── */}
       <section id="founders" className="scroll-mt-28 bg-white py-20 md:py-28">
         <Container>
@@ -258,13 +258,13 @@ export default function ApplyPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Sprout className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="institutional-eyebrow">Pathway 01 — Founders</p>
+                <p className="institutional-eyebrow">Pathway 01 - Founders</p>
               </div>
               <h2 className="mt-5 text-charcoal">
                 Apply for the Technical Assistance Programme
               </h2>
               <p className="mt-5 text-[15px] leading-7 text-ink/74">
-                IQ Syndicate's TA programme is designed for indigenous
+                our TA programme is designed for indigenous
                 African climate entrepreneurs at the pre-Series A stage
                 who are operating above the concept stage but below the
                 bankability threshold required for institutional capital.
@@ -335,7 +335,7 @@ export default function ApplyPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          PATHWAY 2 — INVESTORS
+          PATHWAY 2 - INVESTORS
       ───────────────────────────────────────────── */}
       <section id="investors" className="scroll-mt-28 bg-forest py-20 text-white md:py-28">
         <Container>
@@ -346,7 +346,7 @@ export default function ApplyPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white">
                   <Building2 className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="eyebrow-on-dark">Pathway 02 — Investors</p>
+                <p className="eyebrow-on-dark">Pathway 02 - Investors</p>
               </div>
               <h2 className="mt-5 text-white">
                 Request the LP Information Pack
@@ -442,7 +442,7 @@ export default function ApplyPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          PATHWAY 3 — PARTNERS
+          PATHWAY 3 - PARTNERS
       ───────────────────────────────────────────── */}
       <section id="partners" className="scroll-mt-28 bg-cream py-20 md:py-28">
         <Container>
@@ -453,13 +453,13 @@ export default function ApplyPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-dark/12 text-gold-dark">
                   <Handshake className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="institutional-eyebrow" style={{ color: "#8a6a45" }}>Pathway 03 — Partners</p>
+                <p className="institutional-eyebrow" style={{ color: "#8a6a45" }}>Pathway 03 - Partners</p>
               </div>
               <h2 className="mt-5 text-charcoal">
-                Partner With IQ Syndicate
+                Partner With we
               </h2>
               <p className="mt-5 text-[15px] leading-7 text-ink/74">
-                IQ Syndicate works with accelerators, bilateral agencies,
+                we work with accelerators, bilateral agencies,
                 multilateral institutions, and ecosystem organisations
                 through referral agreements, TA co-delivery arrangements,
                 and data and intelligence partnerships.
@@ -467,9 +467,9 @@ export default function ApplyPage() {
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  { type: "Referral Agreement", body: "Refer high-potential climate ventures from your networks to IQ Syndicate's pipeline." },
-                  { type: "Co-delivery TA", body: "Deploy your specialists alongside IQ Syndicate's team within the TA programme." },
-                  { type: "Data & Intelligence", body: "Share origination data, market intelligence, or research with the IQ Syndicate team." },
+                  { type: "Referral Agreement", body: "Refer high-potential climate ventures from your networks to our pipeline." },
+                  { type: "Co-delivery TA", body: "Deploy your specialists alongside our team within the TA programme." },
+                  { type: "Data & Intelligence", body: "Share origination data, market intelligence, or research with the we team." },
                   { type: "Other", body: "Open to bespoke arrangements that create value for the African climate ecosystem." },
                 ].map((item, i) => (
                   <Reveal key={item.type} direction={i % 2 === 0 ? "left" : "right"} delay={i * 80}>
@@ -556,7 +556,7 @@ export default function ApplyPage() {
                   // {
                   //   icon: Linkedin,
                   //   label: "LinkedIn",
-                  //   value: "IQ Syndicate",
+                  //   value: "we",
                   //   href: "https://linkedin.com",
                   // },
                 ].map((item) => {
@@ -593,13 +593,13 @@ export default function ApplyPage() {
                   Legal Disclaimer
                 </p>
                 <p className="mt-4 text-[13.5px] leading-7 text-ink/62">
-                  IQ Syndicate does not provide personalised financial
+                  we do not provide personalised financial
                   investment advice. Information provided on this website
                   is for general informational purposes only and does not
                   constitute an offer or solicitation to invest.
                 </p>
                 <p className="mt-4 text-[13.5px] leading-7 text-ink/62">
-                  IQ Syndicate is incorporated in Nigeria as a private
+                  we are incorporated in Nigeria as a private
                   limited liability company. This website does not
                   constitute financial advice or an offer to invest.
                 </p>

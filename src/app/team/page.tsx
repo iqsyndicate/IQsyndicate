@@ -8,7 +8,7 @@ import Reveal from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "Team",
   description:
-    "A founding team with deep roots in climate finance, structured investment, and development impact — supported by an advisory board with unparalleled institutional reach across Africa and beyond.",
+    "A founding team with deep roots in climate finance, structured investment, and development impact - supported by an advisory board with unparalleled institutional reach across Africa and beyond.",
 };
 
 const founders = [
@@ -17,7 +17,7 @@ const founders = [
     role: "Co-Founder & Chief Executive Officer",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
     bio: [
-      "Arigor leads executive function, overseeing IQ Syndicate's strategic direction, instrument design, deal origination and structuring, and investor relations. He is an economist with hands-on experience across the full investment value chain for clean energy infrastructure.",
+      "Arigor leads executive function, overseeing our strategic direction, instrument design, deal origination and structuring, and investor relations. He is an economist with hands-on experience across the full investment value chain for clean energy infrastructure.",
       "He has originated and structured capital mobilisation initiatives for climate ventures across donor-funded programmes and contributed to national carbon market policy development in Nigeria. His work is driven by the conviction that mobilising private capital for critical development infrastructure is the defining lever for Africa's economic transformation.",
     ],
     tone: "photo-duotone-burgundy",
@@ -27,7 +27,7 @@ const founders = [
     role: "Co-Founder & Development Impact Lead",
     image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80",
     bio: [
-      "Gift Adaugo leads Development Impact, ESG strategy, impact measurement, and stakeholder engagement at IQ Syndicate. She works at the intersection of climate finance, gender equity, and governance policy.",
+      "Gift Adaugo leads Development Impact, ESG strategy, impact measurement, and stakeholder engagement at we. She works at the intersection of climate finance, gender equity, and governance policy.",
       "She serves as Climate Finance Analyst at Climate Policy Initiative (CPI) London, where she maps subnational climate finance flows in South Africa. She is a MasterCard Scholar at Cambridge and the founder of Policies Vault, a climate finance and gender policy think tank.",
     ],
     tone: "photo-duotone-forest",
@@ -97,7 +97,7 @@ export default function TeamPage() {
   return (
     <>
       {/* ─────────────────────────────────────────────
-          HERO — cream background, editorial split
+          HERO - cream background, editorial split
           Headline left · credentials strip right
       ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-cream pb-20 pt-36 md:pb-28 md:pt-44">
@@ -113,43 +113,12 @@ export default function TeamPage() {
         <Container className="relative z-10">
           <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <Reveal direction="left">
-              <p className="institutional-eyebrow">IQ Syndicate · The Team</p>
+              <p className="institutional-eyebrow">The Team</p>
               <h1 className="mt-5 max-w-xl text-charcoal">
                 The Team Behind IQ Syndicate
               </h1>
-              <p className="mt-6 max-w-md text-[15.5px] leading-7 text-ink/74">
-                A founding team with deep roots in climate finance,
-                structured investment, and development impact — supported
-                by an advisory board with unparalleled institutional reach
-                across Africa and beyond.
-              </p>
             </Reveal>
-
-            {/* Institution name strip — quick credential scan */}
-            <Reveal direction="right">
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { name: "Africa Finance Corporation", sub: "USD 8.5B syndicated" },
-                  { name: "British International Investment", sub: "Infrastructure debt fund" },
-                  { name: "Climate Policy Initiative", sub: "Subnational finance mapping" },
-                  { name: "World Bank Group", sub: "30-year senior career" },
-                ].map((inst, i) => (
-                  <div
-                    key={inst.name}
-                    className="card-float rounded-2xl bg-white p-5 shadow-md shadow-black/6"
-                    style={{
-                      opacity: 0,
-                      animation: `fadeSlideUp 0.5s cubic-bezier(0.22,1,0.36,1) ${i * 110 + 200}ms forwards`,
-                    }}
-                  >
-                    <p className="text-[11.5px] font-semibold leading-snug text-charcoal">
-                      {inst.name}
-                    </p>
-                    <p className="mt-1 text-[10.5px] text-ink/52">{inst.sub}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+            
           </div>
         </Container>
       </section>
@@ -157,7 +126,7 @@ export default function TeamPage() {
       {/* ─────────────────────────────────────────────
           FOUNDING TEAM
           Two cards side by side, each with photo +
-          full bio. Photos are placeholders — replace
+          full bio. Photos are placeholders - replace
           with actual founder photography before launch.
       ───────────────────────────────────────────── */}
       <section className="bg-white py-20 md:py-28">
@@ -181,7 +150,7 @@ export default function TeamPage() {
                   <div className="relative h-72">
                     <Image
                       src={founder.image}
-                      alt={`${founder.name} — ${founder.role}`}
+                      alt={`${founder.name} - ${founder.role}`}
                       fill
                       className="object-cover object-top"
                     />
@@ -208,120 +177,6 @@ export default function TeamPage() {
                 </div>
               </Reveal>
             ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ─────────────────────────────────────────────
-          ADVISORY BOARD
-          Full-bleed forest section; 2×2 card grid.
-          Each card: name, focus, role, credentials.
-      ───────────────────────────────────────────── */}
-      <section className="bg-forest py-20 text-white md:py-28">
-        <Container>
-          <Reveal className="mb-12 max-w-2xl">
-            <p className="eyebrow-on-dark">Advisory Board</p>
-            <h2 className="mt-4 text-white">
-              Senior practitioners. Institutional reach.
-            </h2>
-            <p className="mt-5 text-[15px] leading-7 text-white/76">
-              IQ Syndicate's advisory board comprises senior practitioners
-              in African infrastructure finance, climate policy, project
-              finance, and international development. Advisors are engaged
-              on a formal basis and provide strategic guidance on deal
-              origination, investor relations, policy positioning, and
-              institutional credibility.
-            </p>
-          </Reveal>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {advisors.map((advisor, i) => {
-              const Icon = advisor.icon;
-              const dirs = ["left", "right", "left", "right"] as const;
-              return (
-                <Reveal key={advisor.name} direction={dirs[i]} delay={i * 100}>
-                  <div
-                    className={`card-float h-full rounded-3xl p-8 shadow-xl shadow-black/20 md:p-9 ${advisor.tone}`}
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">
-                          {advisor.focus}
-                        </p>
-                        <h3 className="mt-2 font-heading text-3xl">{advisor.name}</h3>
-                        <p className="mt-1 text-[13px] leading-5 opacity-72">
-                          {advisor.role}
-                        </p>
-                      </div>
-                      <div
-                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${advisor.iconTone}`}
-                      >
-                        <Icon className="h-6 w-6" strokeWidth={1.75} />
-                      </div>
-                    </div>
-
-                    <ul className="mt-7 space-y-3 border-t border-white/15 pt-6">
-                      {advisor.credentials.map((cred, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-3 text-[13px] leading-5 opacity-80"
-                        >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-light opacity-80" />
-                          {cred}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* ─────────────────────────────────────────────
-          GOVERNANCE
-          IC + Board of Directors on cream.
-      ───────────────────────────────────────────── */}
-      <section className="bg-cream py-20 md:py-28">
-        <Container>
-          <Reveal className="mb-12 max-w-xl">
-            <p className="institutional-eyebrow">Governance</p>
-            <h2 className="mt-4 text-charcoal">
-              Decision-making by committee. Capital by quorum.
-            </h2>
-          </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                icon: Users2,
-                title: "Investment Committee",
-                body: "The Investment Committee (IC) is IQ Syndicate's primary decision-making body for all capital deployment. The IC includes at minimum one founding partner, one independent member drawn from the advisory board, and an external senior investment practitioner. A minimum of three members must be present for any capital deployment decision. All IC decisions are formally minuted and made available to Limited Partners upon request.",
-                dir: "left" as const,
-              },
-              {
-                icon: Scale,
-                title: "Board of Directors",
-                body: "The Board of Directors provides strategic oversight of IQ Syndicate's operations, financial health, and stakeholder obligations. It meets quarterly and retains authority over annual budgets, senior hires, material changes to investment strategy, and regulatory compliance.",
-                dir: "right" as const,
-              },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <Reveal key={item.title} direction={item.dir}>
-                  <div className="card-float h-full rounded-2xl bg-white p-8 shadow-lg shadow-black/8">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-6 text-2xl text-charcoal">{item.title}</h3>
-                    <p className="mt-4 text-[14.5px] leading-7 text-ink/70">
-                      {item.body}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
           </div>
         </Container>
       </section>

@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     icon: "/images/favicon.png",
   },
   title: {
-    default: "IQ Syndicate",
-    template: "%s | IQ Syndicate",
+    default: "we",
+    template: "%s | we",
   },
   description:
-    "IQ Syndicate is an African-led climate finance platform focused on advisory, technical assistance, blended finance, and portfolio aggregation.",
+    "we are an African-led climate finance platform focused on advisory, technical assistance, blended finance, and portfolio aggregation.",
   openGraph: {
-    title: "IQ Syndicate",
+    title: "we",
     description:
       "Enabling African-led climate ventures to scale through patient capital and structured support.",
     type: "website",

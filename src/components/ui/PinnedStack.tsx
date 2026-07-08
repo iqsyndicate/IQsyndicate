@@ -13,7 +13,7 @@ const offsetStyle: Record<Direction, (active: boolean) => string> = {
 };
 
 /**
- * PinnedStack — on desktop, the section pins while scroll progress through
+ * PinnedStack - on desktop, the section pins while scroll progress through
  * it reveals each child in sequence, sliding in from its assigned
  * direction. Progress is measured from the moment the section enters the
  * viewport (not from the moment it locks to the top), so the stagger
@@ -21,7 +21,7 @@ const offsetStyle: Record<Direction, (active: boolean) => string> = {
  * top edge.
  *
  * On mobile, sticky-pin math is unreliable (dynamic browser chrome), so
- * cards instead reveal individually as each scrolls into view — same
+ * cards instead reveal individually as each scrolls into view - same
  * directional slide-in, just without the pin.
  */
 export default function PinnedStack({

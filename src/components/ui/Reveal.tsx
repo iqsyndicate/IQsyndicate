@@ -13,7 +13,7 @@ const offsetClass: Record<Direction, string> = {
 };
 
 /**
- * Reveal — fades/slides a block in once it enters the viewport.
+ * Reveal - fades/slides a block in once it enters the viewport.
  * Used in place of a single fixed "fade up" so different sections can
  * assemble from different directions (top, bottom, side) as requested.
  */

@@ -31,7 +31,7 @@ import AfricaMap from "@/components/ui/AfricaMap";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "IQ Syndicate is a specialised climate infrastructure and advisory firm established to close the financing gap for locally led climate ventures in Africa.",
+    "We are a specialised climate infrastructure and advisory firm established to close the financing gap for locally led climate ventures in Africa.",
 };
 
 const modelStages = [
@@ -84,21 +84,21 @@ const pillars = [
   {
     icon: TargetIcon,
     title: "Risk-First Thinking",
-    body: "We seek to understand, absorb, and effectively price early-stage risk — not avoid it. Our returns are compensation for genuine risk-taking.",
+    body: "We seek to understand, absorb, and effectively price early-stage risk - not avoid it. Our returns are compensation for genuine risk-taking.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Search,
     title: "Deep Diligence",
-    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal — not just documentary.",
+    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal - not just documentary.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Layers,
     title: "Aligned Instruments",
-    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage — and not the other way around.",
+    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage - and not the other way around.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
   },
@@ -122,17 +122,17 @@ const theoryOfChange = [
   {
     icon: Sprout,
     label: "If",
-    body: "Early-stage African climate ventures receive structured technical assistance, fit-for-purpose risk capital, and a credible pathway to institutional investment,",
+    body: "Early-stage African climate ventures receive structured technical assistance and fit-for-purpose capital,",
   },
   {
     icon: TrendingUp,
     label: "Then",
-    body: "They will achieve the project maturity, revenue scale, and documentation standards required to attract commercial capital,",
+    body: "They will achieve the project maturity, revenue scale, and documentation standards required to attract commercial capital,"
   },
   {
     icon: Globe2,
     label: "Therefore",
-    body: "The communities they serve will gain sustained access to clean energy, climate adaptation tools, and economic opportunity — contributing to Africa's broader climate and development objectives.",
+    body: "The communities they serve will gain sustained access to clean energy, climate adaptation tools, and economic opportunity.",
   },
 ];
 
@@ -163,7 +163,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ───────────────────────── HERO ─────────────────────────
-          Bespoke split layout for this page — text on a warm surface,
+          Bespoke split layout for this page - text on a warm surface,
           a floating framed photograph instead of a full-bleed image. */}
       <section className="relative overflow-hidden bg-cream pb-20 pt-36 md:pb-28 md:pt-44">
         <div
@@ -178,10 +178,10 @@ export default function AboutPage() {
         <Container className="relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <Reveal direction="left">
-              <p className="institutional-eyebrow">About IQ Syndicate</p>
+              <p className="institutional-eyebrow">About Us</p>
               <h1 className="mt-5 max-w-lg text-charcoal">Who We Are</h1>
               <p className="mt-6 max-w-md text-[15.5px] leading-7 text-ink/74">
-                IQ Syndicate is a specialised climate infrastructure and
+                We are a specialised climate infrastructure and
                 advisory firm established to close the financing gap for
                 locally led climate ventures in Africa.
               </p>
@@ -216,7 +216,7 @@ export default function AboutPage() {
               </div>
 
               {/* Floating badge card overlapping the image corner */}
-              <div className="card-float absolute -bottom-8 -left-6 max-w-[220px] rounded-2xl bg-white p-5 shadow-xl shadow-black/15 md:-left-10">
+              {/* <div className="card-float absolute -bottom-8 -left-6 max-w-[220px] rounded-2xl bg-white p-5 shadow-xl shadow-black/15 md:-left-10">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                   Incorporated
                 </p>
@@ -226,7 +226,7 @@ export default function AboutPage() {
                 <p className="mt-1 text-[12px] leading-5 text-ink/60">
                   A bridge institution for African-led climate capital.
                 </p>
-              </div>
+              </div> */}
             </Reveal>
           </div>
         </Container>
@@ -244,7 +244,10 @@ export default function AboutPage() {
                 <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">
                   Mission
                 </p>
-                <h2 className="mt-3 text-3xl text-white md:text-4xl">
+                <h2
+                  className="mt-3 leading-tight text-white"
+                  style={{ fontSize: "clamp(1.35rem, 2.1vw, 1.8rem)", lineHeight: 1.2 }}
+                >
                   To provide the right liquidity, prepared to take on
                   appropriate risk.
                 </h2>
@@ -263,7 +266,10 @@ export default function AboutPage() {
                 <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">
                   Vision
                 </p>
-                <h2 className="mt-3 text-3xl text-white md:text-4xl">
+                <h2
+                  className="mt-3 leading-tight text-white"
+                  style={{ fontSize: "clamp(1.35rem, 2.1vw, 1.8rem)", lineHeight: 1.2 }}
+                >
                   A thriving, self-sustaining climate venture ecosystem.
                 </h2>
                 <p className="mt-4 max-w-md text-[14.5px] leading-7 text-white/82">
@@ -299,49 +305,7 @@ export default function AboutPage() {
 
             <Reveal direction="right" className="space-y-6 text-[15px] leading-7 text-ink/76">
               <p>
-                The African climate finance landscape suffers from a
-                shortage of capital that is fit for purpose. Globally,
-                hundreds of billions of dollars are committed annually to
-                climate finance, yet the overwhelming majority of this
-                capital flows to large-scale infrastructure projects and
-                foreign-led developers who present the revenue certainty,
-                institutional track records, and risk profiles that
-                conventional investors are designed to accommodate.
-              </p>
-              <p>
-                Indigenous climate entrepreneurs — providing innovative
-                products and addressing the precise climate challenges
-                facing urban and peri-urban communities — are
-                systemically excluded from this capital by design. The
-                investment screening criteria of commercial banks,
-                venture capital funds, and development finance
-                institutions are calibrated for mature businesses with
-                proven technologies, revenue, and predictable returns.
-                This leaves early-stage African climate founders
-                invisible to the very capital markets that should
-                provide long-term financial instruments to enable their
-                growth.
-              </p>
-              <p>
-                This exclusion constitutes a market failure. Early-stage
-                projects require patient, risk-tolerant capital that is
-                willing to engage before revenues are scaled and before
-                project documentation meets institutional standards.
-                They require technical assistance in project design,
-                financial structuring, engineering, and market
-                validation. The result is a structural vacuum at the
-                most critical stage of venture development, where
-                promising climate ventures stall indefinitely for want
-                of the right kind of support.
-              </p>
-              <p>
-                The consequences extend far beyond individual founders.
-                When an indigenous African climate venture fails to
-                scale, jobs are lost and the communities these
-                innovations were built to serve are left without access
-                to clean energy, resilient agricultural products, clean
-                cooking solutions, and adaptation tools they urgently
-                need.
+                The African climate finance landscape suffers from a shortage of capital that is fit for purpose. Globally, hundreds of billions of dollars are committed annually to climate finance, yet the overwhelming majority of this capital flows to large-scale infrastructure projects and foreign-led developers who present the revenue certainty, institutional track records, and risk profiles that conventional investors are designed to accommodate.
               </p>
             </Reveal>
           </div>
@@ -359,39 +323,30 @@ export default function AboutPage() {
                 <Quote className="h-9 w-9 text-gold-light" strokeWidth={1.5} />
                 <p className="mt-6 max-w-lg font-heading text-2xl leading-[1.3] text-white md:text-3xl">
                   Africa does not have a liquidity problem in climate
-                  finance. It has a risk calibration problem. IQ
-                  Syndicate designs instruments that deal with risk —
-                  not just liquidity.
+                  finance. It has a risk valuation problem. We design instruments that deal with risk, not just liquidity.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal direction="right" className="mx-auto hidden h-[260px] w-[240px] md:block">
+            {/* <Reveal direction="right" className="mx-auto hidden h-[260px] w-[240px] md:block">
               <AfricaMap className="h-full w-full" />
-            </Reveal>
+            </Reveal> */}
           </div>
         </Container>
       </section>
 
       {/* ───────────────────────── OUR MODEL ─────────────────────────
-          A compact connected timeline — every stage stays visible at
+          A compact connected timeline - every stage stays visible at
           once, no scroll-pinning, no overlap with neighboring sections. */}
       <section className="bg-white py-20 md:py-28">
         <Container>
           <Reveal className="mb-16 max-w-2xl">
-            <p className="institutional-eyebrow">Our Model</p>
+            <p className="institutional-eyebrow">Core Service Areas</p>
             <h2 className="mt-4 text-charcoal">
               Five sequential stages. One bridge institution.
             </h2>
             <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              IQ Syndicate does not simply deploy capital. We help build
-              a replicable, self-sustaining ecosystem for small-scale
-              Africa-owned climate infrastructure, with depth and
-              inclusion at its centre. The firm operates as a bridge
-              institution — one that takes on the early risk that
-              commercial finance will not, by deploying the technical
-              and advisory support that transforms projects for
-              commercial investment.
+              We do not simply deploy capital. We help build a replicable, self-sustaining ecosystem for Africa-owned climate infrastructure, with depth and inclusion at its centre
             </p>
           </Reveal>
 
@@ -445,7 +400,7 @@ export default function AboutPage() {
 
       {/* ───────────────────────── INVESTMENT PHILOSOPHY ─────────────────────────
           Same pattern as the homepage section, for consistency across the site. */}
-      <section className="bg-cream py-20 md:py-28">
+      {/* <section className="bg-cream py-20 md:py-28">
         <Container>
           <Reveal className="mb-12 max-w-xl">
             <p className="institutional-eyebrow">Investment Philosophy</p>
@@ -456,8 +411,8 @@ export default function AboutPage() {
               Our investment philosophy rests on a single premise: risk
               absorption at the earliest stage of climate infrastructure
               project development is the most valuable and scarce input
-              in Africa. Every structural decision we make — from
-              instrument design to fee model — flows from this premise.
+              in Africa. Every structural decision we make - from
+              instrument design to fee model - flows from this premise.
             </p>
           </Reveal>
 
@@ -484,7 +439,7 @@ export default function AboutPage() {
             })}
           </div>
         </Container>
-      </section>
+      </section> */}
 
       {/* ───────────────────────── THEORY OF CHANGE ───────────────────────── */}
       <section className="relative overflow-hidden bg-forest py-20 text-white md:py-28">
@@ -499,7 +454,7 @@ export default function AboutPage() {
               If Foundations Are Built, Scale Follows
             </h2>
             <p className="mt-5 text-[15px] leading-7 text-white/76">
-              IQ Syndicate&apos;s Theory of Change is grounded in the
+              Our Theory of Change is grounded in the
               recognition that the structural exclusion of indigenous
               African climate ventures from fit-for-purpose capital is
               not an isolated financing challenge. It is the proximate
@@ -539,7 +494,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───────────────────────── GOVERNANCE ───────────────────────── */}
-      <section className="bg-white py-20 md:py-28">
+      {/* <section className="bg-white py-20 md:py-28">
         <Container>
           <Reveal className="mb-12 max-w-xl">
             <p className="institutional-eyebrow">Governance</p>
@@ -568,7 +523,7 @@ export default function AboutPage() {
             })}
           </div>
         </Container>
-      </section>
+      </section> */}
 
       {/* ───────────────────────── CLOSING CTA ───────────────────────── */}
       <section className="bg-cream py-20 md:py-28">
@@ -580,7 +535,7 @@ export default function AboutPage() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">
                   Whether you are a founder seeking capital, an investor
                   looking for impact-aligned returns, or a partner
-                  institution — IQ Syndicate was built for you.
+                  institution - we were built for you.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-5">

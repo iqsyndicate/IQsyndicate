@@ -76,7 +76,7 @@ export default function StrategicEcosystem() {
           </h2>
 
           <p className="mt-4 text-lg text-ink/70 leading-8">
-            IQ Syndicate operates at the centre of an ecosystem designed to
+            we operate at the centre of an ecosystem designed to
             mobilize capital, strengthen enterprises and generate sustainable
             outcomes.
           </p>
@@ -125,7 +125,7 @@ export default function StrategicEcosystem() {
                 Core Platform
               </span>
 
-              <h3 className="mt-3 font-heading text-4xl">IQ Syndicate</h3>
+              <h3 className="mt-3 font-heading text-4xl">we</h3>
 
               <p className="mt-4 text-center text-sm leading-6 px-10 text-white/75 max-w-[220px]">
                 Structuring opportunities, mobilizing capital and enabling
@@ -214,7 +214,7 @@ export default function StrategicEcosystem() {
                 Core
               </span>
               <h3 className="font-heading text-sm md:text-base leading-tight text-center">
-                IQ Syndicate
+                we
               </h3>
             </motion.div>
 

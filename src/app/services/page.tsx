@@ -27,7 +27,7 @@ import Reveal from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Four integrated services designed to provide end-to-end support — from founder identification and project preparation, through to institutional capital facilitation and exit.",
+    "Four integrated services designed to provide end-to-end support - from founder identification and project preparation, through to institutional capital facilitation and exit.",
 };
 
 const taModules = [
@@ -68,14 +68,14 @@ const aggregationSteps = [
   {
     n: "01",
     title: "Project Origination & Preparation",
-    body: "Individual ventures enter IQ Syndicate's seven-step process, with technical assistance deployed and capital invested to ready each project.",
+    body: "Individual ventures enter our seven-step process, with technical assistance deployed and capital invested to ready each project.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
     alt: "Specialists working on financial models and project documentation",
   },
   {
     n: "02",
     title: "Portfolio Construction",
-    body: "IQ Syndicate selects performing infrastructure projects based on complementary sectors and shared risk-return profiles.",
+    body: "we select performing infrastructure projects based on complementary sectors and shared risk-return profiles.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
     alt: "Data analytics and portfolio construction charts",
   },
@@ -96,9 +96,9 @@ const aggregationSteps = [
   {
     n: "05",
     title: "Term Negotiation & Close",
-    body: "IQ Syndicate advisors support founders and investors through term sheet negotiation and final close.",
+    body: "we advisors support founders and investors through term sheet negotiation and final close.",
     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80",
-    alt: "Deal closing — handshake between parties",
+    alt: "Deal closing - handshake between parties",
   },
   {
     n: "06",
@@ -140,7 +140,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ─────────────────────────────────────────────
-          HERO — directory style: headline top, the four
+          HERO - directory style: headline top, the four
           service jump-links anchor the bottom of the frame
           so visitors can navigate immediately.
       ───────────────────────────────────────────── */}
@@ -161,11 +161,14 @@ export default function ServicesPage() {
           <div>
             <Reveal direction="down">
               <span className="eyebrow-pill mb-7 inline-flex">
-                IQ Syndicate · Full-Cycle Services
+                Full-Cycle Services
               </span>
             </Reveal>
             <Reveal delay={100}>
-              <h1 className="max-w-3xl text-white">
+              <h1
+                className="max-w-3xl text-white"
+                style={{ fontSize: "clamp(2.2rem, 4vw, 3rem)", lineHeight: 1.05 }}
+              >
                 Full-Cycle Support for
                 <br className="hidden sm:block" /> Climate Ventures
               </h1>
@@ -173,7 +176,7 @@ export default function ServicesPage() {
             <Reveal delay={180}>
               <p className="mt-6 max-w-xl text-[16px] leading-7 text-white/85">
                 Four integrated services designed to provide end-to-end
-                support — from founder identification and project
+                support - from founder identification and project
                 preparation, through to institutional capital
                 facilitation and exit.
               </p>
@@ -211,7 +214,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          SERVICE 01 — CLIMATE ADVISORY
+          SERVICE 01 - CLIMATE ADVISORY
           Text left · Image right · Three offering panels
       ───────────────────────────────────────────── */}
       <section id="advisory" className="scroll-mt-24 bg-white py-20 md:py-28">
@@ -222,7 +225,7 @@ export default function ServicesPage() {
               <p className="institutional-eyebrow">Service 01</p>
               <h2 className="mt-4 text-charcoal">Climate Advisory</h2>
               <p className="mt-5 text-[15px] leading-7 text-ink/74">
-                IQ Syndicate's Advisory service provides climate
+                our Advisory service provides climate
                 infrastructure project developers and institutional
                 partners with strategic support across three
                 dimensions: project design, market intelligence, and
@@ -239,7 +242,7 @@ export default function ServicesPage() {
                   {
                     icon: BarChart2,
                     title: "Market Intelligence",
-                    body: "We assist partner institutions in turning data into meaningful insights to properly understand policy, projects, and investment risk — enabling informed business and deployment decisions.",
+                    body: "We assist partner institutions in turning data into meaningful insights to properly understand policy, projects, and investment risk - enabling informed business and deployment decisions.",
                   },
                   {
                     icon: Compass,
@@ -266,11 +269,6 @@ export default function ServicesPage() {
                 })}
               </div>
 
-              <p className="mt-8 text-[13px] text-ink/54">
-                Advisory engagements are structured on milestone-based
-                terms and through Financial Services Agreements (FSA)
-                with ventures.
-              </p>
               <Link
                 href="/apply"
                 className="group mt-6 inline-flex items-center gap-2 bg-primary px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-light"
@@ -285,7 +283,7 @@ export default function ServicesPage() {
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15 md:h-[520px]">
                 <Image
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80"
-                  alt="Strategic advisory session — climate project design and market intelligence"
+                  alt="Strategic advisory session - climate project design and market intelligence"
                   fill
                   className="object-cover"
                 />
@@ -306,7 +304,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          SERVICE 02 — TECHNICAL ASSISTANCE
+          SERVICE 02 - TECHNICAL ASSISTANCE
           Dark bg · Image left · Text right · Four TA modules
       ───────────────────────────────────────────── */}
       <section id="technical-assistance" className="scroll-mt-24 bg-ink py-20 text-white md:py-28">
@@ -346,7 +344,7 @@ export default function ServicesPage() {
                 bankability.
               </p>
               <p className="mt-4 text-[15px] leading-7 text-white/76">
-                Over a period of 6 to 18 months, IQ Syndicate deploys
+                Over a period of 6 to 18 months, we deploys
                 a bespoke team of specialists across five modules to
                 build ventures from pre-bankable to investment-ready.
               </p>
@@ -377,7 +375,7 @@ export default function ServicesPage() {
               </div>
 
               {/* TA instrument terms */}
-              <Reveal direction="up" delay={150}>
+              {/* <Reveal direction="up" delay={150}>
                 <div className="mt-8 rounded-2xl border border-gold-light/25 bg-gold-light/8 p-6">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-light">
                     How the TA Instrument Works
@@ -385,7 +383,7 @@ export default function ServicesPage() {
                   <p className="mt-3 text-[14px] leading-6 text-white/80">
                     Technical assistance is deployed at the firm's cost
                     and is designed to convert to early-stage equity in
-                    the venture — typically at{" "}
+                    the venture - typically at{" "}
                     <span className="font-semibold text-gold-light">
                       3–5%
                     </span>{" "}
@@ -403,7 +401,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-              </Reveal>
+              </Reveal> */}
 
               <Link
                 href="/apply"
@@ -418,7 +416,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          SERVICE 03 — MOBILIST FACILITY
+          SERVICE 03 - MOBILIST FACILITY
           Full-bleed photo with dark overlay · Glass stat cards
       ───────────────────────────────────────────── */}
       <section
@@ -428,7 +426,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80"
-            alt="Solar panels — the clean energy infrastructure financed through the Mobilist Facility"
+            alt="Solar panels - the clean energy infrastructure financed through the Mobilist Facility"
             fill
             className="object-cover"
           />
@@ -442,8 +440,8 @@ export default function ServicesPage() {
             <h2 className="mt-4 text-white">Mobilist Facility</h2>
             <p className="mt-5 text-[15px] leading-7 text-white/85">
               The Mobilist Facility is a special-purpose investment
-              vehicle that mobilises philanthropic capital —
-              historically deployed as grants — blended with
+              vehicle that mobilises philanthropic capital -
+              historically deployed as grants - blended with
               concessional instruments into well-prepared climate
               infrastructure projects.
             </p>
@@ -483,7 +481,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          SERVICE 04 — PORTFOLIO AGGREGATION
+          SERVICE 04 - PORTFOLIO AGGREGATION
           Intro text · Six-step process with matched images
       ───────────────────────────────────────────── */}
       <section id="aggregation" className="scroll-mt-24 bg-cream py-20 md:py-28">
@@ -492,7 +490,7 @@ export default function ServicesPage() {
             <p className="institutional-eyebrow">Service 04</p>
             <h2 className="mt-4 text-charcoal">Portfolio Aggregation</h2>
             <p className="mt-5 text-[15px] leading-7 text-ink/74">
-              IQ Syndicate bridges the gap between small-scale climate
+              we bridge the gap between small-scale climate
               infrastructure projects and large institutional capital.
               We bundle individual performing projects into an
               investment-grade portfolio vehicle, then facilitate
@@ -546,138 +544,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          COMPETITIVE LANDSCAPE
-          Why IQ Syndicate is Different
-      ───────────────────────────────────────────── */}
-      <section className="bg-white py-20 md:py-28">
-        <Container>
-          <Reveal className="mb-14 max-w-2xl">
-            <p className="institutional-eyebrow">Competitive Landscape</p>
-            <h2 className="mt-4 text-charcoal">
-              Why IQ Syndicate Is Different
-            </h2>
-            <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              The Nigerian climate finance ecosystem includes several
-              actors who provide components of IQ Syndicate's model.
-              However, no single institution currently provides an
-              end-to-end service — combining technical assistance,
-              convertible investment instruments, and a structured
-              pathway to institutional investment — for indigenous
-              ventures at sub-$5M ticket sizes.
-            </p>
-          </Reveal>
-
-          {/* Mobile: cards. Desktop: table */}
-          <div className="space-y-4 md:hidden">
-            {[...competitors, {
-              actor: "IQ Syndicate",
-              examples: "Purpose-built to fill the structural gap",
-              provide: "TA + risk capital + equity stake + aggregation + institutional facilitation",
-              missing: null,
-            }].map((row, i) => {
-              const isIQ = row.actor === "IQ Syndicate";
-              return (
-                <Reveal key={row.actor} direction="up" delay={i * 70}>
-                  <div
-                    className={`card-float rounded-2xl p-6 shadow-md ${
-                      isIQ
-                        ? "bg-primary text-white shadow-primary/20"
-                        : "bg-cream shadow-black/5"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className={`font-semibold ${isIQ ? "text-white" : "text-charcoal"}`}>
-                          {row.actor}
-                        </p>
-                        <p className={`mt-1 text-[12px] ${isIQ ? "text-white/70" : "text-ink/54"}`}>
-                          {row.examples}
-                        </p>
-                      </div>
-                      {isIQ && (
-                        <span className="shrink-0 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
-                          Us
-                        </span>
-                      )}
-                    </div>
-                    <div className={`mt-4 space-y-3 text-[13px] ${isIQ ? "text-white/85" : "text-ink/70"}`}>
-                      <div className="flex items-start gap-2">
-                        <Check className={`mt-0.5 h-4 w-4 shrink-0 ${isIQ ? "text-gold-light" : "text-forest"}`} strokeWidth={2} />
-                        <span>{row.provide}</span>
-                      </div>
-                      {row.missing && (
-                        <div className="flex items-start gap-2">
-                          <X className="mt-0.5 h-4 w-4 shrink-0 text-primary/60" strokeWidth={2} />
-                          <span>{row.missing}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-
-          {/* Desktop table */}
-          <Reveal direction="up" className="hidden md:block">
-            <div className="overflow-hidden rounded-2xl shadow-lg shadow-black/8">
-              <table className="w-full text-left text-[13.5px]">
-                <thead>
-                  <tr className="bg-ink text-white">
-                    <th className="p-5 font-semibold">Actor</th>
-                    <th className="p-5 font-semibold">Examples</th>
-                    <th className="p-5 font-semibold">What They Provide</th>
-                    <th className="p-5 font-semibold">What They Don&apos;t Provide</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {competitors.map((row, i) => (
-                    <tr
-                      key={row.actor}
-                      className={`border-t border-border ${i % 2 === 0 ? "bg-white" : "bg-cream"}`}
-                    >
-                      <td className="p-5 font-semibold text-charcoal">{row.actor}</td>
-                      <td className="p-5 text-ink/68">{row.examples}</td>
-                      <td className="p-5">
-                        <div className="flex items-start gap-2 text-ink/70">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-forest" strokeWidth={2} />
-                          {row.provide}
-                        </div>
-                      </td>
-                      <td className="p-5">
-                        <div className="flex items-start gap-2 text-ink/70">
-                          <X className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" strokeWidth={2} />
-                          {row.missing}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                  {/* IQ Syndicate row */}
-                  <tr className="border-t-2 border-primary bg-primary">
-                    <td className="p-5">
-                      <span className="font-bold text-white">IQ Syndicate</span>
-                    </td>
-                    <td className="p-5">
-                      <span className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-white">
-                        Purpose-built
-                      </span>
-                    </td>
-                    <td className="p-5 text-white/90" colSpan={2}>
-                      <div className="flex items-start gap-2">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" strokeWidth={2.5} />
-                        TA + risk capital + equity stake + aggregation + institutional facilitation — an end-to-end model for indigenous ventures at sub-$5M ticket sizes.
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* ─────────────────────────────────────────────
-          CLOSING CTA — burgundy card (same pattern across site)
+          CLOSING CTA - burgundy card (same pattern across site)
       ───────────────────────────────────────────── */}
       <section className="bg-cream py-20 md:py-28">
         <Container>
@@ -688,7 +555,7 @@ export default function ServicesPage() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">
                   Whether you are a founder seeking capital, an
                   investor looking for impact-aligned returns, or a
-                  partner institution — IQ Syndicate was built for you.
+                  partner institution - we were built for you.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-5">

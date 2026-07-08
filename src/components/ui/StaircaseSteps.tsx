@@ -205,7 +205,7 @@ export default function StaircaseSteps({ steps }: { steps: Step[] }) {
               cursor: "default",
             }}
           >
-            {/* Image — top 40% */}
+            {/* Image - top 40% */}
             <div className="relative w-full" style={{ height: CARD_H * 0.40 }}>
               <Image
                 src={step.image}
@@ -224,7 +224,7 @@ export default function StaircaseSteps({ steps }: { steps: Step[] }) {
               </span>
             </div>
 
-            {/* Text — bottom 60% */}
+            {/* Text - bottom 60% */}
             <div className="flex flex-col justify-between p-4" style={{ height: CARD_H * 0.60 }}>
               <div className="overflow-hidden">
                 <span className="font-heading text-primary/12 leading-none" style={{ fontSize: "2.2rem" }}>
@@ -254,7 +254,7 @@ export default function StaircaseSteps({ steps }: { steps: Step[] }) {
           onMouseEnter={() => setHovered(hovered)}
           onMouseLeave={() => setHovered(null)}
         >
-          {/* Full-width image — reduced height to give more room to text */}
+          {/* Full-width image - reduced height to give more room to text */}
           <div className="relative w-full" style={{ height: 130 }}>
               <Image
                 src={steps[hovered].image}
@@ -275,7 +275,7 @@ export default function StaircaseSteps({ steps }: { steps: Step[] }) {
               </div>
             </div>
 
-          {/* Full content — tightened sizes so everything fits */}
+          {/* Full content - tightened sizes so everything fits */}
           <div className="flex flex-col justify-between p-4" style={{ height: POPUP_H - 130 }}>
             <div>
               <div className="flex items-center gap-2">

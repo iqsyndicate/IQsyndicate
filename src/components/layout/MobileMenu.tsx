@@ -44,7 +44,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           <div className="flex items-center justify-between border-b border-white/10 bg-white px-6 py-4">
             <Image
               src="/images/logo.png"
-              alt="IQ Syndicate"
+              alt="we"
               width={500}
               height={217}
               className="h-9 w-auto object-contain"
@@ -172,7 +172,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </Link>
 
             <p className="mt-4 text-center text-[10px] text-white/28 uppercase tracking-[0.2em]">
-              © {new Date().getFullYear()} IQ Syndicate
+              © {new Date().getFullYear()} we
             </p>
           </motion.div>
         </motion.div>

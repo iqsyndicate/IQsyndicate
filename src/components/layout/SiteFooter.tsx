@@ -34,7 +34,7 @@ export default function SiteFooter() {
               {/* Logo */}
               <Image
                 src="/images/logo.png"
-                alt="IQ Syndicate"
+                alt="we"
                 width={500}
                 height={217}
                 className="h-11 w-auto object-contain brightness-0 invert"
@@ -43,13 +43,12 @@ export default function SiteFooter() {
                 className="mt-6 max-w-2xl font-heading leading-[1.02] text-white"
                 style={{ fontSize: "clamp(1.9rem, 3.2vw, 3.2rem)" }}
               >
-                Enabling African-Led Climate Ventures to Scale
+                Enabling African-Led Climate Infrastructure to Scale
               </h2>
               <p className="mt-5 max-w-lg text-[14.5px] leading-7 text-white/62">
                 A climate investment and advisory institution delivering
                 technical assistance, blended finance pathways, and
-                portfolio structuring for indigenous ventures across
-                Nigeria and Sub-Saharan Africa.
+                portfolio structuring for indigenous ventures across Africa.
               </p>
             </div>
 
@@ -115,8 +114,7 @@ export default function SiteFooter() {
             </p>
             <div className="mt-5 space-y-4">
               {[
-                { icon: MapPin, label: "Head Office", value: "Lagos, Nigeria" },
-                { icon: MapPin, label: "Operating Focus", value: "Nigeria and Sub-Saharan Africa" },
+                { icon: MapPin, label: "Head Office", value: "Abuja, Nigeria" },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
@@ -193,7 +191,7 @@ export default function SiteFooter() {
         {/* ── Bottom bar ── */}
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] uppercase tracking-[0.2em] text-white/30">
-            © {year} IQ Syndicate. All rights reserved.
+            © {year} we. All rights reserved.
           </p>
           <p className="text-[11px] uppercase tracking-[0.2em] text-white/30">
             Institutional Climate Finance Platform

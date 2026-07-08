@@ -6,7 +6,7 @@ import SectionHeading from "@/components/site/SectionHeading";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "A placeholder privacy policy page for IQ Syndicate's website structure.",
+    "A placeholder privacy policy page for our website structure.",
 };
 
 export default function PrivacyPage() {
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         <FadeUp className="mt-10 rounded-[2rem] border border-border bg-white p-8 shadow-[0_15px_40px_rgba(20,20,20,0.05)]">
           <div className="space-y-5 text-sm leading-8 text-ink/68">
             <p>
-              IQ Syndicate is committed to treating submitted information with
+              we are committed to treating submitted information with
               care and using it only for legitimate business, partnership, and
               review purposes.
             </p>

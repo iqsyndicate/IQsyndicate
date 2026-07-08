@@ -28,7 +28,7 @@ const steps = [
     id: "03",
     title: "Structuring",
     description:
-      "Designing capital frameworks, technical assistance and partnership structures that are fit-for-purpose — balancing investor requirements with founder sustainability.",
+      "Designing capital frameworks, technical assistance and partnership structures that are fit-for-purpose - balancing investor requirements with founder sustainability.",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
     tag: "Structure",
@@ -121,7 +121,7 @@ export default function InvestmentApproach() {
                     }
                   `}
                 >
-                  {/* Image inside card — expands when active */}
+                  {/* Image inside card - expands when active */}
                   <AnimatePresence>
                     {active && (
                       <motion.div
@@ -139,7 +139,7 @@ export default function InvestmentApproach() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                         <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold text-white text-xs font-semibold uppercase tracking-wider">
-                          {step.id} — {step.tag}
+                          {step.id} - {step.tag}
                         </span>
                       </motion.div>
                     )}
@@ -212,7 +212,7 @@ export default function InvestmentApproach() {
       <div className="hidden lg:block">
         <div className="flex min-h-screen">
 
-          {/* Left: scrollable content — exactly half viewport */}
+          {/* Left: scrollable content - exactly half viewport */}
           <div
             className="w-1/2 flex flex-col py-20 px-12 xl:px-16"
             onMouseEnter={() => setAutoplay(false)}
@@ -324,7 +324,7 @@ export default function InvestmentApproach() {
             </div>
           </div>
 
-          {/* Right: fixed image — exactly half viewport, pinned to screen */}
+          {/* Right: fixed image - exactly half viewport, pinned to screen */}
           <div className="w-1/2 sticky top-0 h-screen overflow-hidden">
             <AnimatePresence mode="sync">
               <motion.div
@@ -358,7 +358,7 @@ export default function InvestmentApproach() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold text-white text-xs font-semibold uppercase tracking-[0.15em] mb-4">
-                    {steps[activeStep].id} — {steps[activeStep].tag}
+                    {steps[activeStep].id} - {steps[activeStep].tag}
                   </span>
                   <h3 className="font-heading text-3xl xl:text-4xl text-white leading-tight max-w-sm">
                     {steps[activeStep].title}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Counter — animates a numeric value up from 0 once it scrolls into view.
+ * Counter - animates a numeric value up from 0 once it scrolls into view.
  * Accepts the figure pre-formatted (e.g. "27.2", prefix "USD ", suffix "B")
  * so odd formats like "<1" or "300-500" can bypass animation entirely.
  */

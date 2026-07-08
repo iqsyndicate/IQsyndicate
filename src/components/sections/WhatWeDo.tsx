@@ -98,27 +98,27 @@ export default function WhatWeDo() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                {/* Always-on dark base overlay — light, enough to show number */}
+                {/* Always-on dark base overlay - light, enough to show number */}
                 <div className="absolute inset-0 bg-black/30 transition-opacity duration-500 group-hover:opacity-0" />
 
-                {/* Hover overlay — darker so text is readable */}
+                {/* Hover overlay - darker so text is readable */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Number — visible at rest, slides up and fades on hover */}
+                {/* Number - visible at rest, slides up and fades on hover */}
                 <div className="absolute bottom-5 left-5 transition-all duration-500 group-hover:opacity-0 group-hover:-translate-y-2">
                   <span className="font-heading text-6xl text-white/25 leading-none select-none">
                     {service.number}
                   </span>
                 </div>
 
-                {/* Title only — visible at rest at bottom */}
+                {/* Title only - visible at rest at bottom */}
                 <div className="absolute bottom-5 left-5 right-5 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
                   <h3 className="font-heading text-xl text-white font-semibold leading-tight drop-shadow-md">
                     {service.title}
                   </h3>
                 </div>
 
-                {/* Full content — slides up on hover */}
+                {/* Full content - slides up on hover */}
                 <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out overflow-hidden">
                   {/* Arrow */}
                   <div className="absolute top-4 md:top-5 right-4 md:right-5 h-8 md:h-9 w-8 md:w-9 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
@@ -157,7 +157,7 @@ export default function WhatWeDo() {
           className="mt-10 rounded-3xl bg-gold px-10 md:px-14 py-10 md:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <p className="font-heading text-2xl md:text-3xl text-white leading-snug max-w-2xl">
-            Capital alone does not create transformation — the right
+            Capital alone does not create transformation - the right
             structure, partnerships and execution capacity are{" "}
             <span className="italic">equally essential.</span>
           </p>

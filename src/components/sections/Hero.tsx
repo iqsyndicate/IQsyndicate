@@ -59,7 +59,7 @@ export default function Hero() {
   const ventures = useCountUp(30, statsInView);
 
   const typed = useTypewriter(
-    "IQ Syndicate bridges the financing gap between indigenous climate founders and institutional capital — through technical assistance, patient capital, and structured aggregation.",
+    "we bridge the financing gap between indigenous climate founders and institutional capital - through technical assistance, patient capital, and structured aggregation.",
     true,
     18
   );

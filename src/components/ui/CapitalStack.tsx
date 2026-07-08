@@ -1,11 +1,11 @@
 "use client";
 
 /**
- * CapitalStack — the signature visual device for the IQ Syndicate homepage.
+ * CapitalStack - the signature visual device for the we homepage.
  *
  * It is a cross-section of a blended capital structure: catalytic capital
  * at the base absorbing first risk, concessional capital in the middle,
- * and commercial capital at the top — the literal mechanism IQ Syndicate
+ * and commercial capital at the top - the literal mechanism we
  * builds. This isn't decorative; it's the diagram a structurer would
  * actually draw on a whiteboard, rendered as the hero's centerpiece and
  * echoed (smaller) wherever capital structure is discussed.
@@ -37,7 +37,7 @@ export default function CapitalStack({ className = "" }: { className?: string })
       {/* baseline / ground line */}
       <line x1="40" y1="560" x2="520" y2="560" stroke="#d8d1c4" strokeWidth="1" />
 
-      {/* Tranche 3 — Commercial (top, thinnest, first to be repaid) */}
+      {/* Tranche 3 - Commercial (top, thinnest, first to be repaid) */}
       <g>
         <rect x="60" y="80" width="440" height="92" fill="url(#csCommercial)" />
         <rect x="60" y="80" width="440" height="92" fill="none" stroke="#45111a" strokeWidth="1" />
@@ -49,7 +49,7 @@ export default function CapitalStack({ className = "" }: { className?: string })
         </text>
       </g>
 
-      {/* Tranche 2 — Concessional (middle, larger) */}
+      {/* Tranche 2 - Concessional (middle, larger) */}
       <g>
         <rect x="60" y="188" width="440" height="150" fill="url(#csConcessional)" />
         <rect x="60" y="188" width="440" height="150" fill="none" stroke="#1f242c" strokeWidth="1" />
@@ -64,7 +64,7 @@ export default function CapitalStack({ className = "" }: { className?: string })
         </text>
       </g>
 
-      {/* Tranche 1 — Catalytic / TA-linked (base, absorbs first loss) */}
+      {/* Tranche 1 - Catalytic / TA-linked (base, absorbs first loss) */}
       <g>
         <rect x="60" y="354" width="440" height="206" fill="url(#csCatalytic)" />
         <rect x="60" y="354" width="440" height="206" fill="none" stroke="#6e4f2c" strokeWidth="1" />
@@ -78,7 +78,7 @@ export default function CapitalStack({ className = "" }: { className?: string })
           assistance-linked
         </text>
         <text x="80" y="480" fontSize="13" fill="#4a3a22" fontFamily="var(--font-body, sans-serif)">
-          IQ Syndicate origination + readiness layer
+          we origination + readiness layer
         </text>
       </g>
 

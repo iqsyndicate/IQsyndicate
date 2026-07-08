@@ -51,7 +51,7 @@ export default function Header() {
             <Link href="/" className="shrink-0">
               <Image
                 src="/images/logo.png"
-                alt="IQ Syndicate"
+                alt="we"
                 width={500}
                 height={217}
                 priority
