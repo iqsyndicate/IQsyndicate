@@ -285,6 +285,15 @@ export default function ImpactPage() {
         </Container>
       </section>
 
+      <section className="bg-white py-10 md:py-14">
+        <Container>
+          <Reveal className="max-w-2xl">
+            <p className="institutional-eyebrow">SDG Alignment</p>
+            <h2 className="mt-4 text-charcoal">Our work is mapped to the global goals investors already recognise.</h2>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* ─────────────────────────────────────────────
           PRIMARY IMPACT TARGETS - Year 5
           Five metric cards, full-width alternating

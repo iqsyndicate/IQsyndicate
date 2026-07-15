@@ -229,15 +229,8 @@ export default function Header() {
                 );
               })}
             </div>
-            <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
+            <div className="mt-6 border-t border-border pt-4">
               <p className="text-[12px] text-ink/52">Three focused initiatives across climate intelligence and finance.</p>
-              <Link
-                href="/special-projects/mobilist-facility"
-                onClick={() => setProjectsOpen(false)}
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary hover:text-primary-light"
-              >
-                View special projects <ArrowUpRight className="h-3 w-3" />
-              </Link>
             </div>
           </Container>
         </div>

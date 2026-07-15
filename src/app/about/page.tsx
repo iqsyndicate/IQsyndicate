@@ -287,30 +287,16 @@ export default function AboutPage() {
       {/* ───────────────────────── THE PROBLEM WE SOLVE ───────────────────────── */}
       <section className="bg-cream py-10 md:py-14">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16">
+          <div className="grid gap-10">
             <Reveal direction="left">
               <p className="institutional-eyebrow">The Problem We Solve</p>
-              <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-start lg:gap-10">
-                <h2 className="max-w-[15rem] text-charcoal">
-                  A Market Failure by Design
-                </h2>
-                <p className="max-w-[34rem] text-[15px] leading-7 text-ink/74">
-                  The African climate finance landscape is constrained by a critical shortage of fit-for-purpose capital that addresses the financing needs of locally led climate infrastructure projects. Although hundreds of billions of dollars are committed globally to climate finance each year, the overwhelming majority of these resources are directed toward large-scale infrastructure projects and foreign-led developers that offer the revenue certainty, institutional track record, and risk profile preferred by conventional investors. As a result, small-scale, locally led climate infrastructure projects, despite delivering essential climate solutions and serving underserved communities, remain systematically underserved by existing financing mechanisms.
-                </p>
-              </div>
-              <div className="card-float relative mt-10 hidden h-[320px] overflow-hidden rounded-2xl shadow-xl shadow-black/15 lg:block">
-                <Image
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80"
-                  alt="Indigenous climate entrepreneur at work"
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-                <div className="photo-duotone-forest absolute inset-0" />
-              </div>
+              <h2 className="mt-4 max-w-3xl text-charcoal">A Market Failure by Design</h2>
+              <p className="mt-5 max-w-4xl text-[15px] leading-7 text-ink/74">
+                The African climate finance landscape is constrained by a critical shortage of fit-for-purpose capital that addresses the financing needs of locally led climate infrastructure projects. Although hundreds of billions of dollars are committed globally to climate finance each year, the overwhelming majority of these resources are directed toward large-scale infrastructure projects and foreign-led developers that offer the revenue certainty, institutional track record, and risk profile preferred by conventional investors. As a result, small-scale, locally led climate infrastructure projects, despite delivering essential climate solutions and serving underserved communities, remain systematically underserved by existing financing mechanisms.
+              </p>
             </Reveal>
 
-            <Reveal direction="right" className="space-y-6 text-[15px] leading-7 text-ink/76">
+            <Reveal direction="right" className="max-w-4xl text-[15px] leading-7 text-ink/76">
               <p>
                 This structural mismatch prevents capital from reaching enterprises that are well positioned to address local climate and energy challenges. The lack of appropriately structured financing, combined with limited access to technical assistance, constrains product innovation, business growth, operational scalability, and long-term sustainability, even where strong market demand already exists. Ultimately, this financing gap slows the deployment of climate infrastructure, limits access to affordable clean energy and other essential climate solutions, suppresses local job creation and development, and leaves vulnerable communities disproportionately exposed to the impacts of climate change.
               </p>

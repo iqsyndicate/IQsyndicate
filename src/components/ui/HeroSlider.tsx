@@ -67,9 +67,9 @@ export default function HeroSlider({
           key={`headline-${active}`}
           className="hero-slide mx-auto max-w-3xl text-white"
         >
-          {current.headlineLines[0]}
+          <span>{current.headlineLines[0]}</span>
           <br className="hidden sm:block" />
-          {current.headlineLines[1]}
+          <span className="sm:inline"> {current.headlineLines[1]}</span>
         </h1>
 
         <p

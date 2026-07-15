@@ -66,10 +66,10 @@ export default function PrivacyPage() {
 
       <section className="bg-cream py-10 md:py-14">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-8">
             <Reveal direction="left">
               <p className="institutional-eyebrow">Information We Collect</p>
-              <p className="mt-4 text-[15px] leading-7 text-ink/72">
+              <p className="mt-4 max-w-3xl text-[15px] leading-7 text-ink/72">
                 We collect information that you provide directly to us, as well as information that is gathered automatically when you use our website.
               </p>
             </Reveal>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
                 { title: "Automatic Data", items: ["IP address and device identifiers", "Pages viewed and time spent on website", "Cookies and tracking technologies", "Referring URL and search terms"] },
               ].map((group, i) => (
                 <Reveal key={group.title} direction={i === 0 ? "left" : "right"} delay={i * 70}>
-                  <div className="rounded-2xl border border-border bg-white p-6 shadow-sm shadow-black/5">
+                  <div className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border bg-white p-6 shadow-sm shadow-black/5">
                     <h3 className="font-semibold text-charcoal">{group.title}</h3>
                     <ul className="mt-5 space-y-3">
                       {group.items.map((item) => (
@@ -127,17 +127,17 @@ export default function PrivacyPage() {
           <Reveal className="max-w-2xl">
             <p className="institutional-eyebrow">Your Rights</p>
           </Reveal>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {rights.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <Reveal key={item.title} delay={i * 60}>
-                  <div className="rounded-2xl border border-border bg-white p-6 shadow-sm shadow-black/5">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-4 font-semibold text-charcoal">{item.title}</h3>
-                    <p className="mt-2 text-[13px] leading-5 text-ink/68">{item.body}</p>
+              <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                {rights.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <Reveal key={item.title} delay={i * 60}>
+                      <div className="flex h-full min-h-[170px] flex-col rounded-2xl border border-border bg-white p-6 shadow-sm shadow-black/5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                          <Icon className="h-5 w-5" strokeWidth={1.75} />
+                        </div>
+                        <h3 className="mt-4 font-semibold text-charcoal">{item.title}</h3>
+                        <p className="mt-2 text-[13px] leading-5 text-ink/68">{item.body}</p>
                   </div>
                 </Reveal>
               );
