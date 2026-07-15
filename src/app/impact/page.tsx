@@ -29,7 +29,7 @@ import Counter from "@/components/ui/Counter";
 export const metadata: Metadata = {
   title: "Impact",
   description:
-    "Every venture we support is screened, measured, and reported against internationally recognised impact standards. Impact is not a byproduct of our model - it is the reason for it.",
+    "Every venture we support is screened, measured, and reported against internationally recognised impact standards. Impact is not a byproduct of our model, it is the reason for it.",
 };
 
 // Official UN SDG colours - used verbatim in the hero tiles and SDG cards
@@ -113,8 +113,8 @@ const impactTargets = [
   },
   {
     icon: Briefcase,
-    value: 2500,
-    display: "2,500",
+    value: 500,
+    display: "500",
     label: "Decent jobs created",
     definition: "Full-time-equivalent direct employment generated across portfolio ventures, disaggregated by gender and youth.",
     tone: "bg-primary-deep text-white",
@@ -210,7 +210,7 @@ export default function ImpactPage() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80"
-            alt="Solar infrastructure in Nigeria - our climate impact in action"
+            alt="Solar infrastructure in Nigeria, our climate impact in action"
             fill
             sizes="100vw"
             priority
@@ -249,6 +249,12 @@ export default function ImpactPage() {
       ───────────────────────────────────────────── */}
       <section className="bg-cream py-10 md:py-14">
         <Container>
+          <Reveal className="mb-8 max-w-2xl">
+            <p className="institutional-eyebrow">SDG Alignment</p>
+            <h2 className="mt-4 text-charcoal">
+              Our work is mapped to the global goals investors already recognise.
+            </h2>
+          </Reveal>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {sdgs.map((sdg, i) => {
               const dirs = ["left", "right", "left", "right"] as const;
@@ -285,15 +291,6 @@ export default function ImpactPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-10 md:py-14">
-        <Container>
-          <Reveal className="max-w-2xl">
-            <p className="institutional-eyebrow">SDG Alignment</p>
-            <h2 className="mt-4 text-charcoal">Our work is mapped to the global goals investors already recognise.</h2>
-          </Reveal>
-        </Container>
-      </section>
-
       {/* ─────────────────────────────────────────────
           PRIMARY IMPACT TARGETS - Year 5
           Five metric cards, full-width alternating
@@ -304,8 +301,8 @@ export default function ImpactPage() {
           <Reveal className="mb-12 max-w-xl">
             <p className="institutional-eyebrow">Primary Impact Targets</p>
             <h2 className="mt-4 text-charcoal">Year 5 Commitments</h2>
-            <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              These are not aspirations - they are the measurable outcomes
+                <p className="mt-5 text-[15px] leading-7 text-ink/72">
+              These are not aspirations, they are the measurable outcomes
               we are contractually accountable for delivering
               and reporting to LPs annually.
             </p>
@@ -533,3 +530,4 @@ export default function ImpactPage() {
     </>
   );
 }
+

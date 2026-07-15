@@ -76,7 +76,7 @@ const stats = [
   {
     icon: Users,
     value: null,
-    prefix: "< ",
+    prefix: "> ",
     display: "> 1000",
     label: "Active climate ventures in Africa, the majority pre-Series A",
     tone: "gold" as const,
@@ -198,7 +198,7 @@ const audiences = [
 const impactMetrics = [
   { icon: HomeIcon, value: 150000, label: "Households with improved clean energy access" },
   { icon: Cloud, value: 800, unit: " tCO₂e", label: "Greenhouse gas emissions avoided per year" },
-  { icon: Briefcase, value: 2500, label: "Full-time equivalent jobs created" },
+  { icon: Briefcase, value: 500, label: "Full-time equivalent jobs created" },
   { icon: UserCheck, value: 40, display: "40%+", label: "Women-led ventures in our portfolio" },
 ];
 

@@ -45,7 +45,7 @@ const steps = [
     title: "Project Scoping & Gap Analysis",
     body: "A deep-dive gap analysis assesses bankability across six technical assistance modules.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-    alt: "Data analysis and scoring matrix - project gap analysis",
+    alt: "Data analysis and scoring matrix, project gap analysis",
     imageSide: "left" as const,
     tone: "photo-duotone-burgundy",
   },
@@ -81,7 +81,7 @@ const steps = [
     title: "Capital Deployment",
     body: "A debt instrument is deployed, with ticket sizes of $400K and a 5-10 year tenor. TA conversion rights to equity are retained, providing we with upside participation. Portfolio monitoring is activated immediately.",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
-    alt: "Clean energy infrastructure funded by deployed capital - solar and wind installation",
+    alt: "Clean energy infrastructure funded by deployed capital, solar and wind installation",
     imageSide: "left" as const,
     tone: "photo-duotone-gold",
   },
@@ -221,9 +221,9 @@ export default function InvestmentProcessPage() {
             </Reveal>
             <Reveal delay={180}>
               <p className="mt-6 max-w-lg text-[16px] leading-7 text-white/85">
-                Our seven-step investment process is designed
+              Our seven-step investment process is designed
                 to progressively reduce risk while building venture
-                value - creating a de-risked, investment-grade asset
+                value, creating a de-risked, investment-grade asset
                 ready for commercial capital at exit.
               </p>
             </Reveal>
@@ -326,11 +326,11 @@ export default function InvestmentProcessPage() {
             <h2 className="mt-4 text-white">
               Three fit-for-stage instruments
             </h2>
-            <p className="mt-5 text-[15px] leading-7 text-white/76">
+              <p className="mt-5 text-[15px] leading-7 text-white/76">
               we design instruments that match the venture's
-              stage - not the other way around. Each instrument provides
-              a clear return pathway for the firm while aligning
-              incentives directly with venture success.
+              stage, not the other way around. Each instrument provides
+                a clear return pathway for the firm while aligning
+                incentives directly with venture success.
             </p>
           </Reveal>
 
@@ -453,7 +453,7 @@ export default function InvestmentProcessPage() {
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80"
-                    alt="Revenue-generating climate infrastructure - grid-scale solar energy"
+                    alt="Revenue-generating climate infrastructure, grid-scale solar energy"
                     fill
                     sizes="100vw"
                     className="object-cover"
@@ -544,3 +544,4 @@ export default function InvestmentProcessPage() {
     </>
   );
 }
+

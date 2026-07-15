@@ -17,7 +17,7 @@ import Reveal from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "Mobilist Facility",
   description:
-    "A blended finance vehicle that transforms philanthropic capital into returnable investment - funding Africa's next generation of climate infrastructure.",
+    "A blended finance vehicle that transforms philanthropic capital into returnable investment, funding Africa's next generation of climate infrastructure.",
 };
 
 const facilityTerms = [
@@ -34,7 +34,7 @@ const facilityTerms = [
 const blendedStats = [
   { value: "USD 2.5B", label: "Total climate finance Nigeria received in 2021/22" },
   { value: "8%", label: "Of the USD 29.7B annually needed through 2030" },
-  { value: "USD 27.2B", label: "Annual financing gap - the structural vacuum Mobilist fills" },
+  { value: "USD 27.2B", label: "Annual financing gap, the structural vacuum Mobilist fills" },
 ];
 
 const markets = [
@@ -42,7 +42,7 @@ const markets = [
     label: "TAM",
     title: "Total Addressable Market",
     value: "USD 29.7B / yr",
-    body: "Nigeria's full estimated annual climate finance needs through 2030 - mitigation, adaptation, energy transition, and infrastructure.",
+    body: "Nigeria's full estimated annual climate finance needs through 2030, mitigation, adaptation, energy transition, and infrastructure.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
     size: "w-full",
@@ -78,7 +78,7 @@ const whyBlended = [
   {
     icon: ShieldCheck,
     title: "First-Loss Protection",
-    body: "The philanthropic tranche absorbs the first losses - protecting commercial co-investors and enabling capital to reach ventures that commercial finance alone would not touch.",
+    body: "The philanthropic tranche absorbs the first losses, protecting commercial co-investors and enabling capital to reach ventures that commercial finance alone would not touch.",
   },
   {
     icon: RefreshCw,
@@ -88,12 +88,12 @@ const whyBlended = [
   {
     icon: TrendingUp,
     title: "Below-Market Returns",
-    body: "The debt instrument targets 17% per annum - significantly below the 30% market rate - making it viable for indigenous climate ventures while still generating real returns for patient investors.",
+    body: "The debt instrument targets 17% per annum, significantly below the 30% market rate, making it viable for indigenous climate ventures while still generating real returns for patient investors.",
   },
   {
     icon: Globe2,
     title: "Catalytic Leverage",
-    body: "Every dollar of philanthropic capital deployed through the facility unlocks additional concessional and commercial co-investment - multiplying the overall impact beyond the facility's own size.",
+    body: "Every dollar of philanthropic capital deployed through the facility unlocks additional concessional and commercial co-investment, multiplying the overall impact beyond the facility's own size.",
   },
 ];
 
@@ -109,7 +109,7 @@ export default function MobilistFacilityPage() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80"
-            alt="Solar infrastructure - the climate projects funded by the Mobilist Facility"
+            alt="Solar infrastructure, the climate projects funded by the Mobilist Facility"
             fill
             sizes="100vw"
             priority
@@ -178,7 +178,7 @@ export default function MobilistFacilityPage() {
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15">
                 <Image
                   src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80"
-                  alt="Wind turbines - the clean energy infrastructure financed through the Mobilist Facility"
+                  alt="Wind turbines, the clean energy infrastructure financed through the Mobilist Facility"
                   fill
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="object-cover"
@@ -298,7 +298,7 @@ export default function MobilistFacilityPage() {
               <div className="card-float relative h-[420px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15">
                 <Image
                   src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80"
-                  alt="Institutional investors in a meeting - anchor LP engagement"
+                  alt="Institutional investors in a meeting, anchor LP engagement"
                   fill
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="object-cover"
@@ -391,3 +391,4 @@ export default function MobilistFacilityPage() {
     </>
   );
 }
+

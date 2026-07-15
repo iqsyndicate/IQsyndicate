@@ -200,7 +200,7 @@ export default function ApplyPage() {
             <h1 className="mt-5 text-charcoal">Get in Touch</h1>
             <p className="mx-auto mt-6 max-w-xl text-[15.5px] leading-7 text-ink/72">
               Whether you are a climate founder, an institutional investor,
-              or a partner organisation - we would like to hear from you.
+              or a partner organisation, we would like to hear from you.
             </p>
           </Reveal>
 
@@ -259,7 +259,7 @@ export default function ApplyPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Sprout className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="institutional-eyebrow">Pathway 01 - Founders</p>
+              <p className="institutional-eyebrow">Pathway 01: Founders</p>
               </div>
               <h2 className="mt-5 text-charcoal">
                 Apply for the Technical Assistance Programme
@@ -347,7 +347,7 @@ export default function ApplyPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white">
                   <Building2 className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="eyebrow-on-dark">Pathway 02 - Investors</p>
+              <p className="eyebrow-on-dark">Pathway 02: Investors</p>
               </div>
               <h2 className="mt-5 text-white">
                 Request the LP Information Pack
@@ -454,7 +454,7 @@ export default function ApplyPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-dark/12 text-gold-dark">
                   <Handshake className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <p className="institutional-eyebrow" style={{ color: "#8a6a45" }}>Pathway 03 - Partners</p>
+                <p className="institutional-eyebrow" style={{ color: "#8a6a45" }}>Pathway 03: Partners</p>
               </div>
               <h2 className="mt-5 text-charcoal">
                 Partner With Us

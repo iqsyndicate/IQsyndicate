@@ -27,7 +27,7 @@ import Reveal from "@/components/ui/Reveal";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Four integrated services designed to provide end-to-end support - from founder identification and project preparation, through to institutional capital facilitation and exit.",
+    "Four integrated services designed to provide end-to-end support, from founder identification and project preparation through to institutional capital facilitation and exit.",
 };
 
 const taModules = [
@@ -96,7 +96,7 @@ const aggregationSteps = [
     title: "Term Negotiation & Close",
     body: "Our advisors support founders and investors through term sheet negotiation and final close.",
     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80",
-    alt: "Deal closing - handshake between parties",
+    alt: "Deal closing, handshake between parties",
   },
   {
     n: "06",
@@ -241,7 +241,7 @@ export default function ServicesPage() {
                   {
                     icon: BarChart2,
                     title: "Market Intelligence",
-                    body: "We assist partner institutions in turning data into meaningful insights to properly understand policy, projects, and investment risk - enabling informed business and deployment decisions.",
+    body: "We assist partner institutions in turning data into meaningful insights to properly understand policy, projects, and investment risk, enabling informed business and deployment decisions.",
                   },
                   {
                     icon: Compass,
@@ -282,7 +282,7 @@ export default function ServicesPage() {
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15 md:h-[520px]">
                 <Image
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80"
-                  alt="Strategic advisory session - climate project design and market intelligence"
+                  alt="Strategic advisory session, climate project design and market intelligence"
                   fill
                   sizes="(min-width: 768px) 28vw, 100vw"
                   className="object-cover"
@@ -384,7 +384,7 @@ export default function ServicesPage() {
                   <p className="mt-3 text-[14px] leading-6 text-white/80">
                     Technical assistance is deployed at the firm's cost
                     and is designed to convert to early-stage equity in
-                    the venture - typically at{" "}
+                    the venture, typically at{" "}
                     <span className="font-semibold text-gold-light">
                       3–5%
                     </span>{" "}
@@ -427,7 +427,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80"
-            alt="Solar panels - the clean energy infrastructure financed through the Mobilist Facility"
+            alt="Solar panels, the clean energy infrastructure financed through the Mobilist Facility"
             fill
             sizes="100vw"
             className="object-cover"
@@ -443,7 +443,7 @@ export default function ServicesPage() {
             <p className="mt-5 text-[15px] leading-7 text-white/85">
               The Mobilist Facility is a special-purpose investment
               vehicle that mobilises philanthropic capital -
-              historically deployed as grants - blended with
+                  historically deployed as grants, blended with
               concessional instruments into well-prepared climate
               infrastructure projects.
             </p>
@@ -558,7 +558,7 @@ export default function ServicesPage() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">
                   Whether you are a founder seeking capital, an
                   investor looking for impact-aligned returns, or a
-                  partner institution - we were built for you.
+                  partner institution, we were built for you.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-5">
@@ -583,3 +583,4 @@ export default function ServicesPage() {
     </>
   );
 }
+

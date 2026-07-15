@@ -84,21 +84,21 @@ const pillars = [
   {
     icon: TargetIcon,
     title: "Risk-First Thinking",
-    body: "We seek to understand, absorb, and effectively price early-stage risk - not avoid it. Our returns are compensation for genuine risk-taking.",
+    body: "We seek to understand, absorb, and effectively price early-stage risk, not avoid it. Our returns are compensation for genuine risk-taking.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Search,
     title: "Deep Diligence",
-    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal - not just documentary.",
+    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal, not just documentary.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Layers,
     title: "Aligned Instruments",
-    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage - and not the other way around.",
+    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage, and not the other way around.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
   },
@@ -524,7 +524,7 @@ export default function AboutPage() {
                 <p className="mt-4 text-[15px] leading-7 text-white/82">
                   Whether you are a founder seeking capital, an investor
                   looking for impact-aligned returns, or a partner
-                  institution - we were built for you.
+                institution, we were built for you.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-5">
