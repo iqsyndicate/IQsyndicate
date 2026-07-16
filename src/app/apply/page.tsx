@@ -207,7 +207,7 @@ export default function ApplyPage() {
         }
 
         setSubmitted((prev) => ({ ...prev, [pathwayId]: true }));
-        setToast("Message received. Thank you for reaching out.");
+        setToast("Message received. Thank you for reaching out. If you do not see the confirmation email soon, please check your spam folder.");
         form.reset();
       } catch (err) {
         setError((prev) => ({ ...prev, [pathwayId]: err instanceof Error ? err.message : "Unable to send message." }));
@@ -604,7 +604,7 @@ export default function ApplyPage() {
                   {
                     icon: MapPin,
                     label: "Office",
-                    value: "Lagos & Abuja, Nigeria",
+                    value: "Abuja, Nigeria",
                     href: null,
                   },
                   // {

@@ -31,37 +31,67 @@ function toDisplayLabel(key: string) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function getFormMeta(form: string) {
+type FormMeta = {
+  title: string;
+  internalHeading: string;
+  internalIntro: string;
+  internalSubjectPrefix: string;
+  publicHeading: string;
+  publicIntro: string;
+  publicClosing: string;
+};
+
+function getFormMeta(form: string): FormMeta {
   switch (form) {
     case "founders":
       return {
         title: "Founder Application",
-        heading: "A new founder application has arrived",
-        body: "Thank you for reaching out to IQ Syndicate. We have received your application and will review it shortly.",
+        internalHeading: "New founder application received",
+        internalIntro: "A founder has submitted a technical assistance application through the IQ Syndicate website. Review the details below and follow up directly if needed.",
+        internalSubjectPrefix: "New founder application",
+        publicHeading: "We received your founder application",
+        publicIntro: "Thank you for submitting your application to IQ Syndicate. We have received your details and our team will review them shortly.",
+        publicClosing: "We will be in touch if we need any further information.",
       };
     case "investors":
       return {
         title: "Investor Enquiry",
-        heading: "A new investor enquiry has arrived",
-        body: "Thank you for requesting the Mobilist Facility information pack. We will send the materials to you shortly.",
+        internalHeading: "New investor enquiry received",
+        internalIntro: "An investor or partner has requested the Mobilist Facility information pack. Review the details below and follow up directly if needed.",
+        internalSubjectPrefix: "New investor enquiry",
+        publicHeading: "We received your investor enquiry",
+        publicIntro: "Thank you for requesting the Mobilist Facility information pack. We have received your enquiry and our team will review it shortly.",
+        publicClosing: "We will be in touch with the requested materials as soon as possible.",
       };
     case "partners":
       return {
         title: "Partner Enquiry",
-        heading: "A new partner enquiry has arrived",
-        body: "Thank you for partnering with IQ Syndicate. Our team will review your enquiry and respond shortly.",
+        internalHeading: "New partner enquiry received",
+        internalIntro: "A prospective partner has submitted an enquiry through the IQ Syndicate website. Review the request details below and follow up directly if needed.",
+        internalSubjectPrefix: "New partner enquiry",
+        publicHeading: "We received your partner enquiry",
+        publicIntro: "Thank you for reaching out to IQ Syndicate about a potential partnership. Our team has received your enquiry and will review it shortly.",
+        publicClosing: "We will be in touch if we need any further information.",
       };
     case "subscribe":
       return {
         title: "Newsletter Subscription",
-        heading: "A new subscription request has arrived",
-        body: "Thank you for subscribing to updates from IQ Syndicate. We will share launch updates and platform news with you.",
+        internalHeading: "New newsletter subscription request",
+        internalIntro: "A new newsletter subscription request has arrived through the IQ Syndicate website. Review the contact details below and follow up if needed.",
+        internalSubjectPrefix: "New newsletter subscription",
+        publicHeading: "We received your newsletter subscription request",
+        publicIntro: "Thank you for subscribing to updates from IQ Syndicate. We have received your request and will keep you informed about future platform updates.",
+        publicClosing: "If you do not see this message in your inbox, please check your spam folder.",
       };
     default:
       return {
         title: "New Enquiry",
-        heading: "A new contact form submission has arrived",
-        body: "Thank you for reaching out to IQ Syndicate. We will get back to you shortly.",
+        internalHeading: "New enquiry received",
+        internalIntro: "A new enquiry has arrived through the IQ Syndicate website. Review the details below and follow up directly if needed.",
+        internalSubjectPrefix: "New enquiry",
+        publicHeading: "We received your message",
+        publicIntro: "Thank you for reaching out to IQ Syndicate. We have received your message and our team will review it shortly.",
+        publicClosing: "If you do not see this message in your inbox, please check your spam folder.",
       };
   }
 }
@@ -81,14 +111,14 @@ function buildTableRows(payload: ContactPayload) {
 }
 
 function buildEmailHtml(payload: ContactPayload, recipient: "team" | "sender") {
-  const { title, heading, body } = getFormMeta(payload.form);
-  const isSender = recipient === "sender";
-  const intro = isSender
-    ? "Thank you for reaching out to IQ Syndicate. We have received your message and a member of our team will follow up shortly."
-    : body;
+  const meta = getFormMeta(payload.form);
+  const isTeam = recipient === "team";
+  const heading = isTeam ? meta.internalHeading : meta.publicHeading;
+  const intro = isTeam ? meta.internalIntro : meta.publicIntro;
+  const closing = isTeam ? "Please review the submission details and respond directly if needed." : meta.publicClosing;
 
   const rows = buildTableRows(payload);
-  const subjectLine = `${title}${payload.email ? ` • ${payload.email}` : ""}`;
+  const subjectLine = `${meta.title}${payload.email ? ` • ${payload.email}` : ""}`;
 
   return `
     <div style="font-family: Inter, Arial, sans-serif; background-color: #f7f1e8; padding: 32px 16px; color: #1f2a24;">
@@ -112,7 +142,7 @@ function buildEmailHtml(payload: ContactPayload, recipient: "team" | "sender") {
         </div>
         <div style="padding: 0 32px 32px;">
           <div style="border-top: 1px solid #e9dfcd; padding-top: 16px; font-size: 13px; line-height: 1.7; color: #6b6258;">
-            <p style="margin: 0;">This message was sent by the IQ Syndicate website contact flow.</p>
+            <p style="margin: 0;">${escapeHtml(closing)}</p>
             <p style="margin: 6px 0 0;">If you would like to reach out directly, please contact <a href="mailto:hello@iqsyndicate.org" style="color: #6f1c28; text-decoration: none;">hello@iqsyndicate.org</a>.</p>
             <p style="margin: 6px 0 0;">Kind regards,<br />IQ Syndicate</p>
           </div>
@@ -122,10 +152,10 @@ function buildEmailHtml(payload: ContactPayload, recipient: "team" | "sender") {
 }
 
 function buildTextBody(payload: ContactPayload, recipient: "team" | "sender") {
-  const { title } = getFormMeta(payload.form);
+  const meta = getFormMeta(payload.form);
   const intro = recipient === "sender"
-    ? "Thank you for reaching out to IQ Syndicate. We have received your message and will follow up shortly."
-    : `${title} received from ${payload.email || "an anonymous sender"}.`;
+    ? meta.publicIntro
+    : meta.internalIntro;
 
   return [
     intro,
@@ -136,18 +166,29 @@ function buildTextBody(payload: ContactPayload, recipient: "team" | "sender") {
   ].join("\n");
 }
 
+function getMailHeaders() {
+  return {
+    "List-Unsubscribe": "<mailto:hello@iqsyndicate.org?subject=Unsubscribe>",
+    "Auto-Submitted": "auto-generated",
+    "X-Auto-Response-Suppress": "OOF, AutoReply",
+    "X-Priority": "3",
+    Priority: "normal",
+  };
+}
+
 export async function sendContactEmail(payload: ContactPayload) {
   const recipientEmail = process.env.MAIL_TO || process.env.SMTP_USER || "iqsyndicate.ng@gmail.com";
   const senderEmail = process.env.MAIL_FROM || process.env.SMTP_USER || "noreply@iqsyndicate.org";
   const senderName = process.env.MAIL_FROM_NAME || "IQ Syndicate";
   const from = `${senderName} <${senderEmail}>`;
-  const subject = `${getFormMeta(payload.form).title}${payload.email ? ` | ${payload.email}` : ""}`;
+  const meta = getFormMeta(payload.form);
 
   const teamMail = {
     from,
     to: recipientEmail,
     replyTo: payload.email || senderEmail,
-    subject: `New ${subject}`,
+    subject: `${meta.internalSubjectPrefix}${payload.email ? ` from ${payload.email}` : ""}`,
+    headers: getMailHeaders(),
     html: buildEmailHtml(payload, "team"),
     text: buildTextBody(payload, "team"),
   };
@@ -158,7 +199,9 @@ export async function sendContactEmail(payload: ContactPayload) {
     const senderMail = {
       from,
       to: payload.email,
-      subject: `We received your ${getFormMeta(payload.form).title.toLowerCase()} request`,
+      replyTo: recipientEmail,
+      subject: `We received your ${meta.title.toLowerCase()} request`,
+      headers: getMailHeaders(),
       html: buildEmailHtml(payload, "sender"),
       text: buildTextBody(payload, "sender"),
     };

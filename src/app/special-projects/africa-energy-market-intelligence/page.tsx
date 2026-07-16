@@ -86,7 +86,7 @@ export default function AfricaEnergyIntelligencePage() {
       }
 
       setSubmitted(true);
-      setToast("Message received. Thank you for subscribing.");
+      setToast("Message received. Thank you for subscribing. If you do not see the confirmation email soon, please check your spam folder.");
       setEmail("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unable to subscribe.");
