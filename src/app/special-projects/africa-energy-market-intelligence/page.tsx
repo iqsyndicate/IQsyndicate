@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -49,11 +49,61 @@ const audiences = [
 ];
 
 export default function AfricaEnergyIntelligencePage() {
-  const [email, setEmail]       = useState("");
+  const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!toast) return;
+    const timeout = window.setTimeout(() => setToast(null), 4000);
+    return () => window.clearTimeout(timeout);
+  }, [toast]);
+
+  async function handleSubscribe() {
+    if (!email.trim()) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.set("form", "subscribe");
+      formData.set("email", email.trim());
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to subscribe.");
+      }
+
+      setSubmitted(true);
+      setToast("Message received. Thank you for subscribing.");
+      setEmail("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unable to subscribe.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <>
+      {toast ? (
+        <div className="fixed right-4 top-4 z-50 max-w-sm rounded-2xl border border-forest/20 bg-white px-5 py-4 shadow-2xl shadow-black/10">
+          <p className="text-[13px] font-semibold text-charcoal">{toast}</p>
+          <p className="mt-1 text-[12px] text-ink/60">A confirmation email has been sent to you.</p>
+        </div>
+      ) : null}
+
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="grain relative flex min-h-[72vh] items-end overflow-hidden bg-ink">
         <div className="absolute inset-0">
@@ -95,7 +145,7 @@ export default function AfricaEnergyIntelligencePage() {
             <Reveal direction="left">
               <p className="institutional-eyebrow">The Challenge</p>
               <h2 className="mt-4 text-charcoal">
-                Africa holds immense potential. Capital still doesn't follow.
+                Africa holds immense potential. Capital still doesn&apos;t follow.
               </h2>
             </Reveal>
             <Reveal direction="right">
@@ -205,7 +255,7 @@ export default function AfricaEnergyIntelligencePage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
             <Reveal direction="left">
-              <p className="institutional-eyebrow">Who It's For</p>
+              <p className="institutional-eyebrow">Who It&apos;s For</p>
               <h2 className="mt-4 text-charcoal">
                 Built for every stakeholder in the African energy ecosystem.
               </h2>
@@ -263,7 +313,7 @@ export default function AfricaEnergyIntelligencePage() {
               {submitted ? (
                 <div className="mt-8 flex items-center justify-center gap-3 rounded-xl bg-white/15 p-5 text-white">
                   <CheckCircle2 className="h-5 w-5 text-gold-light" strokeWidth={1.75} />
-                  <p className="text-[14px]">You're on the list. We'll be in touch.</p>
+                  <p className="text-[14px]">You&apos;re on the list. We&apos;ll be in touch.</p>
                 </div>
               ) : (
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -275,18 +325,31 @@ export default function AfricaEnergyIntelligencePage() {
                     className="flex-1 rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 text-[14px] text-white placeholder-white/40 outline-none focus:border-white/50 focus:bg-white/15"
                   />
                   <button
-                    onClick={() => { if (email) setSubmitted(true); }}
-                    className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light"
+                    onClick={handleSubscribe}
+                    disabled={isSubmitting}
+                    className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    Subscribe
+                    {isSubmitting ? "Sending…" : "Subscribe"}
                     <Send className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </button>
                 </div>
               )}
 
-              <p className="mt-5 text-[11px] text-white/45">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
+              {error ? (
+                <p className="mt-4 text-[13px] text-white/85">{error}</p>
+              ) : null}
+
+              {!submitted && !error ? (
+                <p className="mt-5 text-[11px] text-white/45">
+                  We respect your privacy. Unsubscribe at any time.
+                </p>
+              ) : null}
+
+              {submitted ? (
+                <p className="mt-5 text-[11px] text-white/45">
+                  We respect your privacy. Unsubscribe at any time.
+                </p>
+              ) : null}
             </div>
           </Reveal>
         </Container>

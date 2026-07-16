@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -175,16 +175,57 @@ function SuccessBanner({ message }: { message: string }) {
 
 export default function ApplyPage() {
   const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
+  const [submitting, setSubmitting] = useState<Record<string, boolean>>({});
+  const [error, setError] = useState<Record<string, string | null>>({});
+  const [toast, setToast] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!toast) return;
+    const timeout = window.setTimeout(() => setToast(null), 4000);
+    return () => window.clearTimeout(timeout);
+  }, [toast]);
 
   function handleSubmit(pathwayId: string) {
-    return (e: React.FormEvent) => {
+    return async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      setSubmitted((prev) => ({ ...prev, [pathwayId]: true }));
+      setSubmitting((prev) => ({ ...prev, [pathwayId]: true }));
+      setError((prev) => ({ ...prev, [pathwayId]: null }));
+
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      formData.set("form", pathwayId);
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || "Unable to send message.");
+        }
+
+        setSubmitted((prev) => ({ ...prev, [pathwayId]: true }));
+        setToast("Message received. Thank you for reaching out.");
+        form.reset();
+      } catch (err) {
+        setError((prev) => ({ ...prev, [pathwayId]: err instanceof Error ? err.message : "Unable to send message." }));
+      } finally {
+        setSubmitting((prev) => ({ ...prev, [pathwayId]: false }));
+      }
     };
   }
 
   return (
     <>
+      {toast ? (
+        <div className="fixed right-4 top-4 z-50 max-w-sm rounded-2xl border border-forest/20 bg-white px-5 py-4 shadow-2xl shadow-black/10">
+          <p className="text-[13px] font-semibold text-charcoal">{toast}</p>
+          <p className="mt-1 text-[12px] text-ink/60">A confirmation email has been sent to you.</p>
+        </div>
+      ) : null}
+
       {/* ─────────────────────────────────────────────
           HERO - action-first: cream bg, headline,
           three large pathway cards as immediate anchors.
@@ -320,11 +361,15 @@ export default function ApplyPage() {
                       rows={3}
                       placeholder="Financial modelling, legal structuring, market strategy, etc."
                     />
+                    {error["founders"] ? (
+                      <p className="rounded-xl border border-primary/15 bg-primary/8 px-4 py-3 text-[13px] text-primary">{error["founders"]}</p>
+                    ) : null}
                     <button
                       type="submit"
-                      className="group inline-flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-light"
+                      disabled={submitting["founders"]}
+                      className="group inline-flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                      Submit Application
+                      {submitting["founders"] ? "Sending…" : "Submit Application"}
                       <Send className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </button>
                   </form>
@@ -427,11 +472,15 @@ export default function ApplyPage() {
                         className="w-full resize-none rounded-xl border border-white/20 bg-white/8 px-4 py-3 text-[14px] text-white placeholder-white/25 outline-none transition focus:border-white/40 focus:ring-2 focus:ring-white/15"
                       />
                     </div>
+                    {error["investors"] ? (
+                      <p className="rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-[13px] text-white/90">{error["investors"]}</p>
+                    ) : null}
                     <button
                       type="submit"
-                      className="group inline-flex w-full items-center justify-center gap-2 bg-white px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-forest shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light hover:text-ink"
+                      disabled={submitting["investors"]}
+                      className="group inline-flex w-full items-center justify-center gap-2 bg-white px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-forest shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light hover:text-ink disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                      Request Information Pack
+                      {submitting["investors"] ? "Sending…" : "Request Information Pack"}
                       <Send className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </button>
                   </form>
@@ -514,11 +563,15 @@ export default function ApplyPage() {
                       rows={4}
                       placeholder="Tell us about your organisation, what you are working on, and how you see the partnership working…"
                     />
+                    {error["partners"] ? (
+                      <p className="rounded-xl border border-gold-dark/15 bg-gold-dark/8 px-4 py-3 text-[13px] text-gold-dark">{error["partners"]}</p>
+                    ) : null}
                     <button
                       type="submit"
-                      className="group inline-flex w-full items-center justify-center gap-2 bg-gold-dark px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-dark/90"
+                      disabled={submitting["partners"]}
+                      className="group inline-flex w-full items-center justify-center gap-2 bg-gold-dark px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-dark/90 disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                      Send Enquiry
+                      {submitting["partners"] ? "Sending…" : "Send Enquiry"}
                       <Send className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </button>
                   </form>
@@ -545,8 +598,8 @@ export default function ApplyPage() {
                   {
                     icon: Mail,
                     label: "General Enquiries",
-                    value: "hello@iqsyndicate.com",
-                    href: "mailto:hello@iqsyndicate.com",
+                    value: "hello@iqsyndicate.org",
+                    href: "mailto:hello@iqsyndicate.org",
                   },
                   {
                     icon: MapPin,

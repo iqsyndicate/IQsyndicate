@@ -156,11 +156,11 @@ export default function SiteFooter() {
             </p>
             <div className="mt-5 space-y-3">
               <a
-                href="mailto:hello@iqsyndicate.com"
+                href="mailto:hello@iqsyndicate.org"
                 className="flex items-center gap-2.5 text-[13.5px] text-white/65 transition-colors hover:text-white"
               >
                 <Mail className="h-3.5 w-3.5 shrink-0 text-gold-light/60" strokeWidth={1.75} />
-                hello@iqsyndicate.com
+                hello@iqsyndicate.org
               </a>
               {/* <a
                 href="https://linkedin.com"

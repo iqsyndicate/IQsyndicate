@@ -155,8 +155,8 @@ export default function PrivacyPage() {
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">Email</p>
-                  <a href="mailto:hello@iqsyndicate.com" className="mt-2 inline-flex items-center gap-2 font-semibold text-white">
-                    hello@iqsyndicate.com
+                  <a href="mailto:hello@iqsyndicate.org" className="mt-2 inline-flex items-center gap-2 font-semibold text-white">
+                    hello@iqsyndicate.org
                     <Mail className="h-4 w-4" />
                   </a>
                 </div>
