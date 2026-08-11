@@ -25,6 +25,8 @@ export const dynamic = "force-static";
 
 const team = [
   { name: "Gift Adaugo",     role: "Partner", focus: null,                                              tone: "photo-duotone-forest"   },
+  { name: "Ghenzini Edet",     role: "Partner", focus: null,                                              tone: "photo-duotone-forest"   },
+
   { name: "Anietie Udoaka",  role: "Head",    focus: "Platform & Product Development",                  tone: "photo-duotone-gold"     },
   { name: "Francis Nwalibe", role: "Head",    focus: "Risk & Private Credit",                           tone: "photo-duotone-burgundy" },
   { name: "Regina Godwin",   role: "Lead",    focus: "Insights, Market Research & AI Intelligence",   tone: "photo-duotone-forest"   },
@@ -53,7 +55,7 @@ export default function TeamPage() {
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-6 max-w-2xl text-[15.5px] leading-7 text-ink/72">
-              A founding group united by a shared conviction — bringing together
+              A founding group united by a shared conviction, bringing together
               expertise in climate finance, platform engineering, private credit,
               market intelligence, and business development.
             </p>
