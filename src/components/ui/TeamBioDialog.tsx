@@ -16,21 +16,22 @@ export default function TeamBioDialog({ name, role, focus, bio }: TeamBioDialogP
   useEffect(() => {
     const dialog = document.getElementById(dialogId);
     if (!(dialog instanceof HTMLDialogElement)) return;
+    const modal = dialog;
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape" && dialog.open) dialog.close();
+      if (event.key === "Escape" && modal.open) modal.close();
     }
 
     function handleClose() {
       document.body.classList.remove("overflow-hidden");
     }
 
-    dialog.addEventListener("keydown", handleKeyDown);
-    dialog.addEventListener("close", handleClose);
+    modal.addEventListener("keydown", handleKeyDown);
+    modal.addEventListener("close", handleClose);
 
     return () => {
-      dialog.removeEventListener("keydown", handleKeyDown);
-      dialog.removeEventListener("close", handleClose);
+      modal.removeEventListener("keydown", handleKeyDown);
+      modal.removeEventListener("close", handleClose);
     };
   }, [dialogId]);
 
