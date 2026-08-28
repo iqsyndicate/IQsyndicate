@@ -21,7 +21,7 @@ export const NAV_LINKS: NavLink[] = [
     subLinks: [
       { label: "Mobilist Facility",                     href: "/special-projects/mobilist-facility",                         desc: "Blended finance vehicle for climate ventures" },
       { label: "Africa Energy Market Intelligence",     href: "/special-projects/africa-energy-market-intelligence",        desc: "AI-powered platform closing Africa's energy data gap" },
-      { label: "Consumer Financing Project",            href: "/special-projects/consumer-financing-project",               desc: "Solar finance for households and MSMEs" },
+      // { label: "Consumer Financing Project",            href: "/special-projects/consumer-financing-project",               desc: "Solar finance for households and MSMEs" },
     ],
   },
   { label: "Impact", href: "/impact" },

@@ -10,7 +10,7 @@ const footerNav = [
   { label: "Investment Process", href: "/investment-process" },
   { label: "Mobilist Facility", href: "/special-projects/mobilist-facility" },
   { label: "Africa Energy Market Intelligence", href: "/special-projects/africa-energy-market-intelligence" },
-  { label: "Consumer Financing Project", href: "/special-projects/consumer-financing-project" },
+  // { label: "Consumer Financing Project", href: "/special-projects/consumer-financing-project" },
   { label: "Impact", href: "/impact" },
   { label: "Team", href: "/team" },
   { label: "Apply", href: "/apply" },
