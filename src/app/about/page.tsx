@@ -22,6 +22,10 @@ import {
   Sprout,
   TrendingUp,
   Globe2,
+  Lightbulb,
+  Briefcase,
+  Handshake,
+  Sun,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
@@ -49,28 +53,28 @@ const modelStages = [
   {
     icon: Compass,
     title: "Climate Advisory",
-    body: "Strategic support across project design, market intelligence, and product validation for climate founders and institutional partners.",
+    body: "Strategic support across project design, market intelligence, and product validation for climate project developers and institutional partners.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Settings2,
     title: "Technical Assistance",
-    body: "A 6–18 month bespoke programme deploying specialists in financial modelling, legal structuring, operations, and market strategy.",
+    body: "A 6–18-month bespoke programme deploying transaction specialists in financial modelling, product structuring, legal, operations, and market strategy to assist project developers in closing the commercial gap.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Shuffle,
-    title: "Mobilist Facility",
-    body: "A blended finance vehicle combining philanthropic first-loss capital with concessional debt to fund investment-ready climate ventures.",
+    title: "Capital Mobilisation",
+    body: "We structure investment vehicles and mobilize capital that are patient and tailored to the investment needs and stage of small- to medium-scale climate infrastructure projects in Africa.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Boxes,
-    title: "Portfolio Aggregation",
-    body: "Bundling performing ventures into institutional-grade vehicles and connecting them to large-scale capital through structured deal rooms.",
+    title: "Investment Facilitation and Portfolio Aggregation",
+    body: "We connect project developers to investment opportunities, and bundle performing projects into institutional-grade vehicles and connect them to large-scale capital through structured deal rooms and roadshows.",
     tone: "bg-ink text-white",
     iconTone: "bg-gold-light/20 text-gold-light",
   },
@@ -139,6 +143,14 @@ const theoryOfChange = [
   },
 ];
 
+const cultureValues = [
+  { icon: Lightbulb, title: "Idea Meritocracy", body: "We promote the best idea regardless where it comes from, without regard to hierarchy." },
+  { icon: Briefcase, title: "Meaningful Work", body: "We consider our work important and produce greatness together with those we serve." },
+  { icon: Handshake, title: "Meaningful Relationships", body: "We build lasting engagement with communities and partners through mutual caring." },
+  { icon: ShieldCheck, title: "Truthfulness", body: "We conduct ourselves in ways that promote and guarantee trust at all times." },
+  { icon: Sun, title: "Radical Optimism", body: "We believe in positive thinking and reflect that belief in the work we do and the instruments we structure." },
+];
+
 const governance = [
   {
     icon: Scale,
@@ -186,10 +198,10 @@ export default function AboutPage() {
               <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
                 We are a specialised climate infrastructure and
                 advisory firm established to close the financing gap for
-                locally led climate ventures in Africa.
+                locally led, small-to-medium-scale climate infrastructure projects in Africa.
               </p>
               <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
-                Our approach combines climate advisory, technical assistance, and structured capital solutions. Explore how these services work together on our services page.
+                Our approach combines climate advisory, technical assistance, and structured capital solutions.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-7">
                 <Link
@@ -258,11 +270,9 @@ export default function AboutPage() {
                   style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2 }}
                 >
                   To structure the right liquidity, prepared to take on
-                  appropriate risk.
+                  appropriate risk that enables the scalability of African-led,
+                  small-to-medium-scale climate infrastructure.
                 </h2>
-                <p className="mt-3 max-w-md text-[13px] leading-6 text-white/82">
-                  That enables the scalability of African-led, small-to-medium-scale climate infrastructure.
-                </p>
               </div>
             </Reveal>
 
@@ -279,14 +289,48 @@ export default function AboutPage() {
                   style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2 }}
                 >
                   A self-sustaining climate infrastructure ecosystem where
-                  African-led small-to-medium-scale climate infrastructure scales globally.
+                  African-led small-to-medium-scale climate infrastructure
+                  scales globally, delivering sustainable prosperity and
+                  measurable investment returns.
                 </h2>
-                <p className="mt-3 max-w-md text-[13px] leading-6 text-white/82">
-                  Delivering sustainable prosperity and measurable investment
-                  returns.
-                </p>
               </div>
             </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ───────────────────────── CULTURE & CORE VALUES ───────────────────────── */}
+      <section className="bg-cream py-12 md:py-16">
+        <Container>
+          <Reveal className="mx-auto max-w-4xl text-center">
+            <p className="institutional-eyebrow">Our Culture &amp; Core Values</p>
+            <h2 className="mt-4 text-charcoal">How we work together</h2>
+            <p className="mx-auto mt-5 max-w-3xl text-[15px] leading-7 text-ink/72">
+              We operate a culture driven by idea meritocracy, where meaningful work and meaningful relationships are the goals, and absolute truthfulness and consistent trust lead the path to achieving them.
+            </p>
+          </Reveal>
+
+          <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-6">
+            {cultureValues.map((value, i) => {
+              const Icon = value.icon;
+              const dark = i % 2 === 0;
+              return (
+                <Reveal
+                  key={value.title}
+                  direction={i < 3 ? "up" : "down"}
+                  delay={i * 70}
+                  className={`md:col-span-2 ${i === 3 ? "md:col-start-2" : i === 4 ? "md:col-start-4" : ""}`}
+                >
+                  <div className={`h-full rounded-3xl border p-6 shadow-sm ${dark ? "border-primary bg-primary text-white" : "border-primary/35 bg-white text-charcoal"}`}>
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-full ${dark ? "bg-white text-primary" : "bg-primary text-white"}`}>
+                      <Icon className="h-5 w-5" strokeWidth={1.8} />
+                    </div>
+                    <h3 className={`mt-5 text-xl ${dark ? "text-white" : "text-primary"}`}>{value.title}</h3>
+                    <p className={`mt-3 text-[13.5px] leading-6 ${dark ? "text-white/82" : "text-ink/72"}`}>{value.body}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -345,9 +389,6 @@ export default function AboutPage() {
         <Container>
           <Reveal className="mb-16 max-w-2xl">
             <p className="institutional-eyebrow">Core Service Areas</p>
-            <p className="mt-3 text-[15px] leading-7 text-ink/72">
-              We do not simply deploy capital. We help build a replicable, self-sustaining ecosystem for Africa-owned climate infrastructure, with depth and inclusion at its centre
-            </p>
           </Reveal>
 
           <div className="relative">
@@ -442,7 +483,6 @@ export default function AboutPage() {
       </section> */}
 
       {/* ───────────────────────── THEORY OF CHANGE ───────────────────────── */}
-      {false && (
       <section className="relative overflow-hidden bg-forest py-10 text-white md:py-14">
         <div
           className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gold-light/10 blur-3xl"
@@ -451,16 +491,6 @@ export default function AboutPage() {
         <Container className="relative">
           <Reveal className="mb-14 max-w-2xl">
             <p className="eyebrow-on-dark">Theory of Change</p>
-            <h2 className="mt-4 text-white">
-              If Foundations Are Built, Scale Follows
-            </h2>
-            <p className="mt-5 text-[15px] leading-7 text-white/76">
-              Our Theory of Change is grounded in the
-              recognition that the structural exclusion of indigenous
-              African climate ventures from fit-for-purpose capital is
-              not an isolated financing challenge. It is the proximate
-              cause of a broader development failure.
-            </p>
           </Reveal>
 
           <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-stretch">
@@ -493,7 +523,6 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
-      )}
 
       {/* ───────────────────────── GOVERNANCE ───────────────────────── */}
       {/* <section className="bg-white py-20 md:py-28">

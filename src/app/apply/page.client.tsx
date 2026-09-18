@@ -37,9 +37,9 @@ const pathways = [
     id: "investors",
     icon: Building2,
     label: "For Investors",
-    headline: "Request the LP Information Pack",
+    headline: "Request for Project Information",
     description:
-      "If you represent a philanthropic foundation, development finance institution, or impact-aligned investor interested in the Mobilist Facility, we would welcome a conversation.",
+      "If you represent a philanthropic foundation, development finance institution, or impact-aligned investor investing in climate infrastructure projects, we would welcome a conversation.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
@@ -51,7 +51,7 @@ const pathways = [
     id: "partners",
     icon: Handshake,
     label: "For Partners",
-    headline: "Partner With we",
+    headline: "Partner With Us",
     description:
       "We work with accelerators, bilateral agencies, multilateral institutions, and ecosystem organisations through referral agreements, TA co-delivery arrangements, and data and intelligence partnerships.",
     tone: "bg-gold-dark text-white",
@@ -400,24 +400,7 @@ export default function ApplyPage() {
               <p className="mt-5 text-[15px] leading-7 text-white/78">
                 If you represent a philanthropic foundation, development finance institution, or impact-aligned investor investing in climate infrastructure projects, we would welcome a conversation.
               </p>
-              <p className="mt-6 text-[15px] leading-7 text-white/78">
-                The LP Information Pack includes the full facility term
-                sheet, capital structure details, impact framework, and
-                indicative return projections.
-              </p>
 
-              <div className="card-float mt-8 glass-card rounded-2xl p-6 shadow-xl shadow-black/20">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-light">
-                  Anchor LP Target
-                </p>
-                <p className="mt-2 font-heading text-2xl text-white">
-                  Philanthropic foundations and DFIs
-                </p>
-                <p className="mt-2 text-[13px] leading-5 text-white/68">
-                  Open to deploying first-loss or concessional capital at
-                  the facility level.
-                </p>
-              </div>
             </Reveal>
 
             {/* Right: form */}

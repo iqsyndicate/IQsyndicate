@@ -89,8 +89,8 @@ const stats = [
     icon: Users,
     value: null,
     prefix: "> ",
-    display: "> 1000",
-    label: "Active climate ventures in Africa, the majority pre-Series A",
+    display: "> 10,000",
+    label: "Active climate ventures in Africa",
     tone: "gold" as const,
     direction: "right" as const,
   },
@@ -100,7 +100,7 @@ const services = [
   {
     n: "01",
     title: "Climate Advisory",
-    body: "Strategic support across project design, market intelligence, and product validation for climate founders and institutional partners.",
+    body: "Strategic support across project design, market intelligence, and product validation for climate project developers and institutional partners.",
     image:
       "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80",
     tone: "burgundy" as const,
@@ -111,7 +111,7 @@ const services = [
   {
     n: "02",
     title: "Technical Assistance",
-    body: "A 6–18 month bespoke programme deploying specialists in financial modelling, legal structuring, operations, and market strategy.",
+    body: "A 6–18-month bespoke programme deploying transaction specialists in financial modelling, product structuring, legal, operations, and market strategy.",
     image:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80",
     tone: "forest" as const,
@@ -121,8 +121,8 @@ const services = [
   },
   {
     n: "03",
-    title: "Mobilist Facility",
-    body: "A blended finance vehicle combining philanthropic first-loss capital with concessional debt to fund investment-ready climate ventures.",
+    title: "Capital Mobilization",
+    body: "We structure investment vehicles and mobilize patient capital tailored to the investment needs and stage of small- to medium-scale climate infrastructure projects in Africa.",
     image:
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
     tone: "gold" as const,
@@ -133,7 +133,7 @@ const services = [
   {
     n: "04",
     title: "Portfolio Aggregation",
-    body: "Bundling performing ventures into institutional-grade vehicles and connecting them to large-scale capital through structured deal rooms.",
+    body: "Connecting project developers to investment opportunities and bundling performing projects into institutional-grade vehicles for large-scale capital.",
     image:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=80",
     tone: "burgundy" as const,
@@ -154,21 +154,21 @@ const pillars = [
   {
     icon: Search,
     title: "Deep Diligence",
-    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal, not just documentary.",
+    body: "We work alongside climate innovations for months to learn before structuring capital. Our due diligence is qualitative, AI-driven, and longitudinal.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Layers,
     title: "Aligned Instruments",
-    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage, and not the other way around.",
+    body: "We design instruments that are aligned with the cash flow and investment needs of climate projects. The instrument must fit the venture's stage, and not the other way around.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Hourglass,
     title: "Patient Capital",
-    body: "We define success over a 5–10 year horizon, not a 24-month return cycle. Our LPs share this horizon.",
+    body: "We define success over a 5–10-year horizon, not a 24-month return cycle. Our partners must share this horizon.",
     tone: "bg-ink text-white",
     iconTone: "bg-gold-light/20 text-gold-light",
   },
@@ -242,17 +242,13 @@ export default function HomePage() {
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="institutional-eyebrow">The Problem</p>
             <h2 className="mt-4 text-charcoal">
-              The Financing Gap Is Structural
+              The Financing Gap
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-[15.5px] leading-7 text-ink/72">
-              Despite hundreds of billions committed to climate finance
-              globally, indigenous African climate entrepreneurs are
-              systematically excluded from the capital they need. The
-              investment criteria of commercial banks, private
-              funds, and development finance institutions are calibrated
-              for mature businesses, leaving early-stage African climate
-              founders invisible to the very capital markets that should
-              serve them.
+              Despite hundreds of billions of dollars committed to climate finance globally, African-led and small- to medium-scale climate infrastructure projects remain systematically underserved by available capital. The challenge is not simply a shortage of finance, but a persistent mismatch between the way capital is structured and the realities of projects in African markets.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-[15.5px] leading-7 text-ink/72">
+              Commercial banks, private equity and debt funds, and development finance institutions typically apply investment thresholds, ticket sizes, collateral requirements, and transaction structures designed for larger, more mature businesses. As a result, viable small- and medium-scale climate infrastructure projects, often developed by indigenous African enterprises, fall below the minimum scale required to attract institutional capital.
             </p>
           </Reveal>
 
@@ -309,11 +305,7 @@ export default function HomePage() {
               Four Integrated Services. One End-to-End Pathway.
             </h2>
             <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              We provide full-cycle support to climate
-              infrastructure projects. Each service addresses a specific
-              failure point in the African climate finance ecosystem and
-              creates a comprehensive pathway from founder identification
-              to institutional capital readiness.
+              We provide full-cycle support to climate infrastructure projects.
             </p>
           </Reveal>
 
@@ -323,12 +315,12 @@ export default function HomePage() {
                 key={service.title}
                 direction={service.direction}
                 delay={i * 100}
-                className={i === 3 ? "md:-mt-36 lg:-mt-44" : ""}
+                className=""
               >
                 <Link
                   href={service.href}
                   className={`card-float group relative block overflow-hidden rounded-2xl shadow-lg shadow-black/10 ${
-                    service.size === "lg" ? "h-[420px] md:h-[480px]" : "h-[280px] md:h-[300px]"
+                    "h-[210px] md:h-[230px]"
                   }`}
                 >
                   <Image
@@ -341,18 +333,18 @@ export default function HomePage() {
                   <div className={`absolute inset-0 ${toneClasses[service.tone]}`} />
                   <div className="absolute inset-0 bg-black/14" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/86 via-black/34 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-between p-7 md:p-8">
-                    <span className="font-heading text-2xl text-white/70">
+                  <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-6">
+                    <span className="font-heading text-xl text-white/70">
                       {service.n}
                     </span>
                     <div>
-                      <h3 className="text-3xl text-white md:text-4xl">
+                      <h3 className="text-2xl text-white md:text-3xl">
                         {service.title}
                       </h3>
-                      <p className="mt-3 max-w-sm text-[14px] leading-6 text-white/85">
+                      <p className="mt-2 max-w-sm text-[13px] leading-5 text-white/85">
                         {service.body}
                       </p>
-                      <span className="mt-4 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
+                      <span className="mt-3 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
                         Learn More
                         {/* <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /> */}
                       </span>
@@ -371,14 +363,9 @@ export default function HomePage() {
         <Container>
           <Reveal className="mb-12 max-w-xl">
             <p className="institutional-eyebrow">Our Investment Philosophy</p>
-            <h2 className="mt-4 text-charcoal">
-              Risk absorption is the scarcest input in Africa.
-            </h2>
+
             <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              Our philosophy rests on a single premise: risk absorption
-              at the earliest stage of climate infrastructure project
-              development is the most valuable and scarce input in
-              Africa.
+              Our philosophy rests on a single premise: risk absorption at the earliest stage of climate infrastructure project development is the most valuable and scarce input in Africa.
             </p>
           </Reveal>
 

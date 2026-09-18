@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, ArrowUpRight, ChevronDown, Grid2x2 } from "lucide-react";
+import { Menu, ArrowUpRight, ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Container from "@/components/ui/Container";
 import MobileMenu from "./MobileMenu";
-import { NAV_LINKS, NAV_SERVICES } from "@/lib/nav-data";
+import { NAV_LINKS } from "@/lib/nav-data";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const svcTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -28,6 +29,7 @@ export default function Header() {
   useEffect(() => {
     setServicesOpen(false);
     setProjectsOpen(false);
+    setActiveDropdown(null);
     setMobileOpen(false);
   }, [pathname]);
 
@@ -41,17 +43,19 @@ export default function Header() {
     svcTimer.current = setTimeout(() => setServicesOpen(false), 180);
   };
 
-  const openPrj = () => {
+  const openPrj = (label: string) => {
     clearTimeout(prjTimer.current);
     setProjectsOpen(true);
     setServicesOpen(false);
+    setActiveDropdown(label);
   };
 
   const closePrj = () => {
-    prjTimer.current = setTimeout(() => setProjectsOpen(false), 180);
+    prjTimer.current = setTimeout(() => {
+      setProjectsOpen(false);
+      setActiveDropdown(null);
+    }, 180);
   };
-
-  const specialProjects = NAV_LINKS.find((link) => link.hasSubLinks)?.subLinks ?? [];
 
   return (
     <>
@@ -79,34 +83,18 @@ export default function Header() {
                 const isActive =
                   pathname === link.href || (link.href !== "#" && pathname.startsWith(link.href));
 
-                if (link.hasDropdown) {
-                  return (
-                    <div key={link.href} className="relative" onMouseEnter={openSvc} onMouseLeave={closeSvc}>
-                      <button
-                        type="button"
-                        aria-expanded={servicesOpen}
-                        aria-haspopup="true"
-                        className={`group flex items-center gap-1 rounded-md px-3 py-2 text-[11.5px] font-semibold uppercase tracking-[0.12em] transition-colors ${isActive || servicesOpen ? "text-primary" : "text-charcoal/65 hover:text-primary"}`}
-                      >
-                        {link.label}
-                        <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${servicesOpen ? "rotate-180 text-primary" : ""}`} />
-                      </button>
-                    </div>
-                  );
-                }
-
                 if (link.hasSubLinks) {
-                  const isSpActive = (link.subLinks ?? []).some((subLink) => pathname.startsWith(subLink.href));
+                  const isMenuActive = pathname.startsWith(link.href);
                   return (
-                    <div key={link.label} className="relative" onMouseEnter={openPrj} onMouseLeave={closePrj}>
+                    <div key={link.label} className="relative" onMouseEnter={() => openPrj(link.label)} onMouseLeave={closePrj}>
                       <button
                         type="button"
-                        aria-expanded={projectsOpen}
+                        aria-expanded={projectsOpen && activeDropdown === link.label}
                         aria-haspopup="true"
-                        className={`group flex items-center gap-1 rounded-md px-3 py-2 text-[11.5px] font-semibold uppercase tracking-[0.12em] transition-colors ${isSpActive || projectsOpen ? "text-primary" : "text-charcoal/65 hover:text-primary"}`}
+                        className={`group flex items-center gap-1 rounded-md px-3 py-2 text-[11.5px] font-semibold uppercase tracking-[0.12em] transition-colors ${isMenuActive || activeDropdown === link.label ? "text-primary" : "text-charcoal/65 hover:text-primary"}`}
                       >
                         {link.label}
-                        <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${projectsOpen ? "rotate-180 text-primary" : ""}`} />
+                        <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${activeDropdown === link.label ? "rotate-180 text-primary" : ""}`} />
                       </button>
                     </div>
                   );
@@ -153,84 +141,17 @@ export default function Header() {
         </Container>
 
         <div
-          onMouseEnter={openSvc}
-          onMouseLeave={closeSvc}
-          className={`absolute left-0 right-0 top-full border-t border-border bg-white transition-all duration-300 ${servicesOpen ? "pointer-events-auto translate-y-0 opacity-100 shadow-2xl shadow-black/12" : "pointer-events-none -translate-y-3 opacity-0"}`}
-        >
-          <Container className="py-7">
-            <div className="grid grid-cols-4 gap-4">
-              {NAV_SERVICES.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <Link
-                    key={service.n}
-                    href={service.href}
-                    onClick={() => setServicesOpen(false)}
-                    className={`group relative overflow-hidden rounded-2xl p-6 text-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/18 ${service.tone}`}
-                  >
-                    <span className="pointer-events-none absolute right-3 top-2 select-none font-heading text-[5.5rem] leading-none text-white/8">
-                      {service.n}
-                    </span>
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${service.iconTone}`}>
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-4 font-heading text-[1.35rem] leading-tight text-white">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-[12px] leading-5 text-white/70">{service.body}</p>
-                    <div className="mt-5 inline-flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.15em] text-white/75 transition-colors group-hover:text-white">
-                      Learn more <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
-              <p className="text-[12px] text-ink/52">Four integrated services across the full investment journey.</p>
-              <Link
-                href="/services"
-                onClick={() => setServicesOpen(false)}
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary hover:text-primary-light"
-              >
-                View all services <ArrowUpRight className="h-3 w-3" />
-              </Link>
-            </div>
-          </Container>
-        </div>
-
-        <div
-          onMouseEnter={openPrj}
+          onMouseEnter={() => clearTimeout(prjTimer.current)}
           onMouseLeave={closePrj}
           className={`absolute left-0 right-0 top-full border-t border-border bg-white transition-all duration-300 ${projectsOpen ? "pointer-events-auto translate-y-0 opacity-100 shadow-2xl shadow-black/12" : "pointer-events-none -translate-y-3 opacity-0"}`}
         >
-          <Container className="py-7">
-            <div className="grid grid-cols-3 gap-4">
-              {specialProjects.map((sub, index) => {
-                const tones = ["bg-primary", "bg-forest", "bg-gold-dark"] as const;
-                return (
-                  <Link
-                    key={sub.href}
-                    href={sub.href}
-                    onClick={() => setProjectsOpen(false)}
-                    className={`group relative overflow-hidden rounded-2xl p-6 text-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/18 ${tones[index % tones.length]}`}
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/65">Special Project</p>
-                        <h3 className="mt-3 font-heading text-[1.35rem] leading-tight text-white">{sub.label}</h3>
-                      </div>
-                      <Grid2x2 className="h-5 w-5 text-white/55" />
-                    </div>
-                    {sub.desc && <p className="mt-4 max-w-sm text-[12px] leading-5 text-white/78">{sub.desc}</p>}
-                    <div className="mt-5 inline-flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.15em] text-white/78">
-                      Learn more <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="mt-6 border-t border-border pt-4">
-              <p className="text-[12px] text-ink/52">Three focused initiatives across climate intelligence and finance.</p>
+          <Container className="py-3">
+            <div className="flex flex-col">
+              {(NAV_LINKS.find((link) => link.label === activeDropdown)?.subLinks ?? []).map((sub) => (
+                <Link key={sub.href} href={sub.href} onClick={() => setProjectsOpen(false)} className="border-b border-border px-3 py-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-charcoal/70 transition-colors last:border-b-0 hover:bg-cream hover:text-primary">
+                  {sub.label}
+                </Link>
+              ))}
             </div>
           </Container>
         </div>

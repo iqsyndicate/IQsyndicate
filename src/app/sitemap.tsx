@@ -10,6 +10,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
     // "investment-process",
     // "impact",
     "team",
+    "team/advisors",
     "apply",
     "privacy",
     // "special-projects/mobilist-facility",

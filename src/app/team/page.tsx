@@ -39,28 +39,28 @@ const advisoryBoard = [
   {
     name: "Koye Alaba",
     role: "Advisor",
-    focus: "Clean Energy Transactions",
+    focus: "GreenMax Capital Group",
     image: "/images/advisory/koye Alaba.png",
     bio: "Koye Alaba is the Director of Off-Grid Transaction Advisory at GreenMax Capital Group. Koye has a decade of experience in the clean energy and energy access sectors, specializing in project finance and development, transaction advisory, investment readiness support, financial modeling, market research and analysis, fund design, and financial due diligence. Koye is a licensed Project Management Professional, and he holds an M.Sc. in Technical Entrepreneurship and Management from the University of Rochester in New York and a Certificate in Climate and Renewable Energy Finance from the Frankfurt School of Finance and Management.",
   },
   {
     name: "Esemi Sunday",
     role: "Advisor",
-    focus: "Financial Management & Regulatory Compliance",
+    focus: "United Nations Development Programme",
     image: "/images/advisory/Esemi Sunday.png",
     bio: "Esemi Sunday is a Chartered Accountant and Finance Management Specialist with over 15 years of experience in financial management, audit, donor-funded programmes, grants management, and institutional capacity strengthening. He has held finance leadership and consulting roles with UNICEF Nigeria, Knowsoft Consulting Ltd., the Bank of Industry's BRAVE Women Programme, United Purpose, Concern Universal, and Okolo Okeji & Co., leading financial management system strengthening, donor assurance, financial reporting, procurement oversight, and compliance initiatives for projects funded by UNICEF, the European Union, USAID, UNOPS, We-Fi, and other development partners. He is recognized for developing innovative financial management solutions that enhance transparency, strengthen internal controls, improve donor compliance, and support sustainable organizational performance.",
   },
   {
     name: "Miguel Schloss",
     role: "Advisor",
-    focus: "Institutional Strategy, Governance & Global Partnerships",
+    focus: "Surinvest Ltda.",
     image: "/images/advisory/Miguel Schloss.png",
-    bio: "Miguel Schloss is President of Surinvest Ltda., a member of the Bretton Woods Committee for the World Bank and IMF, and a Trustee of the Global Legal Information Network Foundation. He was a former Executive Director of Transparency International and Director of Corporate and Budget Planning at the World Bank. He was also a member of the Steering Committee of the Caspian Sea Revenue Board, an Expert Advisory Board member of Dalberg Global Development Advisors, and CEO of their Latin America office in Chile. He has also served as Managing Partner of DamConsult Ltd. and External Reviewer of the World Bank Quality Assurance Panel.",
+    bio: "Miguel Schloss is Chief Executive of Surinvest Ltda. and a member of several boards and governing bodies of international entities, with responsibilities spanning oversight, strategy, policy formulation, senior management, governance, and corporate development. His experience includes planning and budgeting; project identification, preparation, supervision, and restructuring; lending and cofinancing negotiations; and liaison with senior levels in governments, international organisations, civil society, and private entities. With over 35 years in leadership positions, he has led the design, appraisal, supervision, restructuring, and quality assurance of more than 50 projects worldwide. As Division Chief of a World Bank Technical Department and later as Director of Corporate Budget and Strategic Planning, he led the development of a three-year $5 billion reform programme redirecting human and financial resources, policies, and programmes to address emerging development issues. He was a former Executive Director of Transparency International during its formative years, leading its expansion to more than 40 countries worldwide. He has also served as Managing Partner of D&M Consult Ltd., a business planning consulting corporation, and as an Expert Advisory Board member of Dalberg Global Development Advisors, an international strategic advisory firm operating across more than 20 offices on five continents. He is a member of The Bretton Woods Committee, which promotes global economic and financial cooperation and supports the effectiveness of international financial institutions. He has also served as Executive Committee and Advisory Board Member of Transparency International Spain and Chile, respectively, and as an Advisory Board and Steering Committee member of the Caspian Sea Revenue programme.",
   },
   {
     name: "Dr. Zainab Aliyu",
     role: "Advisor",
-    focus: "Climate Justice, Philanthropy & Systems Change",
+    focus: "ReImagine Change",
     image: "/images/advisory/Dr. Zainab Aliyu.png",
     bio: "Zainab Ojone Aliyu is a climate justice scholar-practitioner, philanthropy strategist, and civil society leader with over a decade of experience across climate policy, movement building, philanthropy, and development. Her work focuses on building more equitable climate and philanthropic systems, strengthening locally led leadership, and connecting capital with the people and organisations best positioned to deliver lasting change. She is Co-Director of ReImagine Change, where she works at the intersection of philanthropy and movement strategy, supporting grassroots organisations and funders to rethink how resources flow and how power is distributed. She advises organisations and funders on strategy, governance, resource mobilisation, and shifting capital and decision-making toward locally led solutions. Previously, she served as Capacity Building Director at HOST, supporting climate movements across more than 100 countries and working closely with funders, activists and civil society organisations. Zainab holds a PhD in International Development from the University of Reading, an Executive MBA from Quantic School of Business and Technology, and an MSc in Sustainable Development, Climate Change and Environment from the University of Exeter.",
   },
@@ -73,7 +73,9 @@ const roleStyle: Record<string, { chip: string; ring: string }> = {
   Advisor: { chip: "bg-primary-deep text-white", ring: "ring-primary-deep/30" },
 };
 
-export default function TeamPage() {
+export function TeamDirectory({ section = "management" }: { section?: "management" | "advisors" }) {
+  const isAdvisors = section === "advisors";
+
   return (
     <>
       {/* ── Hero ── */}
@@ -82,28 +84,25 @@ export default function TeamPage() {
         <div className="pointer-events-none absolute -left-16 bottom-0 h-[300px] w-[300px] rounded-full bg-primary/6 blur-3xl" aria-hidden />
         <Container className="relative z-10">
           <Reveal direction="up">
-            <p className="institutional-eyebrow">IQ Syndicate · The Team</p>
+            <p className="institutional-eyebrow">IQ Syndicate · {isAdvisors ? "Advisors" : "Management Team"}</p>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-5 max-w-3xl text-charcoal">The People Behind IQ Syndicate</h1>
+            <h1 className="mt-5 max-w-4xl text-charcoal">{isAdvisors ? "The Advisors Supporting IQ Syndicate" : "The Management Team Behind IQ Syndicate"}</h1>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-6 max-w-2xl text-[15.5px] leading-7 text-ink/72">
-              A founding group united by a shared conviction, bringing together
-              expertise in climate finance, platform engineering, private credit,
-              market intelligence, and business development.
+              {isAdvisors
+                ? "Experienced practitioners bringing specialist insight across clean energy, finance, governance, and global partnerships."
+                : "A founding group united by a shared conviction, bringing together expertise in climate finance, platform engineering, private credit, market intelligence, and business development."}
             </p>
           </Reveal>
         </Container>
       </section>
 
       {/* ── Circle grid ── */}
+      {section !== "advisors" && (
       <section className="bg-white py-10 md:py-14">
         <Container>
-          <Reveal className="mb-10 max-w-2xl md:mb-14">
-            <p className="institutional-eyebrow">IQ Syndicate · Management Team</p>
-            <h2 className="mt-4 text-charcoal">Management Team</h2>
-          </Reveal>
           <div className="grid grid-cols-2 gap-x-8 gap-y-14 sm:grid-cols-3 md:gap-x-12 md:gap-y-16">
             {team.map((member, i) => {
               const { chip, ring } = roleStyle[member.role];
@@ -152,20 +151,12 @@ export default function TeamPage() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* ── Advisory board ── */}
+      {section !== "management" && (
       <section className="bg-cream py-12 md:py-16">
         <Container>
-          <Reveal>
-            <div className="mb-10 max-w-2xl md:mb-14">
-              <p className="institutional-eyebrow">IQ Syndicate · Advisors</p>
-              <h2 className="mt-4 max-w-xl text-charcoal">Advisors</h2>
-              <p className="mt-4 text-[15px] leading-7 text-ink/68">
-                Trusted advisors bringing specialist insight across clean energy,
-                financial management, governance, and global partnerships.
-              </p>
-            </div>
-          </Reveal>
 
           <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3 md:gap-x-12 md:gap-y-16">
             {advisoryBoard.map((member, i) => {
@@ -209,6 +200,7 @@ export default function TeamPage() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* ── CTA ── */}
       <section className="bg-cream py-8 md:py-12">
@@ -232,4 +224,8 @@ export default function TeamPage() {
       </section>
     </>
   );
+}
+
+export default function TeamPage() {
+  return <TeamDirectory section="management" />;
 }

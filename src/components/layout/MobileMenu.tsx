@@ -5,8 +5,8 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
-import { NAV_LINKS, NAV_SERVICES } from "@/lib/nav-data";
+import { useEffect, useState } from "react";
+import { NAV_LINKS } from "@/lib/nav-data";
 
 interface MobileMenuProps {
   open: boolean;
@@ -17,10 +17,6 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [projectsOpen, setProjectsOpen] = useState(false);
-  const specialProjects = useMemo(
-    () => NAV_LINKS.find((link) => link.hasSubLinks)?.subLinks ?? [],
-    [],
-  );
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -65,19 +61,21 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               {NAV_LINKS.map((link, i) => {
                 const isActive = pathname === link.href || (link.href !== "#" && pathname.startsWith(link.href));
 
-                if (link.hasDropdown) {
+                if (link.hasDropdown || link.hasSubLinks) {
+                  const menuOpen = link.label === "Services" ? servicesOpen : projectsOpen;
+                  const setMenuOpen = link.label === "Services" ? setServicesOpen : setProjectsOpen;
                   return (
-                    <motion.div key="services" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.28, delay: i * 0.045 }}>
+                    <motion.div key={link.label} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.28, delay: i * 0.045 }}>
                       <button
                         type="button"
-                        onClick={() => setServicesOpen((v) => !v)}
+                        onClick={() => setMenuOpen((v) => !v)}
                         className={`flex w-full items-center justify-between rounded-xl px-5 py-4 transition-colors ${isActive ? "bg-primary/20 text-white" : "text-white/80 hover:bg-white/6 hover:text-white"}`}
                       >
                         <span className="font-heading text-2xl">{link.label}</span>
-                        <ChevronDown className={`h-5 w-5 shrink-0 text-white/50 transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown className={`h-5 w-5 shrink-0 text-white/50 transition-transform duration-300 ${menuOpen ? "rotate-180" : ""}`} />
                       </button>
                       <AnimatePresence>
-                        {servicesOpen && (
+                        {menuOpen && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
@@ -85,62 +83,10 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                             transition={{ duration: 0.28 }}
                             className="overflow-hidden"
                           >
-                            <div className="mt-1.5 grid grid-cols-2 gap-2 pb-2 pl-2">
-                              {NAV_SERVICES.map((svc) => {
-                                const Icon = svc.icon;
-                                return (
-                                  <Link
-                                    key={svc.n}
-                                    href={svc.href}
-                                    onClick={onClose}
-                                    className={`group flex flex-col gap-2 overflow-hidden rounded-xl p-4 text-white transition-all hover:-translate-y-0.5 ${svc.tone}`}
-                                  >
-                                    <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${svc.iconTone}`}>
-                                      <Icon className="h-4 w-4" strokeWidth={1.75} />
-                                    </div>
-                                    <p className="font-heading text-[1.1rem] leading-tight">{svc.title}</p>
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  );
-                }
-
-                if (link.hasSubLinks) {
-                  const isSpActive = specialProjects.some((subLink) => pathname.startsWith(subLink.href));
-                  return (
-                    <motion.div key="special-projects" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.28, delay: i * 0.045 }}>
-                      <button
-                        type="button"
-                        onClick={() => setProjectsOpen((v) => !v)}
-                        className={`flex w-full items-center justify-between rounded-xl px-5 py-4 transition-colors ${isSpActive ? "bg-primary/20 text-white" : "text-white/80 hover:bg-white/6 hover:text-white"}`}
-                      >
-                        <span className="font-heading text-2xl">{link.label}</span>
-                        <ChevronDown className={`h-5 w-5 shrink-0 text-white/50 transition-transform duration-300 ${projectsOpen ? "rotate-180" : ""}`} />
-                      </button>
-                      <AnimatePresence>
-                        {projectsOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.28 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="mt-1.5 space-y-2 pb-2 pl-2">
-                              {specialProjects.map((sub) => (
-                                <Link
-                                  key={sub.href}
-                                  href={sub.href}
-                                  onClick={onClose}
-                                  className="block rounded-xl border border-white/12 bg-white/4 px-5 py-3.5 text-white/80 hover:bg-white/6 hover:text-white"
-                                >
-                                  <p className="text-[14px] font-semibold">{sub.label}</p>
-                                  {sub.desc && <p className="mt-0.5 text-[12px] text-white/50">{sub.desc}</p>}
+                            <div className="mt-1.5 space-y-1 pb-2 pl-2">
+                              {(link.subLinks ?? []).map((sub) => (
+                                <Link key={sub.href} href={sub.href} onClick={onClose} className="block border-b border-white/10 px-5 py-3 text-[13px] font-semibold text-white/75 transition-colors last:border-b-0 hover:bg-white/6 hover:text-white">
+                                  {sub.label}
                                 </Link>
                               ))}
                             </div>

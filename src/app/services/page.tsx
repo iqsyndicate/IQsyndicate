@@ -69,6 +69,61 @@ const taModules = [
   },
 ];
 
+const capitalModules = [
+  {
+    icon: Building2,
+    n: "01",
+    title: "Capital Strategy & Structuring",
+    body: "We determine the appropriate mix of capital instruments for each project.",
+  },
+  {
+    icon: Users2,
+    n: "02",
+    title: "Investor & Capital Partner Engagement",
+    body: "We identify, map, and engage relevant institutional investors, DFIs, impact investors, commercial lenders, foundations, and other capital providers.",
+  },
+  {
+    icon: BookOpen,
+    n: "03",
+    title: "Transaction Support",
+    body: "We strengthen projects, financial models, investment cases, and transaction documentation to meet investor requirements.",
+  },
+  {
+    icon: Gift,
+    n: "04",
+    title: "Capital Raising",
+    body: "We support projects and sponsors through investor outreach, due diligence, negotiations, and financial close.",
+  },
+];
+
+const aggregationModules = [
+  {
+    icon: Compass,
+    title: "Project Origination & Preparation",
+    body: "Individual ventures enter our preparation process, with technical assistance deployed to ready each project.",
+  },
+  {
+    icon: Layers,
+    title: "Portfolio Construction",
+    body: "We select performing infrastructure projects based on complementary sectors and shared risk-return profiles.",
+  },
+  {
+    icon: Scale,
+    title: "Structuring & Documentation",
+    body: "Standardised investment documentation is prepared to meet institutional investor requirements.",
+  },
+  {
+    icon: Building2,
+    title: "Deal Rooms & Roadshows",
+    body: "The portfolio vehicle is presented to qualifying institutional investors through structured deal rooms and roadshows.",
+  },
+  {
+    icon: Check,
+    title: "Term Negotiation & Close",
+    body: "Our advisors support founders and investors through term sheet negotiation and final close.",
+  },
+];
+
 const aggregationSteps = [
   {
     n: "01",
@@ -155,7 +210,7 @@ export default function ServicesPage() {
           <div className="hero-scrim absolute inset-0" />
         </div>
 
-        <Container className="relative z-10 flex min-h-[90vh] flex-col justify-between py-36 pb-0">
+        <Container className="relative z-10 flex min-h-[58vh] flex-col justify-between py-24 pb-0 md:min-h-[64vh] md:py-28">
           {/* Top: headline */}
           <div>
             <Reveal direction="down">
@@ -163,21 +218,11 @@ export default function ServicesPage() {
                 Full-Cycle Services
               </span>
             </Reveal>
-            <Reveal delay={100}>
-              <h1
-                className="max-w-3xl text-white"
-                style={{ fontSize: "clamp(2.2rem, 4vw, 3rem)", lineHeight: 1.05 }}
-              >
-                Full-Cycle Support for
-                <br className="hidden sm:block" /> Climate Ventures
-              </h1>
-            </Reveal>
+
             <Reveal delay={180}>
               <p className="mt-6 max-w-xl text-[16px] leading-7 text-white/85">
                 Four integrated services designed to provide end-to-end
-                support - from founder identification and project
-                preparation, through to institutional capital
-                facilitation.
+                support.
               </p>
             </Reveal>
           </div>
@@ -188,7 +233,7 @@ export default function ServicesPage() {
               {[
                 { n: "01", title: "Climate Advisory", href: "#advisory" },
                 { n: "02", title: "Technical Assistance", href: "#technical-assistance" },
-                { n: "03", title: "Mobilist Facility", href: "#mobilist" },
+                { n: "03", title: "Capital Mobilization", href: "#mobilist" },
                 { n: "04", title: "Portfolio Aggregation", href: "#aggregation" },
               ].map((s, i) => (
                 <Link
@@ -224,11 +269,7 @@ export default function ServicesPage() {
               <p className="institutional-eyebrow">Service 01</p>
               <h2 className="mt-4 text-charcoal">Climate Advisory</h2>
               <p className="mt-5 text-[15px] leading-7 text-ink/74">
-                our Advisory service provides climate
-                infrastructure project developers and institutional
-                partners with strategic support across three
-                dimensions: project design, market intelligence, and
-                product validation.
+                Our Advisory service provides small- to medium-scale climate infrastructure project developers and institutional partners with strategic support across three dimensions: project design, market intelligence, and product validation.
               </p>
 
               <div className="mt-10 space-y-5">
@@ -414,34 +455,44 @@ export default function ServicesPage() {
           SERVICE 03 - MOBILIST FACILITY
           Full-bleed photo with dark overlay · Glass stat cards
       ───────────────────────────────────────────── */}
-      <section
-        id="mobilist"
-        className="scroll-mt-24 relative overflow-hidden py-24 md:py-32"
-      >
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80"
-            alt="Solar panels, the clean energy infrastructure financed through the Mobilist Facility"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="photo-duotone-gold absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/55 to-ink/90" />
-        </div>
-
-        <Container className="relative z-10">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow-on-dark">Service 03</p>
-            <h2 className="mt-4 text-white">Mobilist Facility</h2>
-            <p className="mt-5 text-[15px] leading-7 text-white/85">
+      <section id="mobilist" className="scroll-mt-24 bg-ink py-10 text-white md:py-14">
+        <Container>
+          <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+            <Reveal direction="left">
+              <p className="eyebrow-on-dark">Service 03</p>
+              <h2 className="mt-4 text-white">Capital Mobilization</h2>
+              <p className="mt-5 text-[15px] leading-7 text-white/76">
                 We mobilize and structure capital for small to medium-scale climate infrastructure projects by connecting investment-ready opportunities with the right sources and forms of finance.
-            </p>
-            <p className="mt-4 text-[15px] leading-7 text-white/85">
-              Our approach combines capital strategy, investment structuring, investor engagement, and transaction support to help climate infrastructure projects move from identified financing needs to bankable investment opportunities. We work across commercial, concessional, philanthropic, and blended-finance capital, designing financing structures that reflect the risk, scale, cash flows, and development stage of each project.
-            </p>
-          </Reveal>
+              </p>
+              <p className="mt-4 text-[15px] leading-7 text-white/76">
+                Our approach combines capital strategy, investment structuring, investor engagement, and transaction support to help climate infrastructure projects move from identified financing needs to bankable investment opportunities. We work across commercial, concessional, philanthropic, and blended-finance capital, designing financing structures that reflect the risk, scale, cash flows, and development stage of each project.
+              </p>
+            </Reveal>
 
+            <Reveal direction="right">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {capitalModules.map((mod, i) => {
+                  const Icon = mod.icon;
+                  return (
+                    <Reveal key={mod.title} direction={i % 2 === 0 ? "left" : "right"} delay={i * 90}>
+                      <div className="card-float h-full rounded-xl bg-white/6 p-4 shadow-lg shadow-black/20 ring-1 ring-white/10">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold-light/15 text-gold-light">
+                            <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
+                          </div>
+                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                            Option {mod.n}
+                          </span>
+                        </div>
+                        <p className="mt-3 text-[13px] font-semibold leading-5 text-white">{mod.title}</p>
+                        <p className="mt-1.5 text-[12px] leading-5 text-white/64">{mod.body}</p>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
@@ -449,57 +500,51 @@ export default function ServicesPage() {
           SERVICE 04 - PORTFOLIO AGGREGATION
           Intro text · Six-step process with matched images
       ───────────────────────────────────────────── */}
-      <section id="aggregation" className="scroll-mt-24 bg-cream py-10 md:py-14">
+      <section id="aggregation" className="scroll-mt-24 bg-white py-10 md:py-14">
         <Container>
-          <Reveal className="mb-14 max-w-2xl">
-            <p className="institutional-eyebrow">Service 04</p>
-            <h2 className="mt-4 text-charcoal">Investment Facilitation and Portfolio Aggregation</h2>
-            <p className="mt-5 text-[15px] leading-7 text-ink/74">
-              We bridge the gap between small- to medium-scale climate infrastructure projects and large institutional capital. We bundle individual performing projects into an investment-grade portfolio vehicle, then facilitate capital raising by connecting them to institutional investors via structured deal rooms and roadshows.
-            </p>
-          </Reveal>
-
-          {/* 6-step process: alternating image / text layout */}
-          <div className="space-y-8">
-            {aggregationSteps.map((step, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <Reveal key={step.n} direction={isEven ? "left" : "right"} delay={60}>
-                  <div
-                    className={`grid overflow-hidden rounded-2xl bg-white shadow-lg shadow-black/8 md:grid-cols-[2fr_3fr] ${!isEven ? "md:grid-cols-[3fr_2fr]" : ""}`}
-                  >
-                    {/* Image */}
-                    <div
-                      className={`relative h-52 md:h-auto ${!isEven ? "md:order-2" : ""}`}
-                    >
-                      <Image
-                        src={step.image}
-                        alt={step.alt}
-                        fill
-                        sizes="(min-width: 768px) 35vw, 100vw"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/20" />
-                    </div>
-
-                    {/* Text */}
-                    <div
-                      className={`flex flex-col justify-center p-7 md:p-9 ${!isEven ? "md:order-1" : ""}`}
-                    >
-                      <span className="font-heading text-4xl text-primary/20 md:text-5xl">
-                        {step.n}
-                      </span>
-                      <h3 className="mt-2 text-2xl text-charcoal md:text-3xl">
-                        {step.title}
-                      </h3>
-                      <p className="mt-3 text-[14px] leading-6 text-ink/68">
-                        {step.body}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
+          <div className="grid items-start gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+            <Reveal direction="left">
+              <p className="institutional-eyebrow">Service 04</p>
+              <h2 className="mt-4 text-charcoal">Investment Facilitation and Portfolio Aggregation</h2>
+              <p className="mt-5 text-[15px] leading-7 text-ink/74">
+                We bridge the gap between small- to medium-scale climate infrastructure projects and large institutional capital. We bundle individual performing projects into an investment-grade portfolio vehicle, then facilitate capital raising by connecting them to institutional investors via structured deal rooms and roadshows.
+              </p>
+              <div className="mt-8 space-y-4">
+                {aggregationModules.map((mod, i) => {
+                  const Icon = mod.icon;
+                  return (
+                    <Reveal key={mod.title} direction="left" delay={i * 80}>
+                      <div className="card-float flex gap-4 rounded-xl bg-cream p-4 shadow-sm shadow-black/5">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                          <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
+                        </div>
+                        <div>
+                          <p className="text-[13px] font-semibold text-charcoal">{mod.title}</p>
+                          <p className="mt-1 text-[12.5px] leading-5 text-ink/68">{mod.body}</p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </Reveal>
+            <Reveal direction="right" className="lg:sticky lg:top-28">
+              <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15 md:h-[520px]">
+                <Image
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80"
+                  alt="Institutional investors reviewing an aggregated climate infrastructure portfolio"
+                  fill
+                  sizes="(min-width: 768px) 28vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="photo-duotone-burgundy absolute inset-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-7">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-light">Portfolio Aggregation</p>
+                  <p className="mt-2 font-heading text-2xl text-white">Small projects. Institutional scale.</p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </Container>
       </section>
