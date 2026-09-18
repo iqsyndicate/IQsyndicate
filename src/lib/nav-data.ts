@@ -13,18 +13,18 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: "About",              href: "/about" },
   { label: "Services",           href: "/services",          hasDropdown: true },
-  { label: "Investment Process", href: "/investment-process" },
+  // { label: "Investment Process", href: "/investment-process" },
   {
     label: "Special Projects",
     href: "#",
     hasSubLinks: true,
     subLinks: [
-      { label: "Mobilist Facility",                     href: "/special-projects/mobilist-facility",                         desc: "Blended finance vehicle for climate ventures" },
-      { label: "Africa Energy Market Intelligence",     href: "/special-projects/africa-energy-market-intelligence",        desc: "AI-powered platform closing Africa's energy data gap" },
+      // { label: "Mobilist Facility",                     href: "/special-projects/mobilist-facility",                         desc: "Blended finance vehicle for climate ventures" },
+      // { label: "Africa Energy Market Intelligence",     href: "/special-projects/africa-energy-market-intelligence",        desc: "AI-powered platform closing Africa's energy data gap" },
       // { label: "Consumer Financing Project",            href: "/special-projects/consumer-financing-project",               desc: "Solar finance for households and MSMEs" },
     ],
   },
-  { label: "Impact", href: "/impact" },
+  // { label: "Impact", href: "/impact" },
   { label: "Team",   href: "/team"   },
 ];
 

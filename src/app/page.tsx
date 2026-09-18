@@ -273,11 +273,11 @@ export default function HomePage() {
 
               return (
                 <Reveal key={stat.label} direction={stat.direction} delay={i * 120}>
-                  <div className={`card-float h-full rounded-2xl p-8 shadow-md shadow-black/5 ${bgClass}`}>
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${iconBg}`}>
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
+                  <div className={`card-float h-full rounded-2xl p-5 shadow-md shadow-black/5 ${bgClass}`}>
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconBg}`}>
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
                     </div>
-                    <p className={`mt-6 font-heading text-5xl ${valueColor}`}>
+                    <p className={`mt-4 font-heading text-4xl ${valueColor}`}>
                       {stat.display ?? (
                         <Counter
                           value={stat.value as number}
@@ -287,7 +287,7 @@ export default function HomePage() {
                         />
                       )}
                     </p>
-                    <p className={`mt-3 text-[13px] leading-5 ${labelColor}`}>
+                    <p className={`mt-2 text-[12px] leading-5 ${labelColor}`}>
                       {stat.label}
                     </p>
                   </div>
@@ -301,7 +301,7 @@ export default function HomePage() {
       {/* ───────────────────────── WHAT WE DO ─────────────────────────
           Cards assemble from alternating directions; card 04 tucks up
           against card 02 to close the masonry gap. */}
-      <section className="bg-cream py-10 md:py-14">
+        <section className="bg-cream py-10 md:py-14">
         <Container>
           <Reveal className="mb-12 max-w-2xl">
             <p className="institutional-eyebrow">What We Do</p>
@@ -387,12 +387,12 @@ export default function HomePage() {
               const Icon = pillar.icon;
               return (
                 <Reveal key={pillar.title} direction={pillarDirections[i]} delay={i * 110}>
-                  <div className={`card-float h-full min-h-[300px] rounded-3xl p-8 shadow-xl shadow-black/15 md:min-h-[320px] md:p-10 ${pillar.tone}`}>
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${pillar.iconTone}`}>
-                      <Icon className="h-7 w-7" strokeWidth={1.75} />
+                  <div className={`card-float h-full min-h-[220px] rounded-2xl p-6 shadow-xl shadow-black/15 md:min-h-[240px] md:p-7 ${pillar.tone}`}>
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${pillar.iconTone}`}>
+                      <Icon className="h-6 w-6" strokeWidth={1.75} />
                     </div>
-                    <h3 className="mt-7 text-[1.55rem] leading-tight md:text-[1.8rem]">{pillar.title}</h3>
-                    <p className="mt-4 max-w-sm text-[14.5px] leading-7 opacity-82">
+                    <h3 className="mt-5 text-[1.35rem] leading-tight md:text-[1.55rem]">{pillar.title}</h3>
+                    <p className="mt-3 max-w-sm text-[13px] leading-6 opacity-82">
                       {pillar.body}
                     </p>
                   </div>
@@ -404,6 +404,7 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────────────── AUDIENCE PATHWAYS ───────────────────────── */}
+      {false && (
       <section className="bg-cream py-10 md:py-14">
         <Container>
           <Reveal className="mb-12 max-w-xl">
@@ -451,10 +452,12 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+        )}
 
       {/* ───────────────────────── IMPACT NUMBERS ─────────────────────────
           Glass cards floating over the photo instead of flat overlay text. */}
-      <section className="relative overflow-hidden py-12 md:py-16">
+          {false && (
+          <section className="relative overflow-hidden py-12 md:py-16">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=2400&q=80"
@@ -509,6 +512,7 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+        )}
 
       {/* ───────────────────────── PRE-FOOTER CTA ─────────────────────────
           A single burgundy card, not a full-bleed band. */}
@@ -517,26 +521,15 @@ export default function HomePage() {
           <Reveal>
             <div className="card-float flex flex-col items-start justify-between gap-10 rounded-3xl bg-primary p-10 shadow-2xl shadow-primary/20 md:flex-row md:items-end md:p-14">
               <div className="max-w-lg">
-                <h2 className="text-white">Ready to Close the Gap?</h2>
-                <p className="mt-4 text-[15px] leading-7 text-white/82">
-                  Whether you are a founder seeking capital, an investor
-                  looking for impact-aligned returns, or a partner
-                  institution, we were built for you.
-                </p>
+                <h2 className="text-white">Partner with us</h2>
               </div>
               <div className="flex flex-wrap items-center gap-5">
                 <Link
                   href="/apply"
                   className="group inline-flex items-center gap-2 bg-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light"
                 >
-                  Apply Now
+                  Partner with us (Apply)
                   {/* <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /> */}
-                </Link>
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 border-b border-white/40 pb-0.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:border-white"
-                >
-                  Get in Touch
                 </Link>
               </div>
             </div>

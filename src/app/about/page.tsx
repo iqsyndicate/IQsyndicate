@@ -11,7 +11,6 @@ import {
   Settings2,
   Shuffle,
   Boxes,
-  Handshake,
   Search,
   Layers,
   Hourglass,
@@ -75,13 +74,6 @@ const modelStages = [
     tone: "bg-ink text-white",
     iconTone: "bg-gold-light/20 text-gold-light",
   },
-  {
-    icon: Handshake,
-    title: "Investment Facilitation",
-    body: "Connecting investment-ready ventures with the institutional and commercial investors positioned to fund their next stage of growth.",
-    tone: "bg-primary-light text-white",
-    iconTone: "bg-white/15 text-white",
-  },
 ];
 
 const modelDirections: ("up" | "down" | "left" | "right")[] = [
@@ -89,7 +81,6 @@ const modelDirections: ("up" | "down" | "left" | "right")[] = [
   "right",
   "up",
   "down",
-  "left",
 ];
 
 const pillars = [
@@ -188,8 +179,8 @@ export default function AboutPage() {
         />
 
         <Container className="relative z-10">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-            <Reveal direction="left">
+          <div className="flex justify-center">
+            <Reveal direction="left" className="mx-auto max-w-2xl text-center">
               <p className="institutional-eyebrow">About Us</p>
               <h1 className="mt-5 max-w-lg text-charcoal">Who We Are</h1>
               <p className="mt-6 max-w-md text-[15.5px] leading-7 text-ink/74">
@@ -202,7 +193,7 @@ export default function AboutPage() {
                 <Link href="/services" className="font-semibold text-charcoal underline decoration-primary decoration-2 underline-offset-4 hover:text-primary">
                   services page</Link>.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-7">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-7">
                 <Link
                   href="/services"
                   className="group inline-flex items-center gap-2 bg-primary px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-light"
@@ -220,6 +211,7 @@ export default function AboutPage() {
               </div>
             </Reveal>
 
+            {false && (
             <Reveal direction="right" className="relative mt-6 md:mt-10 lg:mt-12">
               <div className="card-float relative h-[320px] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-black/20 md:h-[420px]">
                 <Image
@@ -246,6 +238,7 @@ export default function AboutPage() {
                 </p>
               </div> */}
             </Reveal>
+            )}
           </div>
         </Container>
       </section>
@@ -266,12 +259,11 @@ export default function AboutPage() {
                   className="mt-3 leading-tight text-white"
                   style={{ fontSize: "clamp(1.35rem, 2.1vw, 1.8rem)", lineHeight: 1.2 }}
                 >
-                  To provide the right liquidity, prepared to take on
+                  To structure the right liquidity, prepared to take on
                   appropriate risk.
                 </h2>
                 <p className="mt-4 max-w-md text-[14.5px] leading-7 text-white/82">
-                  That enables the scalability of African-led climate
-                  infrastructure.
+                  That enables the scalability of African-led, small-to-medium-scale climate infrastructure.
                 </p>
               </div>
             </Reveal>
@@ -288,12 +280,12 @@ export default function AboutPage() {
                   className="mt-3 leading-tight text-white"
                   style={{ fontSize: "clamp(1.35rem, 2.1vw, 1.8rem)", lineHeight: 1.2 }}
                 >
-                  A thriving, self-sustaining climate Infrastructure ecosystem.
+                  A self-sustaining climate infrastructure ecosystem where
+                  African-led small-to-medium-scale climate infrastructure scales globally.
                 </h2>
                 <p className="mt-4 max-w-md text-[14.5px] leading-7 text-white/82">
-                  Where African-led climate infrastructure scale globally,
-                  delivering sustainable prosperity and measurable
-                  investment returns to communities and investors alike.
+                  Delivering sustainable prosperity and measurable investment
+                  returns.
                 </p>
               </div>
             </Reveal>
@@ -302,6 +294,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───────────────────────── THE PROBLEM WE SOLVE ───────────────────────── */}
+      {false && (
       <section className="bg-cream py-10 md:py-14">
         <Container>
           <div className="grid gap-10">
@@ -321,10 +314,12 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* ───────────────────────── PULL QUOTE ─────────────────────────
           A pill/semi-circular panel paired with a floating, gently
           animated continent illustration. */}
+      {false && (
       <section className="bg-primary py-10 text-white md:py-14">
         <Container>
           <div className="grid items-center gap-8 md:grid-cols-[1.3fr_0.7fr] md:gap-4">
@@ -343,6 +338,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* ───────────────────────── OUR MODEL ─────────────────────────
           A compact connected timeline - every stage stays visible at
@@ -373,7 +369,7 @@ export default function AboutPage() {
               />
             </svg>
 
-            <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 md:grid-cols-5 md:gap-x-4">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 md:grid-cols-4 md:gap-x-4">
               {modelStages.map((stage, i) => {
                 const Icon = stage.icon;
                 return (
@@ -448,6 +444,7 @@ export default function AboutPage() {
       </section> */}
 
       {/* ───────────────────────── THEORY OF CHANGE ───────────────────────── */}
+      {false && (
       <section className="relative overflow-hidden bg-forest py-10 text-white md:py-14">
         <div
           className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gold-light/10 blur-3xl"
@@ -498,6 +495,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* ───────────────────────── GOVERNANCE ───────────────────────── */}
       {/* <section className="bg-white py-20 md:py-28">
@@ -532,6 +530,7 @@ export default function AboutPage() {
       </section> */}
 
       {/* ───────────────────────── CLOSING CTA ───────────────────────── */}
+      {false && (
       <section className="bg-cream py-10 md:py-14">
         <Container>
           <Reveal>
@@ -563,6 +562,7 @@ export default function AboutPage() {
           </Reveal>
         </Container>
       </section>
+      )}
     </>
   );
 }

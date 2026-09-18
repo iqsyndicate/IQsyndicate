@@ -69,11 +69,6 @@ const taModules = [
   },
 ];
 
-const facilityStats = [
-  { value: "USD $10M", label: "Target Fund Size (Nigeria)" },
-  { value: "5-10 years", label: "Equity conversion reference from TA" },
-];
-
 const aggregationSteps = [
   {
     n: "01",
@@ -109,13 +104,6 @@ const aggregationSteps = [
     body: "Our advisors support founders and investors through term sheet negotiation and final close.",
     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80",
     alt: "Deal closing, handshake between parties",
-  },
-  {
-    n: "06",
-    title: "Refinancing & Exit",
-    body: "Institutional investors take over the project portfolio. Capital is recycled into new ventures for the next aggregation cycle.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
-    alt: "Institutional investment building representing capital deployment",
   },
 ];
 
@@ -189,7 +177,7 @@ export default function ServicesPage() {
                 Four integrated services designed to provide end-to-end
                 support - from founder identification and project
                 preparation, through to institutional capital
-                facilitation and exit.
+                facilitation.
               </p>
             </Reveal>
           </div>
@@ -350,16 +338,10 @@ export default function ServicesPage() {
               <p className="eyebrow-on-dark">Service 02</p>
               <h2 className="mt-4 text-white">Technical Assistance</h2>
               <p className="mt-5 text-[15px] leading-7 text-white/76">
-                The Technical Assistance service addresses the most
-                acute gap in Nigeria's climate finance landscape: the
-                absence of skilled transaction intermediaries willing
-                to engage with indigenous ventures before they reach
-                bankability.
+                The Technical Assistance service addresses the most acute gap in Africa's climate finance landscape: the absence of skilled transaction intermediaries willing to engage with indigenous ventures before they reach bankability.
               </p>
               <p className="mt-4 text-[15px] leading-7 text-white/76">
-                Over a period of 6 to 18 months, we deploys
-                a bespoke team of specialists across five modules to
-                build ventures from pre-bankable to investment-ready.
+                Over a period of 6 to 18 months, we deploy a bespoke team of transaction specialists across five key areas to build projects from pre-bankable to investment-ready.
               </p>
 
               {/* Four TA modules */}
@@ -453,44 +435,13 @@ export default function ServicesPage() {
             <p className="eyebrow-on-dark">Service 03</p>
             <h2 className="mt-4 text-white">Mobilist Facility</h2>
             <p className="mt-5 text-[15px] leading-7 text-white/85">
-              The Mobilist Facility is a special-purpose investment
-              vehicle that mobilises philanthropic capital -
-                  historically deployed as grants, blended with
-              concessional instruments into well-prepared climate
-              infrastructure projects.
+                We mobilize and structure capital for small to medium-scale climate infrastructure projects by connecting investment-ready opportunities with the right sources and forms of finance.
             </p>
             <p className="mt-4 text-[15px] leading-7 text-white/85">
-              The facility is structured to deploy philanthropic capital
-              as a returnable instrument, combining technical assistance
-              and debt financing to generate financial returns that are
-              recycled into new ventures.
+              Our approach combines capital strategy, investment structuring, investor engagement, and transaction support to help climate infrastructure projects move from identified financing needs to bankable investment opportunities. We work across commercial, concessional, philanthropic, and blended-finance capital, designing financing structures that reflect the risk, scale, cash flows, and development stage of each project.
             </p>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-2 gap-5 md:grid-cols-4">
-            {facilityStats.map((stat, i) => (
-              <Reveal key={stat.label} direction="up" delay={i * 100}>
-                <div className="card-float glass-card h-full rounded-2xl p-6 shadow-xl shadow-black/25">
-                  <p className="font-heading text-3xl text-white md:text-4xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-3 text-[12px] leading-5 text-white/68">
-                    {stat.label}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={200} className="mt-10">
-            <Link
-              href="/special-projects/mobilist-facility"
-              className="group inline-flex items-center gap-2 bg-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light"
-            >
-              View Full Facility Details
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </Reveal>
         </Container>
       </section>
 
@@ -502,14 +453,9 @@ export default function ServicesPage() {
         <Container>
           <Reveal className="mb-14 max-w-2xl">
             <p className="institutional-eyebrow">Service 04</p>
-            <h2 className="mt-4 text-charcoal">Portfolio Aggregation</h2>
+            <h2 className="mt-4 text-charcoal">Investment Facilitation and Portfolio Aggregation</h2>
             <p className="mt-5 text-[15px] leading-7 text-ink/74">
-              We bridge the gap between small-scale climate
-              infrastructure projects and large institutional capital.
-              We bundle individual performing projects into an
-              investment-grade portfolio vehicle, then facilitate
-              capital raising by connecting them to institutional
-              investors via structured deal rooms and roadshows.
+              We bridge the gap between small- to medium-scale climate infrastructure projects and large institutional capital. We bundle individual performing projects into an investment-grade portfolio vehicle, then facilitate capital raising by connecting them to institutional investors via structured deal rooms and roadshows.
             </p>
           </Reveal>
 
@@ -558,10 +504,8 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          CLOSING CTA - burgundy card (same pattern across site)
-      ───────────────────────────────────────────── */}
-      <section className="bg-cream py-10 md:py-14">
+        {/* Closing CTA retained in source for later restoration. */}
+        {/* <section className="bg-cream py-10 md:py-14">
         <Container>
           <Reveal>
             <div className="card-float flex flex-col items-start justify-between gap-10 rounded-3xl bg-primary p-10 shadow-2xl shadow-primary/20 md:flex-row md:items-end md:p-14">
@@ -591,7 +535,7 @@ export default function ServicesPage() {
             </div>
           </Reveal>
         </Container>
-      </section>
+      </section> */}
     </>
   );
 }

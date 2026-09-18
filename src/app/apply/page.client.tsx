@@ -395,12 +395,10 @@ export default function ApplyPage() {
               <p className="eyebrow-on-dark">Pathway 02: Investors</p>
               </div>
               <h2 className="mt-5 text-white">
-                Request the LP Information Pack
+                Request for Project Information
               </h2>
               <p className="mt-5 text-[15px] leading-7 text-white/78">
-                If you represent a philanthropic foundation, development
-                finance institution, or impact-aligned investor interested
-                in the Mobilist Facility, we would welcome a conversation.
+                If you represent a philanthropic foundation, development finance institution, or impact-aligned investor investing in climate infrastructure projects, we would welcome a conversation.
               </p>
               <p className="mt-6 text-[15px] leading-7 text-white/78">
                 The LP Information Pack includes the full facility term

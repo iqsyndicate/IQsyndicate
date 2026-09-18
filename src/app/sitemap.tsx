@@ -7,14 +7,14 @@ export default function Sitemap(): MetadataRoute.Sitemap {
     "",
     "about",
     "services",
-    "investment-process",
-    "impact",
+    // "investment-process",
+    // "impact",
     "team",
     "apply",
     "privacy",
-    "special-projects/mobilist-facility",
-    "special-projects/africa-energy-market-intelligence",
-    "special-projects/consumer-financing-project",
+    // "special-projects/mobilist-facility",
+    // "special-projects/africa-energy-market-intelligence",
+    // "special-projects/consumer-financing-project",
   ];
 
   return routes.map((route) => ({
