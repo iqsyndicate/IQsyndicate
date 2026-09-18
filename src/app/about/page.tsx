@@ -180,15 +180,15 @@ export default function AboutPage() {
 
         <Container className="relative z-10">
           <div className="flex justify-center">
-            <Reveal direction="left" className="mx-auto max-w-2xl text-center">
+            <Reveal direction="left" className="mx-auto max-w-4xl text-center">
               <p className="institutional-eyebrow">About Us</p>
-              <h1 className="mt-5 max-w-lg text-charcoal">Who We Are</h1>
-              <p className="mt-6 max-w-md text-[15.5px] leading-7 text-ink/74">
+              <h1 className="mt-5 max-w-2xl text-charcoal">Who We Are</h1>
+              <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
                 We are a specialised climate infrastructure and
                 advisory firm established to close the financing gap for
                 locally led climate ventures in Africa.
               </p>
-              <p className="mt-6 max-w-md text-[15.5px] leading-7 text-ink/74">
+              <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
                 Our approach combines climate advisory, technical assistance, and structured capital solutions. Explore how these services work together on our
                 <Link href="/services" className="font-semibold text-charcoal underline decoration-primary decoration-2 underline-offset-4 hover:text-primary">
                   services page</Link>.
@@ -248,42 +248,42 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             <Reveal direction="left">
-              <div className="card-float h-full rounded-3xl bg-primary p-9 text-white shadow-xl shadow-black/10 md:p-11">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
-                  <TargetIcon className="h-7 w-7" strokeWidth={1.75} />
+              <div className="card-float h-full rounded-2xl bg-primary p-7 text-white shadow-xl shadow-black/10 md:p-8">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15">
+                  <TargetIcon className="h-6 w-6" strokeWidth={1.75} />
                 </div>
-                <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">
+                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
                   Mission
                 </p>
                 <h2
                   className="mt-3 leading-tight text-white"
-                  style={{ fontSize: "clamp(1.35rem, 2.1vw, 1.8rem)", lineHeight: 1.2 }}
+                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2 }}
                 >
                   To structure the right liquidity, prepared to take on
                   appropriate risk.
                 </h2>
-                <p className="mt-4 max-w-md text-[14.5px] leading-7 text-white/82">
+                <p className="mt-3 max-w-md text-[13px] leading-6 text-white/82">
                   That enables the scalability of African-led, small-to-medium-scale climate infrastructure.
                 </p>
               </div>
             </Reveal>
 
             <Reveal direction="right">
-              <div className="card-float h-full rounded-3xl bg-forest p-9 text-white shadow-xl shadow-black/10 md:p-11">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
-                  <Eye className="h-7 w-7" strokeWidth={1.75} />
+              <div className="card-float h-full rounded-2xl bg-forest p-7 text-white shadow-xl shadow-black/10 md:p-8">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15">
+                  <Eye className="h-6 w-6" strokeWidth={1.75} />
                 </div>
-                <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">
+                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
                   Vision
                 </p>
                 <h2
                   className="mt-3 leading-tight text-white"
-                  style={{ fontSize: "clamp(1.35rem, 2.1vw, 1.8rem)", lineHeight: 1.2 }}
+                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2 }}
                 >
                   A self-sustaining climate infrastructure ecosystem where
                   African-led small-to-medium-scale climate infrastructure scales globally.
                 </h2>
-                <p className="mt-4 max-w-md text-[14.5px] leading-7 text-white/82">
+                <p className="mt-3 max-w-md text-[13px] leading-6 text-white/82">
                   Delivering sustainable prosperity and measurable investment
                   returns.
                 </p>
