@@ -233,7 +233,7 @@ export default function ServicesPage() {
               {[
                 { n: "01", title: "Climate Advisory", href: "#advisory" },
                 { n: "02", title: "Technical Assistance", href: "#technical-assistance" },
-                { n: "03", title: "Capital Mobilization", href: "#mobilist" },
+                { n: "03", title: "Capital Mobilization", href: "#capital-mobilization" },
                 { n: "04", title: "Portfolio Aggregation", href: "#aggregation" },
               ].map((s, i) => (
                 <Link
@@ -452,10 +452,10 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          SERVICE 03 - MOBILIST FACILITY
+          SERVICE 03 - CAPITAL MOBILIZATION
           Full-bleed photo with dark overlay · Glass stat cards
       ───────────────────────────────────────────── */}
-      <section id="mobilist" className="scroll-mt-24 bg-ink py-10 text-white md:py-14">
+      <section id="capital-mobilization" className="scroll-mt-24 bg-ink py-10 text-white md:py-14">
         <Container>
           <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
             <Reveal direction="left">

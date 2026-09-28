@@ -127,7 +127,7 @@ const services = [
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
     tone: "gold" as const,
     size: "sm" as const,
-    href: "/services#mobilist",
+       href: "/services#capital-mobilization",
     direction: "up" as const,
   },
   {
@@ -188,9 +188,9 @@ const audiences = [
   {
     label: "For Investors",
     headline: "Invest in Africa's Climate Future",
-    body: "The Mobilist Facility deploys philanthropic and concessional capital into well-prepared climate ventures generating measurable impact and risk-adjusted financial returns.",
-    cta: "View the Mobilist Facility",
-    href: "/special-projects/mobilist-facility",
+    body: "Capital Mobilization deploys philanthropic and concessional capital into well-prepared climate ventures generating measurable impact and risk-adjusted financial returns.",
+    cta: "View Capital Mobilization",
+    href: "/special-projects/capital-mobilization",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
     tone: "forest" as const,

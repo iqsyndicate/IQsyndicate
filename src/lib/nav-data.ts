@@ -17,7 +17,7 @@ export const NAV_LINKS: NavLink[] = [
     subLinks: [
       { label: "Climate Advisory", href: "/services#advisory" },
       { label: "Technical Assistance", href: "/services#technical-assistance" },
-      { label: "Capital Mobilization", href: "/services#mobilist" },
+      { label: "Capital Mobilization", href: "/services#capital-mobilization" },
       { label: "Portfolio Aggregation", href: "/services#aggregation" },
     ],
   },

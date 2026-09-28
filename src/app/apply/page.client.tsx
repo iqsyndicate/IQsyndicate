@@ -449,7 +449,7 @@ export default function ApplyPage() {
                         name="investor_message"
                         rows={4}
                         required
-                        placeholder="Tell us about your mandate, ticket size range, or specific questions about the Mobilist Facility…"
+                        placeholder="Tell us about your mandate, ticket size range, or specific questions about Capital Mobilization…"
                         className="w-full resize-none rounded-xl border border-white/20 bg-white/8 px-4 py-3 text-[14px] text-white placeholder-white/25 outline-none transition focus:border-white/40 focus:ring-2 focus:ring-white/15"
                       />
                     </div>

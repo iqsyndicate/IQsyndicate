@@ -57,10 +57,10 @@ function getFormMeta(form: string): FormMeta {
       return {
         title: "Investor Enquiry",
         internalHeading: "New investor enquiry received",
-        internalIntro: "An investor or partner has requested the Mobilist Facility information pack. Review the details below and follow up directly if needed.",
+        internalIntro: "An investor or partner has requested the Capital Mobilization information pack. Review the details below and follow up directly if needed.",
         internalSubjectPrefix: "New investor enquiry",
         publicHeading: "We received your investor enquiry",
-        publicIntro: "Thank you for requesting the Mobilist Facility information pack. We have received your enquiry and our team will review it shortly.",
+        publicIntro: "Thank you for requesting the Capital Mobilization information pack. We have received your enquiry and our team will review it shortly.",
         publicClosing: "We will be in touch with the requested materials as soon as possible.",
       };
     case "partners":

@@ -16,7 +16,7 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Mobilist Facility",
+  title: "Capital Mobilization",
   description:
     "A blended finance vehicle that transforms philanthropic capital into returnable investment, funding Africa's next generation of climate infrastructure.",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Africa finance vehicle",
   ],
   alternates: {
-    canonical: "https://iqsyndicate.org/special-projects/mobilist-facility",
+    canonical: "https://iqsyndicate.org/special-projects/capital-mobilization",
   },
 };
 
@@ -47,7 +47,7 @@ const facilityTerms = [
 const blendedStats = [
   { value: "USD 2.5B", label: "Total climate finance Nigeria received in 2021/22" },
   { value: "8%", label: "Of the USD 29.7B annually needed through 2030" },
-  { value: "USD 27.2B", label: "Annual financing gap, the structural vacuum Mobilist fills" },
+  { value: "USD 27.2B", label: "Annual financing gap, the structural vacuum Capital Mobilization fills" },
 ];
 
 const markets = [
@@ -96,7 +96,7 @@ const whyBlended = [
   {
     icon: RefreshCw,
     title: "Recyclable Capital",
-    body: "By structuring philanthropic capital as a returnable instrument, the Mobilist Facility creates a self-sustaining cycle: capital is deployed, ventures grow, debt is repaid, and proceeds fund the next cohort.",
+    body: "By structuring philanthropic capital as a returnable instrument, Capital Mobilization creates a self-sustaining cycle: capital is deployed, ventures grow, debt is repaid, and proceeds fund the next cohort.",
   },
   {
     icon: TrendingUp,
@@ -110,7 +110,7 @@ const whyBlended = [
   },
 ];
 
-export default function MobilistFacilityPage() {
+export default function CapitalMobilizationPage() {
   notFound();
 
   return (
@@ -124,7 +124,7 @@ export default function MobilistFacilityPage() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=2400&q=80"
-            alt="Solar infrastructure, the climate projects funded by the Mobilist Facility"
+            alt="Solar infrastructure, the climate projects funded through Capital Mobilization"
             fill
             sizes="100vw"
             priority
@@ -142,7 +142,7 @@ export default function MobilistFacilityPage() {
               </span>
             </Reveal>
             <Reveal delay={100}>
-              <h1 className="text-white">The Mobilist Facility</h1>
+              <h1 className="text-white">Capital Mobilization</h1>
             </Reveal>
             <Reveal delay={180}>
               <p className="mt-6 max-w-lg text-[16px] leading-7 text-white/88">
@@ -174,7 +174,7 @@ export default function MobilistFacilityPage() {
               <p className="institutional-eyebrow">Facility Overview</p>
               <div className="mt-3 space-y-5 text-[15px] leading-7 text-ink/74">
                 <p>
-                  The Mobilist Facility is designed as a special-purpose investment vehicle that mobilises philanthropic capital, historically deployed as grants; We blend these with concessional instruments into well-prepared climate infrastructure projects with positive financial and environmental returns.
+                  Capital Mobilization is designed as a special-purpose investment vehicle that mobilises philanthropic capital, historically deployed as grants; We blend these with concessional instruments into well-prepared climate infrastructure projects with positive financial and environmental returns.
                 </p>
                 <p>
                  The facility's blended structure ensures that while concessional capital from DFIs is repaid at facility close, the philanthropic component is recycled back into the vehicle, ensuring financial sustainability and continuity for new ventures.
@@ -193,7 +193,7 @@ export default function MobilistFacilityPage() {
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15">
                 <Image
                   src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80"
-                  alt="Wind turbines, the clean energy infrastructure financed through the Mobilist Facility"
+                  alt="Wind turbines, the clean energy infrastructure financed through Capital Mobilization"
                   fill
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="object-cover"
@@ -336,7 +336,7 @@ export default function MobilistFacilityPage() {
             <Reveal direction="right">
               <p className="institutional-eyebrow">For Anchor LPs</p>
               <p className="mt-3 text-[15px] leading-7 text-ink/74">
-                The Mobilist Facility is actively seeking anchor LP
+                Capital Mobilization is actively seeking anchor LP
                 commitments from philanthropic foundations and development
                 finance institutions. Target anchor LPs are institutions
                 that:
@@ -380,7 +380,7 @@ export default function MobilistFacilityPage() {
                 </h2>
                 <p className="mt-4 text-[15px] leading-7 text-white/82">
                   Whether you are a philanthropic foundation, a DFI, or a
-                  concessional lender - the Mobilist Facility was
+                  concessional lender - Capital Mobilization was
                   structured for institutions ready to move beyond grants.
                 </p>
               </div>

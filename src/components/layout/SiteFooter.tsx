@@ -8,7 +8,7 @@ const footerNav = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   // { label: "Investment Process", href: "/investment-process" },
-  // { label: "Mobilist Facility", href: "/special-projects/mobilist-facility" },
+  // { label: "Capital Mobilization", href: "/special-projects/capital-mobilization" },
   // { label: "Africa Energy Market Intelligence", href: "/special-projects/africa-energy-market-intelligence" },
   // { label: "Consumer Financing Project", href: "/special-projects/consumer-financing-project" },
   // { label: "Impact", href: "/impact" },
@@ -19,7 +19,7 @@ const footerNav = [
 const services = [
   { label: "Climate Advisory", href: "/services#advisory" },
   { label: "Technical Assistance", href: "/services#technical-assistance" },
-  { label: "Mobilist Facility", href: "/services#mobilist" },
+  { label: "Capital Mobilization", href: "/services#capital-mobilization" },
   { label: "Portfolio Aggregation", href: "/services#aggregation" },
 ];
 

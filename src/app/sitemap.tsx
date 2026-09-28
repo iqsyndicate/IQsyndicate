@@ -13,7 +13,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
     "team/advisors",
     "apply",
     "privacy",
-    // "special-projects/mobilist-facility",
+    // "special-projects/capital-mobilization",
     // "special-projects/africa-energy-market-intelligence",
     // "special-projects/consumer-financing-project",
   ];
