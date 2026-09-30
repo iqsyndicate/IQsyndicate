@@ -294,3 +294,101 @@ figcaption {
     animation: none;
   }
 }
+
+.publication-prose {
+  color: var(--charcoal);
+  font-size: 1rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.publication-prose > * + * {
+  margin-top: 1.3em;
+}
+
+.publication-prose p {
+  color: rgba(21, 17, 13, 0.76);
+}
+
+.publication-prose h2,
+.publication-prose h3 {
+  color: var(--charcoal);
+  margin-top: 2em;
+}
+
+.publication-prose h2 {
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.publication-prose h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.publication-prose a {
+  color: var(--burgundy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.publication-prose ul,
+.publication-prose ol {
+  padding-left: 1.5rem;
+}
+
+.publication-prose ul {
+  list-style: disc;
+}
+
+.publication-prose ol {
+  list-style: decimal;
+}
+
+.publication-prose blockquote {
+  border-left: 3px solid var(--bronze);
+  padding: 0.35rem 0 0.35rem 1.25rem;
+  color: var(--forest);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.publication-prose img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin: 2rem auto;
+}
+
+.publication-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  overflow: hidden;
+  font-size: 0.88rem;
+}
+
+.publication-prose th,
+.publication-prose td {
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.publication-prose th {
+  background: var(--cream);
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.publication-prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.publication-prose .tableWrapper {
+  overflow-x: auto;
+}

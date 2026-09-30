@@ -1,0 +1,13 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /iqSyndicatePublications/{publicationId} {
+      allow read, write: if true;
+    }
+
+    match /iqSyndicateAdmins/{adminId} {
+      allow read, write: if true;
+    }
+  }
+}

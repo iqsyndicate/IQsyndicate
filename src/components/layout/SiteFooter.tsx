@@ -6,6 +6,7 @@ import Container from "@/components/ui/Container";
 const footerNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Insights", href: "/insights" },
   { label: "Services", href: "/services" },
   // { label: "Investment Process", href: "/investment-process" },
   // { label: "Capital Mobilization", href: "/special-projects/capital-mobilization" },

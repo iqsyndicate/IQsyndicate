@@ -7,6 +7,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
     "",
     "about",
     "services",
+    "insights",
     // "investment-process",
     // "impact",
     "team",
