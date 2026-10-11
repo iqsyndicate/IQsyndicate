@@ -77,8 +77,8 @@ export default function PublicationReader() {
         </header>
 
         {publication.coverImage ? (
-          <figure className="relative mx-auto mb-14 aspect-[16/8] max-h-[620px] max-w-6xl overflow-hidden bg-sand">
-            <Image src={publication.coverImage} alt="" fill unoptimized priority sizes="(min-width: 1200px) 1152px, 100vw" className="object-cover" />
+          <figure className="mx-auto mb-14 max-w-3xl">
+            <Image src={publication.coverImage} alt="" width={1200} height={800} unoptimized priority sizes="(min-width: 768px) 768px, 100vw" className="block h-auto w-full" />
           </figure>
         ) : null}
 

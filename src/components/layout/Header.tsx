@@ -127,7 +127,7 @@ export default function Header() {
                 }}
                 className="hidden xl:inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-md shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-light"
               >
-                Apply Now <ArrowUpRight className="h-3.5 w-3.5" />
+                Contact Us <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
               <button
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-cream text-charcoal transition-colors hover:border-primary hover:text-primary xl:hidden"

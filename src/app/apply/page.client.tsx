@@ -237,8 +237,7 @@ export default function ApplyPage() {
         />
         <Container className="relative z-10">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="institutional-eyebrow">Get in Touch</p>
-            <h1 className="mt-5 text-charcoal">Get in Touch</h1>
+            <h1 className="text-charcoal">Get in Touch</h1>
             <p className="mx-auto mt-6 max-w-xl text-[15.5px] leading-7 text-ink/72">
               Whether you are a climate founder, an institutional investor,
               or a partner organisation, we would like to hear from you.
@@ -253,7 +252,7 @@ export default function ApplyPage() {
                 <Reveal key={p.id} direction="up" delay={i * 100}>
                   <Link
                     href={p.href}
-                    className={`card-float group block overflow-hidden rounded-2xl shadow-xl shadow-black/12`}
+                    className="card-float group flex h-full flex-col overflow-hidden rounded-2xl shadow-xl shadow-black/12"
                   >
                     <div className="relative h-44">
                       <Image
@@ -275,8 +274,8 @@ export default function ApplyPage() {
                         </div>
                       </div>
                     </div>
-                    <div className={`px-5 py-4 ${p.tone}`}>
-                      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/80">
+                    <div className={`flex min-h-[76px] flex-1 items-start px-5 py-4 ${p.tone}`}>
+                      <p className="line-clamp-2 text-[11px] font-semibold uppercase leading-5 tracking-[0.1em] text-white/85">
                         {p.headline} →
                       </p>
                     </div>
@@ -312,13 +311,13 @@ export default function ApplyPage() {
                 bankability threshold required for institutional capital.
               </p>
 
-              <p className="mt-8 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink/50">
+              <p className="mt-8 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink/80">
                 Eligibility Conditions
               </p>
               <ul className="mt-4 space-y-3">
                 {founderEligibility.map((item, i) => (
                   <Reveal key={i} direction="left" delay={i * 60}>
-                    <li className="flex items-start gap-3 text-[13.5px] leading-6 text-ink/70">
+                    <li className="flex items-start gap-3 text-[14px] leading-6 text-ink">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />
                       {item}
                     </li>
@@ -624,17 +623,17 @@ export default function ApplyPage() {
 
             <Reveal direction="right">
               <div className="card-float rounded-2xl bg-cream p-7 shadow-md shadow-black/5">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink/40">
+                <p className="text-[15px] font-semibold uppercase tracking-[0.2em] text-ink/80">
                   Legal Disclaimer
                 </p>
                 <p className="mt-4 text-[13.5px] leading-7 text-ink/62">
-                  we do not provide personalised financial
+                  We do not provide personalised financial
                   investment advice. Information provided on this website
                   is for general informational purposes only and does not
                   constitute an offer or solicitation to invest.
                 </p>
                 <p className="mt-4 text-[13.5px] leading-7 text-ink/62">
-                  we are incorporated in Nigeria as a private
+                  We are incorporated in Nigeria as a private
                   limited liability company. This website does not
                   constitute financial advice or an offer to invest.
                 </p>

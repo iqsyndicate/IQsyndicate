@@ -13,27 +13,6 @@ const sections: { id: PublicationSection; label: string }[] = [
   { id: "insights", label: "Insights" },
 ];
 
-const editorialThemes = [
-  {
-    number: "01",
-    title: "Climate finance",
-    body: "How capital can move further, reach earlier, and work harder for African-led climate ventures.",
-    tone: "border-primary",
-  },
-  {
-    number: "02",
-    title: "Market intelligence",
-    body: "Clear-eyed analysis of the markets, policy shifts, and technologies reshaping the continent.",
-    tone: "border-forest",
-  },
-  {
-    number: "03",
-    title: "Locally led growth",
-    body: "Evidence and perspectives grounded in the people building Africa's climate future.",
-    tone: "border-gold-dark",
-  },
-];
-
 const quoteTones = ["bg-primary", "bg-forest", "bg-forest-deep"];
 
 function articleText(value: unknown): string {
@@ -191,25 +170,9 @@ export default function InsightsLanding() {
 
         {activeSection === "introduction" ? (
           <section id="panel-introduction" role="tabpanel" tabIndex={0} aria-labelledby="tab-introduction" className="py-14 md:py-20">
-            <div className="mb-10 flex items-center justify-center gap-4 text-center">
-              <span className="hidden h-px w-16 bg-forest/65 sm:block" />
-              <h2 id="introduction-heading" className="max-w-2xl text-[20px] leading-snug text-forest md:text-2xl">Africa&apos;s climate future will be shaped by connected ideas, people, and capital.</h2>
-              <span className="hidden h-px w-16 bg-forest/65 sm:block" />
-            </div>
-            <div className="grid border-y border-border md:grid-cols-3">
-              {editorialThemes.map((theme) => (
-                <article key={theme.number} className={`border-b-2 ${theme.tone} px-5 py-5 md:border-b-0 md:border-r md:px-6 md:py-6 last:md:border-r-0`}>
-                  <p className="font-heading text-2xl text-gold-dark">{theme.number}</p>
-                  <h3 className="mt-2 text-lg text-charcoal">{theme.title}</h3>
-                  <p className="mt-2 text-[11px] leading-5 text-ink/62">{theme.body}</p>
-                </article>
-              ))}
-            </div>
-            <div className="my-10 flex items-center justify-center gap-4 text-center">
-              <span className="hidden h-px w-16 bg-forest/65 sm:block" />
-              <p className="max-w-2xl text-[14px] leading-6 text-forest">Perspectives from the work of financing African-led climate infrastructure.</p>
-              <span className="hidden h-px w-16 bg-forest/65 sm:block" />
-            </div>
+            <h2 id="introduction-heading" className="mb-10 text-center font-heading text-2xl font-semibold leading-snug text-forest md:text-3xl">
+              Perspectives from the work of financing African-led climate infrastructure.
+            </h2>
             <div className="space-y-7">
               {loading ? <LoadingRows /> : loadError ? <StatusMessage>{loadError}</StatusMessage> : introFeatured ? (
                 visiblePublications.map((publication, index) => <IntroductionCard key={publication.id} publication={publication} index={index} />)

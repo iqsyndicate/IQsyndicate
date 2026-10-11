@@ -293,7 +293,7 @@ export default function ServicesPage() {
                   const Icon = item.icon;
                   return (
                     <Reveal key={item.title} direction="left" delay={i * 100}>
-                      <div className="card-float flex gap-5 rounded-2xl bg-cream p-6 shadow-sm shadow-black/5">
+                      <div className="card-float flex gap-5 rounded-2xl bg-primary-pale p-6 shadow-sm shadow-black/5 ring-1 ring-primary/15">
                         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                           <Icon className="h-5.5 w-5.5" strokeWidth={1.75} />
                         </div>
@@ -514,7 +514,7 @@ export default function ServicesPage() {
                   const Icon = mod.icon;
                   return (
                     <Reveal key={mod.title} direction="left" delay={i * 80}>
-                      <div className="card-float flex gap-4 rounded-xl bg-cream p-4 shadow-sm shadow-black/5">
+                      <div className="card-float flex gap-4 rounded-xl bg-forest/10 p-4 shadow-sm shadow-black/5 ring-1 ring-forest/20">
                         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                           <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
                         </div>

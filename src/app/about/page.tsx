@@ -193,8 +193,7 @@ export default function AboutPage() {
         <Container className="relative z-10">
           <div className="flex justify-center">
             <Reveal direction="left" className="mx-auto max-w-4xl text-center">
-              <p className="institutional-eyebrow">About Us</p>
-              <h1 className="mt-5 max-w-2xl text-charcoal">Who We Are</h1>
+              <h1 className="mx-auto max-w-2xl text-charcoal">Who We Are</h1>
               <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
                 We are a specialised climate infrastructure and
                 advisory firm established to close the financing gap for
@@ -266,8 +265,8 @@ export default function AboutPage() {
                   Mission
                 </p>
                 <h2
-                  className="mt-3 leading-tight text-white"
-                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2 }}
+                  className="mt-3 font-normal leading-tight text-white"
+                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2, fontWeight: 400 }}
                 >
                   To structure the right liquidity, prepared to take on
                   appropriate risk that enables the scalability of African-led,
@@ -285,8 +284,8 @@ export default function AboutPage() {
                   Vision
                 </p>
                 <h2
-                  className="mt-3 leading-tight text-white"
-                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2 }}
+                  className="mt-3 font-normal leading-tight text-white"
+                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2, fontWeight: 400 }}
                 >
                   A self-sustaining climate infrastructure ecosystem where
                   African-led small-to-medium-scale climate infrastructure
@@ -305,9 +304,6 @@ export default function AboutPage() {
           <Reveal className="mx-auto max-w-4xl text-center">
             <p className="institutional-eyebrow">Our Culture &amp; Core Values</p>
             <h2 className="mt-4 text-charcoal">How we work together</h2>
-            <p className="mx-auto mt-5 max-w-3xl text-[15px] leading-7 text-ink/72">
-              We operate a culture driven by idea meritocracy, where meaningful work and meaningful relationships are the goals, and absolute truthfulness and consistent trust lead the path to achieving them.
-            </p>
           </Reveal>
 
           <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-6">
@@ -490,7 +486,7 @@ export default function AboutPage() {
         />
         <Container className="relative">
           <Reveal className="mb-14 max-w-2xl">
-            <p className="eyebrow-on-dark">Theory of Change</p>
+            <h2 className="text-3xl text-white md:text-4xl">Theory of Change</h2>
           </Reveal>
 
           <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-stretch">
@@ -506,7 +502,7 @@ export default function AboutPage() {
                       <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-light">
                         {step.label}
                       </p>
-                      <p className="mt-3 text-[14.5px] leading-7 text-white/88">
+                      <p className="mt-3 text-[16px] leading-7 text-white/88">
                         {step.body}
                       </p>
                     </div>

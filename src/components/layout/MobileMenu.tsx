@@ -111,7 +111,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.32 }} className="border-t border-white/10 p-6">
             <Link href="/apply" onClick={onClose} className="group flex w-full items-center justify-between rounded-xl bg-primary px-6 py-4 text-white shadow-xl shadow-primary/30 transition-all hover:bg-primary-light">
-              <span className="text-[12px] font-bold uppercase tracking-[0.18em]">Apply Now</span>
+              <span className="text-[12px] font-bold uppercase tracking-[0.18em]">Contact Us</span>
               <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
             <p className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-white/28">
