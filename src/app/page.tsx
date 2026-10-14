@@ -101,8 +101,7 @@ const services = [
     n: "01",
     title: "Climate Advisory",
     body: "Strategic support across project design, market intelligence, and product validation for climate project developers and institutional partners.",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80",
+    image: "/images/services/climate.png",
     tone: "burgundy" as const,
     size: "lg" as const,
     href: "/services#advisory",
@@ -112,8 +111,7 @@ const services = [
     n: "02",
     title: "Technical Assistance",
     body: "A 6–18-month bespoke programme deploying transaction specialists in financial modelling, product structuring, legal, operations, and market strategy.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80",
+    image: "/images/services/technical.jpg",
     tone: "forest" as const,
     size: "sm" as const,
     href: "/services#technical-assistance",
@@ -123,19 +121,17 @@ const services = [
     n: "03",
     title: "Capital Mobilization",
     body: "We structure investment vehicles and mobilize patient capital tailored to the investment needs and stage of small- to medium-scale climate infrastructure projects in Africa.",
-    image:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+    image: "/images/services/capital.png",
     tone: "gold" as const,
     size: "sm" as const,
-       href: "/services#capital-mobilization",
+    href: "/services#capital-mobilization",
     direction: "up" as const,
   },
   {
     n: "04",
     title: "Portfolio Aggregation",
     body: "Connecting project developers to investment opportunities and bundling performing projects into institutional-grade vehicles for large-scale capital.",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=80",
+    image: "/images/services/portfolio.JPG",
     tone: "burgundy" as const,
     size: "lg" as const,
     href: "/services#aggregation",

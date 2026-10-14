@@ -322,7 +322,7 @@ export default function ServicesPage() {
             <Reveal direction="right" className="lg:sticky lg:top-28">
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15 md:h-[520px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80"
+                  src="/images/services/climate.png"
                   alt="Strategic advisory session, climate project design and market intelligence"
                   fill
                   sizes="(min-width: 768px) 28vw, 100vw"
@@ -355,7 +355,7 @@ export default function ServicesPage() {
             <Reveal direction="left" className="order-2 lg:order-1 lg:sticky lg:top-28">
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/30 md:h-[520px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80"
+                  src="/images/services/technical.jpg"
                   alt="Technical specialist conducting financial modelling and analysis"
                   fill
                   sizes="(min-width: 768px) 28vw, 100vw"
@@ -470,6 +470,27 @@ export default function ServicesPage() {
             </Reveal>
 
             <Reveal direction="right">
+              <div className="mb-6 overflow-hidden rounded-3xl shadow-2xl shadow-black/20 ring-1 ring-white/10">
+                <div className="relative h-64 md:h-72">
+                  <Image
+                    src="/images/services/capital.png"
+                    alt="Capital mobilization for climate infrastructure projects"
+                    fill
+                    sizes="(min-width: 768px) 45vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-light">
+                      Capital Mobilization
+                    </p>
+                    <p className="mt-2 font-heading text-2xl text-white">
+                      Matching infrastructure with the right capital stack.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div className="grid gap-3 sm:grid-cols-2">
                 {capitalModules.map((mod, i) => {
                   const Icon = mod.icon;
@@ -531,7 +552,7 @@ export default function ServicesPage() {
             <Reveal direction="right" className="lg:sticky lg:top-28">
               <div className="card-float relative h-[380px] overflow-hidden rounded-3xl shadow-2xl shadow-black/15 md:h-[520px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80"
+                  src="/images/services/portfolio.JPG"
                   alt="Institutional investors reviewing an aggregated climate infrastructure portfolio"
                   fill
                   sizes="(min-width: 768px) 28vw, 100vw"
