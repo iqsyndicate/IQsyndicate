@@ -7,7 +7,6 @@ const footerNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
-  { label: "Services", href: "/services" },
   // { label: "Investment Process", href: "/investment-process" },
   // { label: "Capital Mobilization", href: "/special-projects/capital-mobilization" },
   // { label: "Africa Energy Market Intelligence", href: "/special-projects/africa-energy-market-intelligence" },
@@ -15,13 +14,6 @@ const footerNav = [
   // { label: "Impact", href: "/impact" },
   { label: "Team", href: "/team" },
   { label: "Apply", href: "/apply" },
-];
-
-const services = [
-  { label: "Climate Advisory", href: "/services#advisory" },
-  { label: "Technical Assistance", href: "/services#technical-assistance" },
-  { label: "Capital Mobilization", href: "/services#capital-mobilization" },
-  { label: "Portfolio Aggregation", href: "/services#aggregation" },
 ];
 
 export default function SiteFooter() {
@@ -69,7 +61,7 @@ export default function SiteFooter() {
 
       {/* ── Four-column grid ── */}
       <Container className="py-14 md:py-16">
-        <div className="grid gap-10 border-b border-white/8 pb-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 border-b border-white/8 pb-12 sm:grid-cols-2 lg:grid-cols-3">
 
           {/* Col 1: Site Map */}
           <div>
@@ -91,27 +83,7 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          {/* Col 2: Services */}
-          <div>
-            <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/36">
-              Services
-            </p>
-            <ul className="mt-5 space-y-3">
-              {services.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="group flex items-center gap-2 text-[13.5px] text-white/65 transition-colors hover:text-white"
-                  >
-                    <span className="h-px w-3 bg-white/20 transition-all group-hover:w-5 group-hover:bg-gold-light" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3: Institution */}
+          {/* Col 2: Institution */}
           <div>
             <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/36">
               Institution
@@ -150,7 +122,7 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Col 4: Contact + Legal */}
+          {/* Col 3: Contact + Legal */}
           <div>
             <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/36">
               Contact

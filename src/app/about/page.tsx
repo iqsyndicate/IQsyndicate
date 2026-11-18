@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -34,7 +33,7 @@ import AfricaMap from "@/components/ui/AfricaMap";
 export const metadata: Metadata = {
   title: "About IQ Syndicate",
   description:
-    "We are a specialised climate infrastructure and advisory firm established to close the financing gap for locally led climate ventures in Africa.",
+    "We work alongside institutions, investment platforms, governments and project developers to strengthen climate and infrastructure projects across African markets.",
   keywords: [
     "climate infrastructure advisory",
     "African impact investing",
@@ -90,29 +89,29 @@ const modelDirections: ("up" | "down" | "left" | "right")[] = [
 const pillars = [
   {
     icon: TargetIcon,
-    title: "Risk-First Thinking",
-    body: "We seek to understand, absorb, and effectively price early-stage risk, not avoid it. Our returns are compensation for genuine risk-taking.",
+    title: "Risk-Informed Investment",
+    body: "We seek to identify, assess, and appropriately allocate climate risks, while developing strategies to mitigate them. Through project preparation and appropriate risk allocation, we help make viable investment opportunities more attractive to capital providers.",
     tone: "bg-primary text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Search,
-    title: "Deep Diligence",
-    body: "We work alongside founders for months before deploying capital. Our due diligence is qualitative, AI-driven, and longitudinal, not just documentary.",
+    title: "Rigorous Due Diligence",
+    body: "We examine the technical, commercial, and market fundamentals underpinning each opportunity. We engage closely with partners to identify constraints, validate assumptions, and address gaps that may affect project viability and investment performance.",
     tone: "bg-forest text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Layers,
-    title: "Aligned Instruments",
-    body: "Convertible instruments reflect our belief that the instrument must fit the venture's stage, and not the other way around.",
+    title: "Fit-for-Purpose Financing",
+    body: "Our instruments respond to the specific characteristics, development stages, cash flows and risk profiles of projects. Rather than applying standardised financing instruments, we structure solutions that appropriately align the needs of projects with the expectations and risk appetites of capital providers.",
     tone: "bg-gold-dark text-white",
     iconTone: "bg-white/15 text-white",
   },
   {
     icon: Hourglass,
-    title: "Patient Capital",
-    body: "We define success over a 5–10 year horizon, not a 24-month return cycle. Our LPs share this horizon.",
+    title: "Long-Term Value Creation",
+    body: "Our approach balances appropriate financial returns with long-term development outcomes, recognising the importance of responsible capital deployment, sustained institutional support and environmental value.",
     tone: "bg-ink text-white",
     iconTone: "bg-gold-light/20 text-gold-light",
   },
@@ -144,7 +143,7 @@ const theoryOfChange = [
 ];
 
 const cultureValues = [
-  { icon: Lightbulb, title: "Idea Meritocracy", body: "We promote the best idea regardless where it comes from, without regard to hierarchy." },
+  { icon: Lightbulb, title: "Idea Meritocracy", body: "We promote the best idea regardless of where it comes from, without regard to hierarchy." },
   { icon: Briefcase, title: "Meaningful Work", body: "We consider our work important and produce greatness together with those we serve." },
   { icon: Handshake, title: "Meaningful Relationships", body: "We build lasting engagement with communities and partners through mutual caring." },
   { icon: ShieldCheck, title: "Truthfulness", body: "We conduct ourselves in ways that promote and guarantee trust at all times." },
@@ -177,256 +176,89 @@ const governance = [
 export default function AboutPage() {
   return (
     <>
-      {/* ───────────────────────── HERO ─────────────────────────
-          Bespoke split layout for this page - text on a warm surface,
-          a floating framed photograph instead of a full-bleed image. */}
-      <section className="relative overflow-hidden bg-cream pb-10 pt-12 md:pb-14 md:pt-14">
-        <div
-          className="pointer-events-none absolute -right-32 -top-32 h-[480px] w-[480px] rounded-full bg-gold-light/25 blur-3xl"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -left-24 bottom-0 h-[360px] w-[360px] rounded-full bg-forest/10 blur-3xl"
-          aria-hidden
-        />
-
+      <section className="relative overflow-hidden bg-cream py-16 md:py-24">
         <Container className="relative z-10">
-          <div className="flex justify-center">
-            <Reveal direction="left" className="mx-auto max-w-4xl text-center">
-              <h1 className="mx-auto max-w-2xl text-charcoal">Who We Are</h1>
-              <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
-                We are a specialised climate infrastructure and
-                advisory firm established to close the financing gap for
-                locally led, small-to-medium-scale climate infrastructure projects in Africa.
-              </p>
-              <p className="mx-auto mt-6 max-w-3xl text-[15.5px] leading-7 text-ink/74">
-                Our approach combines climate advisory, technical assistance, and structured capital solutions.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-7">
-                <Link
-                  href="/services"
-                  className="group inline-flex items-center gap-2 bg-primary px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-light"
-                >
-                  See Our Services
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-charcoal"
-                >
-                  Apply for Support
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </Reveal>
-
-            {false && (
-            <Reveal direction="right" className="relative mt-6 md:mt-10 lg:mt-12">
-              <div className="card-float relative h-[320px] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-black/20 md:h-[420px]">
-                <Image
-                  src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1600&q=80"
-                  alt="Solar infrastructure under construction in Nigeria"
-                  fill
-                  sizes="100vw"
-                  priority
-                  className="object-cover"
-                />
-                <div className="photo-duotone-burgundy absolute inset-0" />
-              </div>
-
-              {/* Floating badge card overlapping the image corner */}
-              {/* <div className="card-float absolute -bottom-8 -left-6 max-w-[220px] rounded-2xl bg-white p-5 shadow-xl shadow-black/15 md:-left-10">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                  Incorporated
-                </p>
-                <p className="mt-1 font-heading text-2xl text-charcoal">
-                  Nigeria
-                </p>
-                <p className="mt-1 text-[12px] leading-5 text-ink/60">
-                  A bridge institution for African-led climate capital.
-                </p>
-              </div> */}
-            </Reveal>
-            )}
-          </div>
+          <Reveal className="mx-auto max-w-4xl text-center">
+            <h1 className="text-charcoal">Who We Are</h1>
+            <div className="mx-auto mt-6 h-1 w-16 bg-gold-dark" />
+            <p className="mx-auto mt-7 max-w-3xl text-[16px] leading-7 text-ink/78 md:text-lg md:leading-8">
+              We work alongside institutions, investment platforms, governments and project developers to strengthen project pipelines, improve investment readiness, structure appropriate financing solutions and support programme implementation across African markets.
+            </p>
+            <p className="mx-auto mt-5 max-w-3xl text-[16px] leading-7 text-ink/78 md:text-lg md:leading-8">
+              Our approach is collaborative, technically informed and focused on delivering lasting development outcomes.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
-      {/* ───────────────────────── MISSION & VISION ───────────────────────── */}
-      <section className="bg-white py-10 md:py-14">
+      <section className="bg-white py-12 md:py-16">
         <Container>
-          <div className="grid gap-6 md:grid-cols-2">
+          <Reveal className="mb-8 max-w-2xl">
+            <h2 className="mt-3 text-charcoal">Our Vision, Mission &amp; Mandate</h2>
+          </Reveal>
+          <div className="grid gap-5 lg:grid-cols-3">
             <Reveal direction="left">
-              <div className="card-float h-full rounded-2xl bg-primary p-7 text-white shadow-xl shadow-black/10 md:p-8">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15">
-                  <TargetIcon className="h-6 w-6" strokeWidth={1.75} />
-                </div>
-                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
-                  Mission
+              <article className="h-full rounded-2xl bg-primary p-7 text-white shadow-lg shadow-primary/15 md:p-8">
+                <Eye className="h-7 w-7 text-gold-light" strokeWidth={1.7} />
+                <h3 className="mt-6 text-2xl text-white">Our Vision</h3>
+                <p className="mt-4 text-[14px] leading-7 text-white/85">
+                  An Africa where locally led climate and infrastructure solutions are developed to scale, supported by fit-for-purpose capital and strong institutions, delivering sustainable economic prosperity, environmental resilience and lasting development outcomes.
                 </p>
-                <h2
-                  className="mt-3 font-normal leading-tight text-white"
-                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2, fontWeight: 400 }}
-                >
-                  To structure the right liquidity, prepared to take on
-                  appropriate risk that enables the scalability of African-led,
-                  small-to-medium-scale climate infrastructure.
-                </h2>
-              </div>
+              </article>
             </Reveal>
-
-            <Reveal direction="right">
-              <div className="card-float h-full rounded-2xl bg-forest p-7 text-white shadow-xl shadow-black/10 md:p-8">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15">
-                  <Eye className="h-6 w-6" strokeWidth={1.75} />
-                </div>
-                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
-                  Vision
+            <Reveal direction="up" delay={100}>
+              <article className="h-full rounded-2xl bg-forest p-7 text-white shadow-lg shadow-forest/15 md:p-8">
+                <TargetIcon className="h-7 w-7 text-gold-light" strokeWidth={1.7} />
+                <h3 className="mt-6 text-2xl text-white">Our Mission</h3>
+                <p className="mt-4 text-[14px] leading-7 text-white/85">
+                  To strengthen Africa's climate and infrastructure ecosystem by helping institutions identify opportunities, develop investment-ready projects, structure appropriate financing solutions and deliver impactful programmes.
                 </p>
-                <h2
-                  className="mt-3 font-normal leading-tight text-white"
-                  style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.5rem)", lineHeight: 1.2, fontWeight: 400 }}
-                >
-                  A self-sustaining climate infrastructure ecosystem where
-                  African-led small-to-medium-scale climate infrastructure
-                  scales globally, delivering sustainable prosperity and
-                  measurable investment returns.
-                </h2>
-              </div>
+              </article>
+            </Reveal>
+            <Reveal direction="right" delay={180}>
+              <article className="h-full rounded-2xl bg-gold-dark p-7 text-white shadow-lg shadow-gold-dark/15 md:p-8">
+                <Compass className="h-7 w-7 text-white" strokeWidth={1.7} />
+                <h3 className="mt-6 text-2xl text-white">Our Mandate</h3>
+                <p className="mt-4 text-[14px] leading-7 text-white/90">
+                  To strengthen the development and financing of climate and infrastructure projects across African markets by bridging the gaps between institutional priorities, project opportunities, investment readiness and effective implementation.
+                </p>
+              </article>
             </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* ───────────────────────── CULTURE & CORE VALUES ───────────────────────── */}
       <section className="bg-cream py-12 md:py-16">
         <Container>
-          <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="institutional-eyebrow">Our Culture &amp; Core Values</p>
-            <h2 className="mt-4 text-charcoal">How we work together</h2>
-          </Reveal>
-
-          <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-6">
-            {cultureValues.map((value, i) => {
-              const Icon = value.icon;
-              const dark = i % 2 === 0;
-              return (
-                <Reveal
-                  key={value.title}
-                  direction={i < 3 ? "up" : "down"}
-                  delay={i * 70}
-                  className={`md:col-span-2 ${i === 3 ? "md:col-start-2" : i === 4 ? "md:col-start-4" : ""}`}
-                >
-                  <div className={`h-full rounded-3xl border p-6 shadow-sm ${dark ? "border-primary bg-primary text-white" : "border-primary/35 bg-white text-charcoal"}`}>
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-full ${dark ? "bg-white text-primary" : "bg-primary text-white"}`}>
-                      <Icon className="h-5 w-5" strokeWidth={1.8} />
-                    </div>
-                    <h3 className={`mt-5 text-xl ${dark ? "text-white" : "text-primary"}`}>{value.title}</h3>
-                    <p className={`mt-3 text-[13.5px] leading-6 ${dark ? "text-white/82" : "text-ink/72"}`}>{value.body}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* ───────────────────────── THE PROBLEM WE SOLVE ───────────────────────── */}
-      {false && (
-      <section className="bg-cream py-10 md:py-14">
-        <Container>
-          <div className="grid gap-10">
-            <Reveal direction="left">
-              <p className="institutional-eyebrow">The Problem We Solve</p>
-              <h2 className="mt-4 max-w-3xl text-charcoal">A Market Failure by Design</h2>
-              <p className="mt-5 max-w-4xl text-[15px] leading-7 text-ink/74">
-                The African climate finance landscape is constrained by a critical shortage of fit-for-purpose capital that addresses the financing needs of locally led climate infrastructure projects. Although hundreds of billions of dollars are committed globally to climate finance each year, the overwhelming majority of these resources are directed toward large-scale infrastructure projects and foreign-led developers that offer the revenue certainty, institutional track record, and risk profile preferred by conventional investors. As a result, small-scale, locally led climate infrastructure projects, despite delivering essential climate solutions and serving underserved communities, remain systematically underserved by existing financing mechanisms.
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <Reveal direction="left" className="lg:sticky lg:top-28 lg:self-start">
+              <h2 className="mt-3 text-charcoal">Core Values</h2>
+              <p className="mt-5 text-[15px] leading-7 text-ink/75">
+                Our values shape how we think, work, engage with partners and deliver on our mandate.
               </p>
             </Reveal>
-
-            <Reveal direction="right" className="max-w-4xl text-[15px] leading-7 text-ink/76">
-              <p>
-                This structural mismatch prevents capital from reaching enterprises that are well positioned to address local climate and energy challenges. The lack of appropriately structured financing, combined with limited access to technical assistance, constrains product innovation, business growth, operational scalability, and long-term sustainability, even where strong market demand already exists. Ultimately, this financing gap slows the deployment of climate infrastructure, limits access to affordable clean energy and other essential climate solutions, suppresses local job creation and development, and leaves vulnerable communities disproportionately exposed to the impacts of climate change.
-              </p>
-            </Reveal>
-          </div>
-        </Container>
-      </section>
-      )}
-
-      {/* ───────────────────────── PULL QUOTE ─────────────────────────
-          A pill/semi-circular panel paired with a floating, gently
-          animated continent illustration. */}
-      {false && (
-      <section className="bg-primary py-10 text-white md:py-14">
-        <Container>
-          <div className="grid items-center gap-8 md:grid-cols-[1.3fr_0.7fr] md:gap-4">
-            <Reveal direction="left">
-              <div className="card-float relative overflow-hidden rounded-[2rem] bg-primary-deep p-8 pl-8 shadow-2xl shadow-black/20 sm:p-10 sm:pl-10 md:rounded-r-3xl md:rounded-l-[999px] md:p-12 md:pl-14">
-                <Quote className="h-8 w-8 text-gold-light sm:h-9 sm:w-9" strokeWidth={1.5} />
-                <p className="mt-5 w-full max-w-full font-heading text-[1.05rem] leading-[1.45] text-white sm:text-[1.2rem] md:mt-6 md:text-[1.7rem] md:leading-[1.4]">
-                  Africa does not have a liquidity problem in climate finance. It has a risk valuation problem. We design instruments that deal with risk, not just liquidity.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal direction="right" className="mx-auto mt-8 block h-[220px] w-[220px] md:mt-0 md:h-[260px] md:w-[240px]">
-              <AfricaMap className="h-full w-full" />
-            </Reveal>
-          </div>
-        </Container>
-      </section>
-      )}
-
-      {/* ───────────────────────── OUR MODEL ─────────────────────────
-          A compact connected timeline - every stage stays visible at
-          once, no scroll-pinning, no overlap with neighboring sections. */}
-      <section className="bg-white py-10 md:py-14">
-        <Container>
-          <Reveal className="mb-16 max-w-2xl">
-            <p className="institutional-eyebrow">Core Service Areas</p>
-          </Reveal>
-
-          <div className="relative">
-            {/* connecting line, desktop only */}
-            <svg
-              className="pointer-events-none absolute left-0 right-0 top-8 hidden h-px w-full md:block"
-              preserveAspectRatio="none"
-            >
-              <line
-                x1="0"
-                y1="0"
-                x2="100%"
-                y2="0"
-                stroke="#b38a5b"
-                strokeDasharray="2 6"
-                style={{ animation: "dash-flow 2.4s linear infinite" }}
-              />
-            </svg>
-
-            <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 md:grid-cols-4 md:gap-x-4">
-              {modelStages.map((stage, i) => {
-                const Icon = stage.icon;
+            <div className="grid gap-4 sm:grid-cols-2">
+              {cultureValues.map((value, i) => {
+                const Icon = value.icon;
+                const highlighted = i === 0 || i === 3;
                 return (
-                  <Reveal key={stage.title} direction={modelDirections[i]} delay={i * 90}>
-                    <div className="flex flex-col items-center text-center md:items-start md:text-left">
-                      <div className="relative z-10">
-                        <div
-                          className={`card-float flex h-16 w-16 items-center justify-center rounded-full shadow-lg shadow-black/15 ${stage.tone}`}
-                        >
-                          <Icon className="h-7 w-7" strokeWidth={1.75} />
-                        </div>
-                        <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-white text-[10px] font-bold text-primary shadow-md shadow-black/10">
-                          {i + 1}
-                        </span>
+                  <Reveal
+                    key={value.title}
+                    direction={i % 2 === 0 ? "up" : "down"}
+                    delay={i * 70}
+                    className={i === 4 ? "sm:col-span-2" : ""}
+                  >
+                    <article className={`h-full rounded-2xl p-6 ${highlighted ? "bg-primary text-white" : "bg-white text-charcoal shadow-sm"}`}>
+                      <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${highlighted ? "bg-white/15 text-gold-light" : "bg-forest/10 text-forest"}`}>
+                        <Icon className="h-5 w-5" strokeWidth={1.8} />
                       </div>
-                      <h3 className="mt-4 text-lg leading-tight text-charcoal md:text-xl">
-                        {stage.title}
+                      <h3 className={`mt-5 text-xl ${highlighted ? "text-white" : "text-charcoal"}`}>
+                        {value.title}
                       </h3>
-                      <p className="mt-2 text-[12.5px] leading-5 text-ink/62">
-                        {stage.body}
+                      <p className={`mt-3 text-[13.5px] leading-6 ${highlighted ? "text-white/82" : "text-ink/72"}`}>
+                        {value.body}
                       </p>
-                    </div>
+                    </article>
                   </Reveal>
                 );
               })}
@@ -435,157 +267,48 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ───────────────────────── INVESTMENT PHILOSOPHY ─────────────────────────
-          Same pattern as the homepage section, for consistency across the site. */}
-      {/* <section className="bg-cream py-20 md:py-28">
+      <section className="relative bg-ink py-14 text-white md:py-20">
         <Container>
-          <Reveal className="mb-12 max-w-xl">
-            <p className="institutional-eyebrow">Investment Philosophy</p>
-            <h2 className="mt-4 text-charcoal">
-              Risk Absorption at the Earliest Stage
-            </h2>
-            <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              Our investment philosophy rests on a single premise: risk
-              absorption at the earliest stage of climate infrastructure
-              project development is the most valuable and scarce input
-              in Africa. Every structural decision we make - from
-              instrument design to fee model - flows from this premise.
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-white">Our Philosophy</h2>
+            <p className="mt-5 text-[15px] leading-7 text-white/75 md:text-base">
+              We believe that mobilising capital for Africa's development requires a fundamentally different approach to how projects are assessed, prepared, and financed.
+            </p>
+            <p className="mt-3 text-[15px] leading-7 text-white/75 md:text-base">
+              This philosophy informs four principles that guide our work.
             </p>
           </Reveal>
-
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid gap-x-12 md:mt-14 md:grid-cols-2">
             {pillars.map((pillar, i) => {
               const Icon = pillar.icon;
               return (
-                <Reveal key={pillar.title} direction={pillarDirections[i]} delay={i * 110}>
-                  <div
-                    className={`card-float h-full rounded-3xl p-8 shadow-xl shadow-black/15 md:p-10 ${pillar.tone}`}
-                  >
-                    <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-2xl ${pillar.iconTone}`}
-                    >
-                      <Icon className="h-7 w-7" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-7 text-3xl">{pillar.title}</h3>
-                    <p className="mt-4 max-w-sm text-[14.5px] leading-7 opacity-82">
-                      {pillar.body}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section> */}
-
-      {/* ───────────────────────── THEORY OF CHANGE ───────────────────────── */}
-      <section className="relative overflow-hidden bg-forest py-10 text-white md:py-14">
-        <div
-          className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gold-light/10 blur-3xl"
-          aria-hidden
-        />
-        <Container className="relative">
-          <Reveal className="mb-14 max-w-2xl">
-            <h2 className="text-3xl text-white md:text-4xl">Theory of Change</h2>
-          </Reveal>
-
-          <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-stretch">
-            {theoryOfChange.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <div key={step.label} className="flex flex-1 items-stretch gap-4">
-                  <Reveal direction="up" delay={i * 140} className="flex-1">
-                    <div className="card-float glass-card flex h-full flex-col rounded-2xl p-7 shadow-xl shadow-black/20">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-light/20 text-gold-light">
-                        <Icon className="h-5.5 w-5.5" strokeWidth={1.75} />
+                <Reveal key={pillar.title} direction={pillarDirections[i]} delay={i * 90}>
+                  <article className="h-full border-t border-white/20 py-7 md:py-9">
+                    <div className="flex items-start gap-5">
+                      <span className="pt-1 font-heading text-2xl text-gold-light/75">
+                        0{i + 1}
+                      </span>
+                      <div>
+                        <Icon className="h-6 w-6 text-gold-light" strokeWidth={1.7} />
+                        <h3 className="mt-4 text-xl text-white md:text-2xl">
+                          {pillar.title}
+                        </h3>
+                        <p className="mt-3 text-[13.5px] leading-6 text-white/72 md:text-sm">
+                          {pillar.body}
+                        </p>
                       </div>
-                      <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-light">
-                        {step.label}
-                      </p>
-                      <p className="mt-3 text-[16px] leading-7 text-white/88">
-                        {step.body}
-                      </p>
                     </div>
-                  </Reveal>
-                  {i < theoryOfChange.length - 1 && (
-                    <div className="flex items-center justify-center">
-                      <ArrowRight className="hidden h-6 w-6 shrink-0 text-gold-light md:block" />
-                      <ArrowDown className="h-6 w-6 shrink-0 text-gold-light md:hidden" />
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* ───────────────────────── GOVERNANCE ───────────────────────── */}
-      {/* <section className="bg-white py-20 md:py-28">
-        <Container>
-          <Reveal className="mb-12 max-w-xl">
-            <p className="institutional-eyebrow">Governance</p>
-            <h2 className="mt-4 text-charcoal">
-              Built for institutional scrutiny from day one.
-            </h2>
-          </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {governance.map((item, i) => {
-              const Icon = item.icon;
-              const directions: ("left" | "right")[] = ["left", "right", "left", "right"];
-              return (
-                <Reveal key={item.title} direction={directions[i]} delay={i * 100}>
-                  <div className="card-float h-full rounded-2xl bg-cream p-8 shadow-md shadow-black/5">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-6 text-2xl text-charcoal">{item.title}</h3>
-                    <p className="mt-3 text-[14px] leading-6 text-ink/68">
-                      {item.body}
-                    </p>
-                  </div>
+                  </article>
                 </Reveal>
               );
             })}
           </div>
         </Container>
-      </section> */}
-
-      {/* ───────────────────────── CLOSING CTA ───────────────────────── */}
-      {false && (
-      <section className="bg-cream py-10 md:py-14">
-        <Container>
-          <Reveal>
-            <div className="card-float flex flex-col items-start justify-between gap-10 rounded-3xl bg-primary p-10 shadow-2xl shadow-primary/20 md:flex-row md:items-end md:p-14">
-              <div className="max-w-lg">
-                <h2 className="text-white">Ready to Close the Gap?</h2>
-                <p className="mt-4 text-[15px] leading-7 text-white/82">
-                  Whether you are a founder seeking capital, an investor
-                  looking for impact-aligned returns, or a partner
-                institution, we were built for you.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-5">
-                <Link
-                  href="/apply"
-                  className="group inline-flex items-center gap-2 bg-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light"
-                >
-                  Apply Now
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 border-b border-white/40 pb-0.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:border-white"
-                >
-                  Get in Touch
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
+        <span
+          aria-hidden="true"
+          className="absolute bottom-0 left-1/2 h-px w-16 -translate-x-1/2 bg-gold-light/75"
+        />
       </section>
-      )}
     </>
   );
 }

@@ -11,20 +11,7 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: "About",              href: "/about" },
   { label: "Insights",           href: "/insights" },
-  {
-    label: "Services",
-    href: "/services",
-    hasSubLinks: true,
-    subLinks: [
-      { label: "Climate Advisory", href: "/services#advisory" },
-      { label: "Technical Assistance", href: "/services#technical-assistance" },
-      { label: "Capital Mobilization", href: "/services#capital-mobilization" },
-      { label: "Portfolio Aggregation", href: "/services#aggregation" },
-    ],
-  },
-  // { label: "Investment Process", href: "/investment-process" },
-  // Special Projects navigation is disabled while those pages are unavailable.
-  // { label: "Impact", href: "/impact" },
+  // Services removed from navigation as requested
   {
     label: "Team",
     href: "/team",

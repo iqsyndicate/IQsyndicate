@@ -79,9 +79,9 @@ export default function Header() {
             </Link>
 
             <nav className="hidden items-center xl:flex" aria-label="Main navigation">
-              {NAV_LINKS.map((link) => {
+              {NAV_LINKS.filter(link => link.label !== "Services").map((link) => {
                 const isActive =
-                  pathname === link.href || (link.href !== "#" && pathname.startsWith(link.href));
+                  pathname === link.href || (link.href !== link.href && pathname.startsWith(link.href));
 
                 if (link.hasSubLinks) {
                   const isMenuActive = pathname.startsWith(link.href);

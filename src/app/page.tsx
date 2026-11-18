@@ -226,297 +226,79 @@ const toneClasses: Record<"burgundy" | "forest" | "gold", string> = {
 export default function HomePage() {
   return (
     <>
-      {/* ───────────────────────── HERO ─────────────────────────
-          Rotating slider: three background/copy sets crossfade
-          automatically; scrim is darker and burgundy-tinted. */}
+      {/* ───────────────────────── HERO (Unchanged) ───────────────────────── */}
       <HeroSlider slides={heroSlides} />
 
-      {/* ───────────────────────── THE FINANCING GAP ─────────────────────────
-          No rules/borders, separation comes from card elevation. */}
-      <section className="bg-white py-10 md:py-14">
+      {/* ───────────────────────── CUSTOM CONTENT ───────────────────────── */}
+      <section className="bg-white py-12 md:py-16">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="institutional-eyebrow">The Problem</p>
-            <h2 className="mt-4 text-charcoal">
-              The Financing Gap
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-[15.5px] leading-7 text-ink/72">
-              Despite hundreds of billions of dollars committed to climate finance globally, African-led and small- to medium-scale climate infrastructure projects remain systematically underserved by available capital. The challenge is not simply a shortage of finance, but a persistent mismatch between the way capital is structured and the realities of projects in African markets.
+            <h2 className="text-3xl font-bold text-charcoal mb-6">Why We Exist</h2>
+            <p className="text-[16px] leading-7 text-ink/80 mb-4">
+              Africa has significant opportunities across climate and infrastructure sectors. Yet many promising projects remain underdeveloped and unable to attract the capital and institutional support required to reach implementation.
             </p>
-            <p className="mx-auto mt-4 max-w-2xl text-[15.5px] leading-7 text-ink/72">
-              Commercial banks, private equity and debt funds, and development finance institutions typically apply investment thresholds, ticket sizes, collateral requirements, and transaction structures designed for larger, more mature businesses. As a result, viable small- and medium-scale climate infrastructure projects, often developed by indigenous African enterprises, fall below the minimum scale required to attract institutional capital.
+            <p className="text-[16px] leading-7 text-ink/80 mb-4">
+              The challenge extends beyond access to finance. It involves project preparation, technical capacity, risk allocation, investment structuring and effective programme delivery.
             </p>
-          </Reveal>
-
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {stats.map((stat, i) => {
-              const Icon = stat.icon;
-              const isDark = stat.tone === "burgundy";
-              const bgClass =
-                stat.tone === "burgundy"
-                  ? "bg-primary text-white"
-                  : stat.tone === "gold"
-                    ? "bg-gold-dark text-white"
-                    : "bg-cream text-charcoal";
-              const iconBg =
-                stat.tone === "neutral" ? "bg-primary/10 text-primary" : "bg-white/15 text-white";
-              const valueColor = stat.tone === "neutral" ? "text-primary" : "text-white";
-              const labelColor = isDark || stat.tone === "gold" ? "text-white/78" : "text-ink/62";
-
-              return (
-                <Reveal key={stat.label} direction={stat.direction} delay={i * 120}>
-                  <div className={`card-float h-full rounded-2xl p-5 shadow-md shadow-black/5 ${bgClass}`}>
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconBg}`}>
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </div>
-                    <p className={`mt-4 font-heading text-4xl ${valueColor}`}>
-                      {stat.display ?? (
-                        <Counter
-                          value={stat.value as number}
-                          prefix={stat.prefix}
-                          suffix={stat.suffix}
-                          decimals={stat.decimals}
-                        />
-                      )}
-                    </p>
-                    <p className={`mt-2 text-[12px] leading-5 ${labelColor}`}>
-                      {stat.label}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* ───────────────────────── WHAT WE DO ─────────────────────────
-          Cards assemble from alternating directions; card 04 tucks up
-          against card 02 to close the masonry gap. */}
-        <section className="bg-cream py-10 md:py-14">
-        <Container>
-          <Reveal className="mb-12 max-w-2xl">
-            <p className="institutional-eyebrow">What We Do</p>
-            <h2 className="mt-4 text-charcoal">
-              Four Integrated Services. One End-to-End Pathway.
-            </h2>
-            <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              We provide full-cycle support to climate infrastructure projects.
+            <p className="text-[16px] leading-7 text-ink/80 mb-4">
+              IQ Syndicate works with institutions and partners to address these interconnected challenges, helping translate development priorities into investable projects and tangible outcomes.
             </p>
           </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {services.map((service, i) => (
-              <Reveal
-                key={service.title}
-                direction={service.direction}
-                delay={i * 100}
-                className=""
-              >
-                <Link
-                  href={service.href}
-                  className={`card-float group relative block overflow-hidden rounded-2xl shadow-lg shadow-black/10 ${
-                    "h-[210px] md:h-[230px]"
-                  }`}
-                >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(min-width: 768px) 40vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className={`absolute inset-0 ${toneClasses[service.tone]}`} />
-                  <div className="absolute inset-0 bg-black/14" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/86 via-black/34 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-6">
-                    <span className="font-heading text-xl text-white/70">
-                      {service.n}
-                    </span>
-                    <div>
-                      <h3 className="text-2xl text-white md:text-3xl">
-                        {service.title}
-                      </h3>
-                      <p className="mt-2 max-w-sm text-[13px] leading-5 text-white/85">
-                        {service.body}
-                      </p>
-                      <span className="mt-3 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
-                        Learn More
-                        {/* <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /> */}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
         </Container>
       </section>
 
-      {/* ───────────────────────── INVESTMENT PHILOSOPHY ─────────────────────────
-          Section pins while the four colored cards reveal one by one. */}
-      <section className="bg-white py-10 md:py-14">
+      <section className="bg-cream py-12 md:py-16">
         <Container>
-          <Reveal className="mb-12 max-w-xl">
-            <p className="institutional-eyebrow">Our Investment Philosophy</p>
-
-            <p className="mt-5 text-[15px] leading-7 text-ink/72">
-              Our philosophy rests on a single premise: risk absorption at the earliest stage of climate infrastructure project development is the most valuable and scarce input in Africa.
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold text-charcoal mb-6">Who We Are</h2>
+            <p className="text-[16px] leading-7 text-ink/80 mb-4">
+              A climate advisor partner that helps institutions translate their climate ambitions and investment priorities into well-prepared projects, executable programmes and mobilised capital across African markets.
+            </p>
+            <p className="text-[16px] leading-7 text-ink/80 mb-4">
+              We work with development finance institutions, philanthropic organisations, governments, investment platforms and private-sector partners to bridge the gaps between project identification, preparation, financing and implementation.
             </p>
           </Reveal>
-
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {pillars.map((pillar, i) => {
-              const Icon = pillar.icon;
-              return (
-                <Reveal key={pillar.title} direction={pillarDirections[i]} delay={i * 110}>
-                  <div className={`card-float h-full min-h-[220px] rounded-2xl p-6 shadow-xl shadow-black/15 md:min-h-[240px] md:p-7 ${pillar.tone}`}>
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${pillar.iconTone}`}>
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="mt-5 text-[1.35rem] leading-tight md:text-[1.55rem]">{pillar.title}</h3>
-                    <p className="mt-3 max-w-sm text-[13px] leading-6 opacity-82">
-                      {pillar.body}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
         </Container>
       </section>
 
-      {/* ───────────────────────── AUDIENCE PATHWAYS ───────────────────────── */}
-      {false && (
-      <section className="bg-cream py-10 md:py-14">
+      <section className="bg-white py-12 md:py-16">
         <Container>
-          <Reveal className="mb-12 max-w-xl">
-            <p className="institutional-eyebrow">Three Ways In</p>
-            <h2 className="mt-4 text-charcoal">
-              Whichever side of the gap you stand on
-            </h2>
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold text-charcoal mb-6">Our Services</h2>
+            <p className="text-[16px] leading-7 text-ink/80 mb-8">
+              Our work span four interconnected service areas:
+            </p>
           </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {audiences.map((a, i) => (
-              <Reveal key={a.label} direction="up" delay={i * 130}>
-                <Link
-                  href={a.href}
-                  className="card-float group relative block h-[440px] overflow-hidden rounded-2xl shadow-xl shadow-black/15"
-                >
-                  <Image
-                    src={a.image}
-                    alt={a.headline}
-                    fill
-                    sizes="(min-width: 768px) 40vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/72 pointer-events-none" />
-                  <div className={`absolute inset-0 ${toneClasses[a.tone]} opacity-100`} />
-                  <div className="absolute inset-0 flex flex-col justify-between p-7">
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/75">
-                      {a.label}
-                    </span>
-                    <div>
-                      <h3 className="text-2xl leading-[1.08] text-white">
-                        {a.headline}
-                      </h3>
-                      <p className="mt-3 text-[13.5px] leading-6 text-white/85">
-                        {a.body}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
-                        {a.cta}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-        )}
-
-      {/* ───────────────────────── IMPACT NUMBERS ─────────────────────────
-          Glass cards floating over the photo instead of flat overlay text. */}
-          {false && (
-          <section className="relative overflow-hidden py-12 md:py-16">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=2400&q=80"
-            alt="Aerial view of agricultural land in Nigeria"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="photo-duotone-burgundy absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/55" />
-        </div>
-
-        <Container className="relative z-10">
-          <Reveal className="mx-auto mb-14 max-w-lg text-center">
-            <p className="eyebrow-on-dark">Our Target Impact by Year 5</p>
-            <h2 className="mt-4 text-white">
-              Measured against the standards investors already trust.
-            </h2>
-          </Reveal>
-
-          <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
-            {impactMetrics.map((metric, i) => {
-              const Icon = metric.icon;
-              return (
-                <Reveal key={metric.label} direction="up" delay={i * 110}>
-                  <div className="card-float glass-card h-full rounded-2xl p-6 shadow-xl shadow-black/20">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-gold-light">
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </div>
-                    <p className="mt-5 font-heading text-3xl text-white md:text-4xl">
-                      {metric.display ?? (
-                        <Counter
-                          value={Number(metric.value)}
-                          prefix={(metric as { prefix?: string }).prefix}
-                          suffix={(metric as { suffix?: string }).suffix}
-                          decimals={(metric as { decimals?: number }).decimals ?? 0}
-                        />
-                      )}
-                      {metric.unit && (
-                        <span className="text-lg text-gold-light md:text-xl">
-                          {metric.unit}
-                        </span>
-                      )}
-                    </p>
-                    <p className="mt-3 text-[12px] leading-5 text-white/72">
-                      {metric.label}
-                    </p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-        )}
-
-      {/* ───────────────────────── PRE-FOOTER CTA ─────────────────────────
-          A single burgundy card, not a full-bleed band. */}
-      <section className="bg-white py-10 md:py-14">
-        <Container>
-          <Reveal>
-            <div className="card-float flex flex-col items-start justify-between gap-10 rounded-3xl bg-primary p-10 shadow-2xl shadow-primary/20 md:flex-row md:items-end md:p-14">
-              <div className="max-w-lg">
-                <h2 className="text-white">Partner with us</h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="flex h-full flex-col items-center rounded-2xl bg-primary p-6 text-center text-white shadow-md">
+                <Image src="/images/services/portfolio.JPG" alt="Pipeline Development" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+                <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Pipeline Development</h3>
+                <p className="text-[15px] leading-6 text-white/85">
+                  We support partners in identifying, assessing and aggregating climate projects to build credible project pipelines aligned with their institutional investment priorities.
+                </p>
               </div>
-              <div className="flex flex-wrap items-center gap-5">
-                <Link
-                  href="/apply"
-                  className="group inline-flex items-center gap-2 bg-white px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary shadow-lg transition-all hover:-translate-y-0.5 hover:bg-gold-light"
-                >
-                  Partner with us (Apply)
-                  {/* <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /> */}
-                </Link>
+              <div className="flex h-full flex-col items-center rounded-2xl bg-forest p-6 text-center text-white shadow-md">
+                <Image src="/images/services/technical.jpg" alt="Technical Assistance" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+                <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Technical Assistance</h3>
+                <p className="text-[15px] leading-6 text-white/85">
+                  We support our partners in addressing technical, commercial, institutional, and financial gaps to advance projects from early-stage to investment-ready opportunities, while strengthening project fundamentals.
+                </p>
               </div>
-            </div>
-          </Reveal>
+              <div className="flex h-full flex-col items-center rounded-2xl bg-gold-dark p-6 text-center text-white shadow-md">
+                <Image src="/images/services/capital.png" alt="Investment Structuring" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+                <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Investment Structuring</h3>
+                <p className="text-[15px] leading-6 text-white/90">
+                  We design financing solutions, structure investments and develop capital mobilisation strategies to address the financing constraints of climate projects. Our approach recognises that different projects require different financing instruments.
+                </p>
+              </div>
+              <div className="flex h-full flex-col items-center rounded-2xl bg-ink p-6 text-center text-white shadow-md">
+                <Image src="/images/services/climate.png" alt="Climate Advisory" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+                <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Climate Advisory</h3>
+                <p className="text-[15px] leading-6 text-white/85">
+                  We serve as a strategic implementation partner to institutions delivering climate research and infrastructure programmes across African markets. We support programme delivery and translate strategic priorities into tangible development outcomes.
+                </p>
+              </div>
+          </div>
         </Container>
       </section>
     </>

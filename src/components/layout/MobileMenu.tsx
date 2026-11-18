@@ -58,7 +58,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           <div className="flex-1 overflow-y-auto px-6 py-8">
             <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-white/30">Navigation</p>
             <nav className="mt-6 space-y-1.5">
-              {NAV_LINKS.map((link, i) => {
+              {NAV_LINKS.filter(link => link.label !== "Services").map((link, i) => {
                 const isActive = pathname === link.href || (link.href !== "#" && pathname.startsWith(link.href));
 
                 if (link.hasDropdown || link.hasSubLinks) {
