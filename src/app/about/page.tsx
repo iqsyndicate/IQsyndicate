@@ -207,7 +207,7 @@ export default function AboutPage() {
               </article>
             </Reveal>
             <Reveal direction="up" delay={100}>
-              <article className="h-full rounded-2xl bg-forest p-7 text-white shadow-lg shadow-forest/15 md:p-8">
+              <article className="h-full rounded-2xl bg-primary-light p-7 text-white shadow-lg shadow-primary-light/15 md:p-8">
                 <TargetIcon className="h-7 w-7 text-gold-light" strokeWidth={1.7} />
                 <h3 className="mt-6 text-2xl text-white">Our Mission</h3>
                 <p className="mt-4 text-[14px] leading-7 text-white/85">

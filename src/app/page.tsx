@@ -13,6 +13,10 @@ import {
   Cloud,
   Briefcase,
   UserCheck,
+  GitBranch,
+  ClipboardCheck,
+  CircleDollarSign,
+  Compass,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
@@ -93,49 +97,6 @@ const stats = [
     label: "Active climate ventures in Africa",
     tone: "gold" as const,
     direction: "right" as const,
-  },
-];
-
-const services = [
-  {
-    n: "01",
-    title: "Climate Advisory",
-    body: "Strategic support across project design, market intelligence, and product validation for climate project developers and institutional partners.",
-    image: "/images/services/climate.png",
-    tone: "burgundy" as const,
-    size: "lg" as const,
-    href: "/services#advisory",
-    direction: "left" as const,
-  },
-  {
-    n: "02",
-    title: "Technical Assistance",
-    body: "A 6–18-month bespoke programme deploying transaction specialists in financial modelling, product structuring, legal, operations, and market strategy.",
-    image: "/images/services/technical.jpg",
-    tone: "forest" as const,
-    size: "sm" as const,
-    href: "/services#technical-assistance",
-    direction: "right" as const,
-  },
-  {
-    n: "03",
-    title: "Capital Mobilization",
-    body: "We structure investment vehicles and mobilize patient capital tailored to the investment needs and stage of small- to medium-scale climate infrastructure projects in Africa.",
-    image: "/images/services/capital.png",
-    tone: "gold" as const,
-    size: "sm" as const,
-    href: "/services#capital-mobilization",
-    direction: "up" as const,
-  },
-  {
-    n: "04",
-    title: "Portfolio Aggregation",
-    body: "Connecting project developers to investment opportunities and bundling performing projects into institutional-grade vehicles for large-scale capital.",
-    image: "/images/services/portfolio.JPG",
-    tone: "burgundy" as const,
-    size: "lg" as const,
-    href: "/services#aggregation",
-    direction: "down" as const,
   },
 ];
 
@@ -252,7 +213,7 @@ export default function HomePage() {
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold text-charcoal mb-6">Who We Are</h2>
             <p className="text-[16px] leading-7 text-ink/80 mb-4">
-              A climate advisor partner that helps institutions translate their climate ambitions and investment priorities into well-prepared projects, executable programmes and mobilised capital across African markets.
+              A climate advisory partner that helps institutions translate their climate ambitions and investment priorities into well-prepared projects, executable programmes, and mobilised capital across African markets.
             </p>
             <p className="text-[16px] leading-7 text-ink/80 mb-4">
               We work with development finance institutions, philanthropic organisations, governments, investment platforms and private-sector partners to bridge the gaps between project identification, preparation, financing and implementation.
@@ -271,28 +232,36 @@ export default function HomePage() {
           </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               <div className="flex h-full flex-col items-center rounded-2xl bg-primary p-6 text-center text-white shadow-md">
-                <Image src="/images/services/portfolio.JPG" alt="Pipeline Development" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 text-gold-light">
+                  <GitBranch className="h-7 w-7" strokeWidth={1.75} />
+                </div>
                 <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Pipeline Development</h3>
                 <p className="text-[15px] leading-6 text-white/85">
                   We support partners in identifying, assessing and aggregating climate projects to build credible project pipelines aligned with their institutional investment priorities.
                 </p>
               </div>
-              <div className="flex h-full flex-col items-center rounded-2xl bg-forest p-6 text-center text-white shadow-md">
-                <Image src="/images/services/technical.jpg" alt="Technical Assistance" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+              <div className="flex h-full flex-col items-center rounded-2xl bg-primary-light p-6 text-center text-white shadow-md">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 text-white">
+                  <ClipboardCheck className="h-7 w-7" strokeWidth={1.75} />
+                </div>
                 <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Technical Assistance</h3>
                 <p className="text-[15px] leading-6 text-white/85">
                   We support our partners in addressing technical, commercial, institutional, and financial gaps to advance projects from early-stage to investment-ready opportunities, while strengthening project fundamentals.
                 </p>
               </div>
               <div className="flex h-full flex-col items-center rounded-2xl bg-gold-dark p-6 text-center text-white shadow-md">
-                <Image src="/images/services/capital.png" alt="Investment Structuring" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 text-gold-light">
+                  <CircleDollarSign className="h-7 w-7" strokeWidth={1.75} />
+                </div>
                 <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Investment Structuring</h3>
                 <p className="text-[15px] leading-6 text-white/90">
                   We design financing solutions, structure investments and develop capital mobilisation strategies to address the financing constraints of climate projects. Our approach recognises that different projects require different financing instruments.
                 </p>
               </div>
-              <div className="flex h-full flex-col items-center rounded-2xl bg-ink p-6 text-center text-white shadow-md">
-                <Image src="/images/services/climate.png" alt="Climate Advisory" width={120} height={120} className="mb-4 h-[120px] w-[120px] shrink-0 rounded-xl object-cover" />
+              <div className="flex h-full flex-col items-center rounded-2xl bg-primary p-6 text-center text-white shadow-md">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 text-gold-light">
+                  <Compass className="h-7 w-7" strokeWidth={1.75} />
+                </div>
                 <h3 className="mb-2 flex min-h-14 items-center justify-center text-center text-xl font-semibold leading-tight text-white">Climate Advisory</h3>
                 <p className="text-[15px] leading-6 text-white/85">
                   We serve as a strategic implementation partner to institutions delivering climate research and infrastructure programmes across African markets. We support programme delivery and translate strategic priorities into tangible development outcomes.
