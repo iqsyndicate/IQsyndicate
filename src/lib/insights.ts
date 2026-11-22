@@ -15,6 +15,7 @@ import { db } from "@/lib/firebase";
 
 export type PublicationSection = "introduction" | "insights";
 export type PublicationStatus = "draft" | "published";
+export type PublicationType = "article" | "pdf" | "link";
 
 export type Publication = {
   id: string;
@@ -23,10 +24,14 @@ export type Publication = {
   excerpt: string;
   pullQuote?: string;
   section: PublicationSection;
+  publicationType: PublicationType;
+  externalUrl?: string;
+  pdfUrl?: string;
   coverImage: string;
   content: Record<string, unknown>;
   authorId: string;
   authorName: string;
+  authors?: string;
   status: PublicationStatus;
   createdAt: Timestamp | null;
   updatedAt: Timestamp | null;

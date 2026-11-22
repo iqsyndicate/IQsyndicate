@@ -64,14 +64,14 @@ export default function PublicationReader() {
         </div>
         <header className="mx-auto max-w-4xl py-12 md:py-16">
           <p className="institutional-eyebrow">
-            {publication.section === "introduction" ? "Introduction" : "Insights / Publication"}
+            {publication.publicationType === "pdf" ? "Insights / PDF" : publication.publicationType === "link" ? "Insights / External link" : "Insights / Publication"}
           </p>
           <h1 className="mt-5 text-charcoal">{publication.title}</h1>
           <p className="mt-6 max-w-3xl font-heading text-2xl leading-snug text-ink/64 md:text-3xl">
             {publication.excerpt}
           </p>
           <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 border-t border-border pt-5 text-[11px] font-semibold uppercase tracking-[0.11em] text-ink/52">
-            <span className="inline-flex items-center gap-2"><UserRound size={14} className="text-gold-dark" /> {publication.authorName}</span>
+            {publication.authors?.trim() ? <span className="inline-flex items-center gap-2"><UserRound size={14} className="text-gold-dark" /> {publication.authors.trim()}</span> : null}
             {publishedDate ? <span className="inline-flex items-center gap-2"><CalendarDays size={14} className="text-gold-dark" /> {publishedDate}</span> : null}
           </div>
         </header>
@@ -82,9 +82,27 @@ export default function PublicationReader() {
           </figure>
         ) : null}
 
-        <div className="mx-auto max-w-3xl">
-          <PublicationBody content={publication.content} />
-        </div>
+        {publication.publicationType === "link" && publication.externalUrl ? (
+          <div className="mx-auto max-w-3xl border border-border bg-stone px-6 py-10 text-center md:px-10">
+            <p className="text-[14px] leading-7 text-ink/65">This insight is published externally.</p>
+            <a href={publication.externalUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 bg-primary px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white hover:bg-primary-light">
+              Open external publication
+            </a>
+          </div>
+        ) : publication.publicationType === "pdf" && publication.pdfUrl ? (
+          <div className="-mx-5 w-[calc(100%+40px)] md:mx-auto md:w-full">
+            <iframe src={`${publication.pdfUrl}#view=FitH&toolbar=1&navpanes=1`} title={publication.title} className="h-[82vh] min-h-[700px] w-full border border-border bg-stone md:h-[90vh]" />
+            <div className="mt-5 flex justify-end">
+              <a href={`${publication.pdfUrl}${publication.pdfUrl.includes("?") ? "&" : "?"}alt=media&response-content-disposition=attachment`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white hover:bg-primary-light">
+                Download PDF
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="mx-auto max-w-3xl">
+            <PublicationBody content={publication.content} />
+          </div>
+        )}
         <footer className="mx-auto mt-16 max-w-3xl border-t border-border pt-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gold-dark">More perspectives</p>
           <Link href="/insights" className="mt-4 inline-flex items-center gap-2 font-heading text-2xl text-primary hover:text-primary-light">

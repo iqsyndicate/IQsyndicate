@@ -40,14 +40,18 @@ import {
 import Container from "@/components/ui/Container";
 import RichTextEditor from "@/components/insights/RichTextEditor";
 import { auth, db, isFirebaseConfigured, storage } from "@/lib/firebase";
-import { getAdminPublications, slugify, type Publication, type PublicationSection, type PublicationStatus } from "@/lib/insights";
+import { getAdminPublications, slugify, type Publication, type PublicationSection, type PublicationStatus, type PublicationType } from "@/lib/insights";
 
 type AccessState = "loading" | "signed-out" | "signed-in";
 type Draft = {
   title: string;
   excerpt: string;
+  authors: string;
   pullQuote: string;
   section: PublicationSection;
+  publicationType: PublicationType;
+  externalUrl: string;
+  pdfUrl: string;
   coverImage: string;
   content: Record<string, unknown>;
   status: PublicationStatus;
@@ -59,7 +63,7 @@ const emptyContent: Record<string, unknown> = {
 };
 
 function blankDraft(section: PublicationSection = "insights"): Draft {
-  return { title: "", excerpt: "", pullQuote: "", section, coverImage: "", content: emptyContent, status: "draft" };
+  return { title: "", excerpt: "", authors: "", pullQuote: "", section, publicationType: "article", externalUrl: "", pdfUrl: "", coverImage: "", content: emptyContent, status: "draft" };
 }
 
 function readableError(error: unknown) {
@@ -144,7 +148,6 @@ export default function AdminStudio() {
 
   const ownPosts = useMemo(() => posts.filter((post) => post.authorId === user?.uid), [posts, user?.uid]);
   const publishedPosts = useMemo(() => posts.filter((post) => post.status === "published"), [posts]);
-  const introductionCount = useMemo(() => publishedPosts.filter((post) => post.section === "introduction").length, [publishedPosts]);
   const insightCount = useMemo(() => publishedPosts.filter((post) => post.section === "insights").length, [publishedPosts]);
   const selectedPost = selectedId ? posts.find((post) => post.id === selectedId) ?? null : null;
 
@@ -185,8 +188,12 @@ export default function AdminStudio() {
     setDraft({
       title: post.title,
       excerpt: post.excerpt,
+      authors: post.authors ?? "",
       pullQuote: post.pullQuote ?? "",
       section: post.section,
+      publicationType: post.publicationType ?? "article",
+      externalUrl: post.externalUrl ?? "",
+      pdfUrl: post.pdfUrl ?? "",
       coverImage: post.coverImage,
       content: post.content,
       status: post.status,
@@ -221,6 +228,51 @@ export default function AdminStudio() {
     }
   }
 
+  async function uploadPdf(file?: File) {
+    if (!file || !user || !storage) return;
+    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+      setError("Choose a PDF file.");
+      return;
+    }
+    if (file.size > 25 * 1024 * 1024) {
+      setError("Choose a PDF under 25 MB.");
+      return;
+    }
+
+    setUploadingCover(true);
+    setError("");
+    try {
+      const pdfRef = ref(storage, `iq-syndicate/insights/${user.uid}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "-")}`);
+      const upload = await uploadBytes(pdfRef, file, { contentType: "application/pdf" });
+      const pdfUrl = await getDownloadURL(upload.ref);
+
+      const pdfjs = await import("pdfjs-dist");
+      pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+      const loadingTask = pdfjs.getDocument({ data: await file.arrayBuffer() });
+      const pdf = await loadingTask.promise;
+      const page = await pdf.getPage(1);
+      const viewport = page.getViewport({ scale: 1.5 });
+      const canvas = document.createElement("canvas");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("The PDF cover could not be rendered.");
+      await page.render({ canvasContext: context, canvas, viewport }).promise;
+      const coverBlob = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("The PDF cover could not be rendered.")), "image/jpeg", 0.88);
+      });
+      const coverFile = new File([coverBlob], `${file.name.replace(/\.pdf$/i, "")}-cover.jpg`, { type: "image/jpeg" });
+      const coverUrl = await uploadImage(coverFile);
+      await loadingTask.destroy();
+
+      setDraft((current) => ({ ...current, publicationType: "pdf", pdfUrl, coverImage: coverUrl }));
+    } catch (uploadError) {
+      setError(uploadError instanceof Error ? uploadError.message : "The PDF could not be uploaded.");
+    } finally {
+      setUploadingCover(false);
+    }
+  }
+
   async function savePublication(status: PublicationStatus) {
     if (!user || !db) return;
     const title = draft.title.trim();
@@ -234,9 +286,18 @@ export default function AdminStudio() {
       setError("Add a short description of at least twenty characters.");
       return;
     }
-    if (!draft.coverImage) {
-      setError("Add a cover image before saving the publication.");
+    if (draft.publicationType === "pdf" && (!draft.pdfUrl || !draft.coverImage)) {
+      setError("Upload a PDF before saving.");
       return;
+    }
+    if (draft.publicationType === "link") {
+      try {
+        const url = new URL(draft.externalUrl.trim());
+        if (!["http:", "https:"].includes(url.protocol)) throw new Error();
+      } catch {
+        setError("Add a valid link beginning with https://.");
+        return;
+      }
     }
 
     setSaving(true);
@@ -254,8 +315,12 @@ export default function AdminStudio() {
         title,
         slug,
         excerpt,
+        authors: draft.authors.trim(),
         pullQuote: draft.pullQuote.trim(),
         section: draft.section,
+        publicationType: draft.publicationType,
+        externalUrl: draft.publicationType === "link" ? draft.externalUrl.trim() : null,
+        pdfUrl: draft.publicationType === "pdf" ? draft.pdfUrl : null,
         coverImage: draft.coverImage,
         content: draft.content,
         authorId: user.uid,
@@ -304,7 +369,7 @@ export default function AdminStudio() {
 
       const imageStorage = storage;
       if (imageStorage) {
-        const imageUrls = [target.coverImage, ...publicationImageUrls(target.content)].filter(Boolean);
+        const imageUrls = [target.coverImage, target.pdfUrl, ...publicationImageUrls(target.content)].filter(Boolean);
         const ownedPrefix = `iq-syndicate/insights/${user.uid}/`;
         await Promise.allSettled(imageUrls.map(async (url) => {
           try {
@@ -398,7 +463,6 @@ export default function AdminStudio() {
 
             <div className="mt-7 grid gap-px border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
               <Stat label="Published" value={publishedPosts.length} icon={<BookOpen size={17} />} />
-              <Stat label="Introduction" value={introductionCount} icon={<FilePlus2 size={17} />} />
               <Stat label="Insights" value={insightCount} icon={<Newspaper size={17} />} />
               <Stat label="Your drafts" value={ownPosts.filter((post) => post.status === "draft").length} icon={<PencilLine size={17} />} />
             </div>
@@ -418,7 +482,9 @@ export default function AdminStudio() {
                         <div className="min-w-0">
                           <div className="flex flex-wrap items-center gap-2">
                             <span className={`h-2 w-2 ${post.status === "published" ? "bg-forest" : "bg-gold"}`} />
-                            <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-gold-dark">{post.section === "introduction" ? "Introduction" : "Insights"}</span>
+                            <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-gold-dark">
+                              {post.publicationType === "pdf" ? "PDF" : post.publicationType === "link" ? "External link" : "Insights"}
+                            </span>
                             <span className="text-[10px] text-ink/32">/</span>
                             <span className="text-[9px] font-bold uppercase tracking-[0.14em] text-ink/45">{post.status}</span>
                           </div>
@@ -455,17 +521,31 @@ export default function AdminStudio() {
               <div className="border-b border-border px-5 py-5 md:px-8">
                 <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-end">
                   <Field label="Publication title"><input required maxLength={180} value={draft.title} onChange={(event) => setDraft((current) => ({ ...current, title: event.target.value }))} placeholder="Give this story a clear title" className={inputClass} /></Field>
-                  <div className="flex border border-border p-1" role="group" aria-label="Publication section">
-                    {(["introduction", "insights"] as const).map((section) => (
-                      <button key={section} type="button" aria-pressed={draft.section === section} onClick={() => setDraft((current) => ({ ...current, section }))} className={`px-3 py-2 text-[9px] font-bold uppercase tracking-[0.11em] ${draft.section === section ? "bg-forest text-white" : "text-ink/55 hover:text-primary"}`}>{section === "introduction" ? "Introduction" : "Insights"}</button>
+                  <div className="flex border border-border p-1" role="group" aria-label="Publication type">
+                    {(["article", "pdf", "link"] as const).map((publicationType) => (
+                      <button key={publicationType} type="button" aria-pressed={draft.publicationType === publicationType} onClick={() => setDraft((current) => ({ ...current, publicationType }))} className={`px-3 py-2 text-[9px] font-bold uppercase tracking-[0.11em] ${draft.publicationType === publicationType ? "bg-forest text-white" : "text-ink/55 hover:text-primary"}`}>{publicationType === "pdf" ? "PDF" : publicationType === "link" ? "Link" : "Article"}</button>
                     ))}
                   </div>
                 </div>
                 <p className="mt-2 text-[10px] text-ink/40">URL: /insights/{slugify(draft.title) || "publication-title"}</p>
                 <Field label="Short description"><textarea required rows={3} maxLength={700} value={draft.excerpt} onChange={(event) => setDraft((current) => ({ ...current, excerpt: event.target.value }))} placeholder="A short summary shown in the Insights library" className={`${inputClass} resize-y`} /><span className="mt-1 block text-right text-[9px] text-ink/35">{draft.excerpt.length}/700</span></Field>
-                {draft.section === "introduction" ? <Field label="Pull quote (optional)"><textarea rows={2} maxLength={280} value={draft.pullQuote} onChange={(event) => setDraft((current) => ({ ...current, pullQuote: event.target.value }))} placeholder="A short passage highlighted beside the introduction" className={`${inputClass} resize-y`} /><span className="mt-1 block text-right text-[9px] text-ink/35">{draft.pullQuote.length}/280</span></Field> : null}
+                <Field label="Author(s) (optional)"><input maxLength={180} value={draft.authors} onChange={(event) => setDraft((current) => ({ ...current, authors: event.target.value }))} placeholder="Name or names" className={inputClass} /></Field>
+                {draft.publicationType === "link" ? <Field label="External link"><input type="url" required value={draft.externalUrl} onChange={(event) => setDraft((current) => ({ ...current, externalUrl: event.target.value }))} placeholder="https://medium.com/..." className={inputClass} /></Field> : null}
               </div>
 
+              {draft.publicationType === "pdf" ? (
+                <div className="border-b border-border px-5 py-5 md:px-8">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div><p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink/60">PDF file</p><p className="mt-1 text-[11px] text-ink/42">The first page will become the cover automatically</p></div>
+                    <label className="inline-flex cursor-pointer items-center gap-2 border border-border px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.12em] text-ink/70 hover:border-primary hover:text-primary">
+                      {uploadingCover ? <LoaderCircle size={14} className="animate-spin" /> : <Upload size={14} />}
+                      {uploadingCover ? "Processing" : draft.pdfUrl ? "Replace PDF" : "Choose PDF"}
+                      <input type="file" accept="application/pdf,.pdf" className="sr-only" disabled={uploadingCover} onChange={(event) => void uploadPdf(event.target.files?.[0])} />
+                    </label>
+                  </div>
+                  {draft.coverImage ? <div className="relative mt-4 aspect-[2.6/1] max-h-64 overflow-hidden bg-cream"><Image src={draft.coverImage} alt="PDF first-page cover preview" fill unoptimized sizes="(min-width: 768px) 900px, 100vw" className="object-cover" /></div> : null}
+                </div>
+              ) : draft.publicationType === "article" ? (
               <div className="border-b border-border px-5 py-5 md:px-8">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div><p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink/60">Cover image</p><p className="mt-1 text-[11px] text-ink/42">JPG, PNG, or WebP up to 10 MB</p></div>
@@ -477,8 +557,21 @@ export default function AdminStudio() {
                 </div>
                 {draft.coverImage ? <div className="relative mt-4 aspect-[2.6/1] max-h-64 overflow-hidden bg-cream"><Image src={draft.coverImage} alt="Publication cover preview" fill unoptimized sizes="(min-width: 768px) 900px, 100vw" className="object-cover" /></div> : null}
               </div>
+              ) : (
+                <div className="border-b border-border px-5 py-5 md:px-8">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div><p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink/60">Cover image (optional)</p><p className="mt-1 text-[11px] text-ink/42">JPG, PNG, or WebP up to 10 MB</p></div>
+                    <label className="inline-flex cursor-pointer items-center gap-2 border border-border px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.12em] text-ink/70 hover:border-primary hover:text-primary">
+                      {uploadingCover ? <LoaderCircle size={14} className="animate-spin" /> : <Upload size={14} />}
+                      {uploadingCover ? "Uploading" : draft.coverImage ? "Replace cover" : "Choose cover"}
+                      <input type="file" accept="image/*" className="sr-only" disabled={uploadingCover} onChange={(event) => void uploadCover(event.target.files?.[0])} />
+                    </label>
+                  </div>
+                  {draft.coverImage ? <div className="relative mt-4 aspect-[2.6/1] max-h-64 overflow-hidden bg-cream"><Image src={draft.coverImage} alt="Link cover preview" fill unoptimized sizes="(min-width: 768px) 900px, 100vw" className="object-cover" /></div> : null}
+                </div>
+              )}
 
-              <div className="border-b border-border">
+              {draft.publicationType === "article" ? <div className="border-b border-border">
                 <div className="px-5 pt-5 md:px-8"><p className="text-[10px] font-bold uppercase tracking-[0.14em] text-ink/60">Article body</p><p className="mb-4 mt-1 text-[11px] text-ink/42">Format text, add photographs, links, and tables.</p></div>
                 <RichTextEditor
                   key={selectedId ?? "new-publication"}
@@ -487,7 +580,7 @@ export default function AdminStudio() {
                   onImageUpload={uploadImage}
                   onError={setError}
                 />
-              </div>
+              </div> : null}
 
               {error ? <div className="px-5 pt-5 md:px-8"><Notice tone="error">{error}</Notice></div> : null}
               <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-5 md:px-8">
